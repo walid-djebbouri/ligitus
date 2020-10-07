@@ -1,0 +1,273 @@
+<!--
+  ~ Copyright (c) Akveo 2019. All Rights Reserved.
+  ~ Licensed under the Single Application / Multi Application License.
+  ~ See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
+  -->
+
+<nb-card  >
+  <nb-card-header>{{ title }}</nb-card-header>
+  <nb-card-body  class="m-3" >
+    <div class="row">
+      <div class="col-md-12 ">
+        <form class="zimahek"  *ngIf="disabled" >
+
+              <div class="form-group row">
+                <label for="inputid" class="label col-4 col-form-label">id :</label>
+                <div class="col-8">
+                  <input  type="text" nbInput fullWidth id="inputid" value="{{id}}" disabled  >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="cabinet_ref" class="label col-sm-6 col-form-label">cabinet ref :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="cabinet_ref" value="{{cabinet_ref}}" disabled  >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="join_date" class="label col-sm-6 col-form-label">join date :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="join_date" value="{{join_date}}" disabled  >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="legal_name" class="label col-sm-6 col-form-label">legal name :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="legal_name" value="{{legal_name}}" disabled  >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="commercial_name" class="label col-sm-6 col-form-label">commercial name :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="commercial_name" value="{{commercial_name}}" disabled  >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="cabinet_short_desc" class="label col-sm-6 col-form-label">cabinet short desc :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="cabinet_short_desc" value="{{cabinet_short_desc}}" disabled  >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="cabinet_long_desc" class="label col-sm-6 col-form-label">cabinet long desc :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="cabinet_long_desc" value="{{cabinet_long_desc}}" disabled  >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="logo_pic" class="label col-sm-6 col-form-label">logo pic :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="logo_pic" value="{{logo_pic}}" disabled  >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="membership_status" class="label col-sm-6 col-form-label">membership status :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="membership_status" value="{{membership_status}}" disabled  >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="domiciliation" class="label col-sm-6 col-form-label">domiciliation :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="domiciliation" value="{{domiciliation}}" disabled  >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="email" class="label col-sm-6 col-form-label">email :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="email" value="{{email}}" disabled  >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="tel" class="label col-sm-6 col-form-label">tel :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="tel" value="{{tel}}" disabled  >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="fax" class="label col-sm-6 col-form-label">fax :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="fax" value="{{fax}}" disabled  >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="nif" class="label col-sm-6 col-form-label">nif :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="nif" value="{{nif}}" disabled  >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="rib" class="label col-sm-6 col-form-label">rib</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="rib" value="{{rib}}" disabled  >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="m-auto">
+                  <button  nbButton status="primary"  (click)="disable()" >Up Date</button>
+                </div>
+              </div>
+
+            </form>
+
+
+            <!-- disbled -->
+
+            <form   *ngIf="!disabled" >
+
+              <div class="form-group row">
+                <label for="inputide" class="label col-4 col-form-label">id :</label>
+                <div class="col-8">
+                  <input  type="text" nbInput fullWidth id="inputide" value="{{id}}"   >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="cabinet_refe" class="label col-sm-6 col-form-label">cabinet ref :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="cabinet_refe" value="{{cabinet_ref}}"   >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="join_datee" class="label col-sm-6 col-form-label">join date :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="join_datee" value="{{join_date}}"   >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="legal_namee" class="label col-sm-6 col-form-label">legal name :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="legal_namee" value="{{legal_name}}"   >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="commercial_namee" class="label col-sm-6 col-form-label">commercial name :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="commercial_namee" value="{{commercial_name}}"   >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="cabinet_short_desce" class="label col-sm-6 col-form-label">cabinet short desc :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="cabinet_short_desce" value="{{cabinet_short_desc}}"   >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="cabinet_long_desce" class="label col-sm-6 col-form-label">cabinet long desc :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="cabinet_long_desce" value="{{cabinet_long_desc}}"   >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="logo_pice" class="label col-sm-6 col-form-label">logo pic :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="logo_pice" value="{{logo_pic}}"   >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="membership_statuse" class="label col-sm-6 col-form-label">membership status :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="membership_statuse" value="{{membership_status}}"   >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="domiciliatione" class="label col-sm-6 col-form-label">domiciliation :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="domiciliatione" value="{{domiciliation}}"   >
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label for="emaile" class="label col-sm-6 col-form-label">email :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="emaile" value="{{email}}"   >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="tele" class="label col-sm-6 col-form-label">tel :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="tele" value="{{tel}}"   >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="faxe" class="label col-sm-6 col-form-label">fax :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="faxe" value="{{fax}}"   >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="nife" class="label col-sm-6 col-form-label">nif :</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="nife" value="{{nif}}"   >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="ribe" class="label col-sm-6 col-form-label">rib</label>
+                <div class="col-sm-6">
+                  <input  type="text" nbInput fullWidth id="ribe" value="{{rib}}"   >
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="m-auto col-6 float-left">
+                  <button  nbButton status="danger"  >Confirmer</button>
+                </div>
+                <div class="m-auto col-6 float-right ">
+                  <button  nbButton status="success"  (click)="disable()" >Annuler</button>
+                </div>
+              </div>
+
+            </form>
+
+      </div>
+
+    </div>
+
+
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton hero status="primary" (click)="dismiss()">Dismiss Dialog</button>
+  </nb-card-footer>
+</nb-card>

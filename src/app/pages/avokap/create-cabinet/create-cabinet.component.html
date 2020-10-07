@@ -1,0 +1,155 @@
+<nb-card  >
+    <nb-card-header>{{ title }}</nb-card-header>
+    <nb-card-body  class="m-3" >
+        <div class="row">
+            <div class="col-md-12 ">
+                <form   form (ngSubmit)="create_cabinet(form)" #form="ngForm">
+
+                    <div class="form-group row">
+                        <label for="cabinet_refe" class="label col-sm-6 col-form-label">cabinet ref :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="cabinet_refe" name="cabinet_refe"    ngModel  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="join_datee" class="label col-sm-6 col-form-label">join date :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="join_datee" name="join_datee"    ngModel >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="legal_namee" class="label col-sm-6 col-form-label">legal name :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="legal_namee" name="legal_namee" ngModel   >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="commercial_namee" class="label col-sm-6 col-form-label">commercial name :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="commercial_namee" name="commercial_namee" ngModel   >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="cabinet_short_desce" class="label col-sm-6 col-form-label">cabinet short desc :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="cabinet_short_desce" name="cabinet_short_desce" ngModel   >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="cabinet_long_desce" class="label col-sm-6 col-form-label">cabinet long desc :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="cabinet_long_desce" name="cabinet_long_desce" ngModel   >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="membership_statuse" class="label col-sm-6 col-form-label">membership status :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="membership_statuse" name="membership_statuse" ngModel   >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="domiciliatione" class="label col-sm-6 col-form-label">domiciliation :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="domiciliatione" name="domiciliatione" ngModel   >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="emaile" class="label col-sm-6 col-form-label">email :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="emaile" name="emaile" ngModel  >
+                        </div>
+                    </div>
+
+                    <div class="row" >
+
+                        <nb-icon   icon="plus-circle" status="danger"   	(click)="ajouter_tel()" ></nb-icon>
+                        <nb-icon   icon="minus-circle" status="danger"  	(click)="supprimer_tel()" ></nb-icon>
+
+                    </div>
+
+                    <div id="tel">
+                        <div class="form-group row">
+                            <label for="tele0" class="label col-sm-6 col-form-label">tel :</label>
+                            <div class="col-sm-6">
+                                <input  type="text" nbInput fullWidth id="tele0" name="tele0" ngModel  >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="faxe" class="label col-sm-6 col-form-label">fax :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="faxe" name="faxe" ngModel  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="nife" class="label col-sm-6 col-form-label">nif :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="nife" name="nife" ngModel  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="ribe" class="label col-sm-6 col-form-label">rib</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="ribe" name="ribe" ngModel   >
+                        </div>
+                    </div>
+                    <div class="row" >
+
+                        <nb-icon   icon="plus-circle" status="danger"   	(click)="ajouter_cpd()" ></nb-icon>
+                        <nb-icon   icon="minus-circle" status="danger"  	(click)="supprimer_cpd()" ></nb-icon>
+
+                    </div>
+                    <div id="CPD">
+                        <div class="form-group row">
+                            <div class="col-6">
+                                <label for="lawcat0" class="label col-sm-6 col-form-label">Law Cat :</label>
+                                <input  type="text" nbInput fullWidth id="lawcat0"  ngModel  >
+                            </div>
+                            <div class="col-6">
+                                <label for="jurdomain0" class="label col-sm-6 col-form-label">Jur Domain :</label>
+                                <input  type="text" nbInput fullWidth id="jurdomain0"  ngModel  >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="m-auto ">
+                            <button class="btn btn-danger" type="submit">Confirmer</button>
+                        </div>
+                    </div>
+
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </nb-card-body>
+    <nb-card-footer>
+        <button  class="btn btn-primary" nbButton hero  (click)="dismiss()">Dismiss Dialog</button>
+    </nb-card-footer>
+</nb-card>
+
+
+

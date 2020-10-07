@@ -1,0 +1,21 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card {
+    max-width: 1200px;
+    max-height: 500px;
+  }
+}
+
+input , label {
+
+  font-size: 16px;
+}
+
+nb-icon{
+  font-size: 40px;
+}
+
+nb-icon:hover{
+  color: #2ce69b;
+}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="83954a50-a9b8-4dab-b6e7-1093be8dddfd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1hedHQkmGz9HIO7HsDnrQne4GfJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="$PROJECT_DIR$/node_modules/stylelint" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/pages/avokap" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (ngx-admin-demo)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (ngx-admin-demo-e2e)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83954a50-a9b8-4dab-b6e7-1093be8dddfd" name="Default Changelist" comment="" />
+      <created>1600375405803</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600375405803</updated>
+      <workItem from="1600375407233" duration="310000" />
+      <workItem from="1600424996324" duration="13578000" />
+      <workItem from="1600440366103" duration="1470000" />
+      <workItem from="1600441887283" duration="19000" />
+      <workItem from="1600442287545" duration="1306000" />
+      <workItem from="1600446365881" duration="573000" />
+      <workItem from="1600462457821" duration="2152000" />
+      <workItem from="1600506696071" duration="5978000" />
+      <workItem from="1600513125828" duration="1434000" />
+      <workItem from="1600515571766" duration="7143000" />
+      <workItem from="1600589742355" duration="4341000" />
+      <workItem from="1600594642114" duration="819000" />
+      <workItem from="1600595522729" duration="7490000" />
+      <workItem from="1600605234006" duration="4318000" />
+      <workItem from="1600616651480" duration="15702000" />
+      <workItem from="1600633028389" duration="928000" />
+      <workItem from="1600633987922" duration="4496000" />
+      <workItem from="1600680524261" duration="21186000" />
+      <workItem from="1600763933091" duration="12078000" />
+      <workItem from="1600784778042" duration="1547000" />
+      <workItem from="1601103501571" duration="360000" />
+      <workItem from="1601199660865" duration="9030000" />
+      <workItem from="1601216098424" duration="21000" />
+      <workItem from="1601218070484" duration="369000" />
+      <workItem from="1601218482783" duration="185000" />
+      <workItem from="1601219492098" duration="6122000" />
+      <workItem from="1601278103218" duration="1490000" />
+      <workItem from="1601280173089" duration="6575000" />
+      <workItem from="1601296312785" duration="23000" />
+      <workItem from="1601298144510" duration="1442000" />
+      <workItem from="1601441750739" duration="19000" />
+      <workItem from="1601490715022" duration="1384000" />
+      <workItem from="1601492378158" duration="3530000" />
+      <workItem from="1601530927023" duration="2952000" />
+      <workItem from="1601539194421" duration="4820000" />
+      <workItem from="1601544768970" duration="276000" />
+      <workItem from="1601545067966" duration="36000" />
+      <workItem from="1601545778290" duration="1074000" />
+      <workItem from="1601547335817" duration="3483000" />
+      <workItem from="1601552041767" duration="8525000" />
+      <workItem from="1601713236666" duration="5563000" />
+      <workItem from="1601720844058" duration="2343000" />
+      <workItem from="1601729109881" duration="6598000" />
+      <workItem from="1601744294057" duration="62000" />
+      <workItem from="1601744797246" duration="1202000" />
+      <workItem from="1601746418075" duration="4587000" />
+      <workItem from="1601795707163" duration="222000" />
+      <workItem from="1601796093991" duration="729000" />
+      <workItem from="1601797108485" duration="6407000" />
+      <workItem from="1601887379142" duration="11252000" />
+      <workItem from="1601912400905" duration="4613000" />
+      <workItem from="1601963057233" duration="1821000" />
+      <workItem from="1601965685381" duration="42000" />
+      <workItem from="1601966145358" duration="853000" />
+      <workItem from="1601968538327" duration="6435000" />
+      <workItem from="1601976191025" duration="15000" />
+      <workItem from="1601986671859" duration="3688000" />
+      <workItem from="1601990607440" duration="565000" />
+      <workItem from="1601991886046" duration="1027000" />
+      <workItem from="1602049127950" duration="7746000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="324" y="285" width="775" height="222" key="#Stylelint" timestamp="1600591434605">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="324" y="285" width="775" height="222" key="#Stylelint/67.27.1299.741@67.27.1299.741" timestamp="1600591434605" />
+    <state width="1276" height="537" key="GridCell.Tab.0.bottom" timestamp="1600632811804">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1276" height="537" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1600632811804" />
+    <state width="1276" height="537" key="GridCell.Tab.0.center" timestamp="1600632811803">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1276" height="537" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1600632811803" />
+    <state width="1276" height="537" key="GridCell.Tab.0.left" timestamp="1600632811803">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1276" height="537" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1600632811803" />
+    <state width="1276" height="537" key="GridCell.Tab.0.right" timestamp="1600632811804">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1276" height="537" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1600632811804" />
+    <state width="574" height="446" key="SwitcherDM" timestamp="1602056929854">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="574" height="446" key="SwitcherDM/67.27.1299.741@67.27.1299.741" timestamp="1602056929854" />
+    <state x="225" y="27" width="618" height="741" key="find.popup" timestamp="1600507776658">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="225" y="27" width="618" height="741" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1600507776658" />
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601562321731">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1601562321731" />
+  </component>
+</project>

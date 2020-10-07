@@ -1,0 +1,219 @@
+<nb-card class=" m-auto" >
+    <nb-card-header>{{ title }}</nb-card-header>
+    <nb-card-body  class="m-3" >
+        <div class="row">
+            <div class="col-md-12 ">
+                <form class="zimahek" >
+                    <div class="form-group row">
+                        <label for="inputid" class="label col-6 col-form-label">id :</label>
+                        <div class="col-6">
+                            <input  type="text" nbInput fullWidth id="inputid" value="{{id}}" disabled  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="cabinet_ref" class="label col-sm-6 col-form-label">cabinet ref :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="cabinet_ref" value="{{cabinet_ref}}" disabled  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="join_date" class="label col-sm-6 col-form-label">join date :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="join_date" value="{{join_date}}" disabled  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="legal_name" class="label col-sm-6 col-form-label">legal name :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="legal_name" value="{{legal_name}}" disabled  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="commercial_name" class="label col-sm-6 col-form-label">commercial name :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="commercial_name" value="{{commercial_name}}" disabled  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="cabinet_short_desc" class="label col-sm-6 col-form-label">cabinet short desc :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="cabinet_short_desc" value="{{cabinet_short_desc}}" disabled  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="cabinet_long_desc" class="label col-sm-6 col-form-label">cabinet long desc :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="cabinet_long_desc" value="{{cabinet_long_desc}}" disabled  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="logo_pic" class="label col-sm-6 col-form-label">logo pic :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="logo_pic" value="{{logo_pic}}" disabled  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="membership_status" class="label col-sm-6 col-form-label">membership status :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="membership_status" value="{{membership_status}}" disabled  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="domiciliation" class="label col-sm-6 col-form-label">domiciliation :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="domiciliation" value="{{domiciliation}}" disabled  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="email" class="label col-sm-6 col-form-label">email :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="email" value="{{email}}" disabled  >
+                        </div>
+                    </div>
+                    <!-- -->
+                    <div *ngFor="let te of tel" >
+                        <div class="form-group row">
+                            <label for="tel" class="label col-sm-6 col-form-label">tel :</label>
+                            <div class="col-sm-6">
+                                <input  type="text" nbInput fullWidth id="tel"  value="{{te}}" disabled  >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- -->
+
+                    <div class="form-group row">
+                        <label for="fax" class="label col-sm-6 col-form-label">fax :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="fax" value="{{fax}}" disabled  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="nif" class="label col-sm-6 col-form-label">nif :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="nif" value="{{nif}}" disabled  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="rib" class="label col-sm-6 col-form-label">rib</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="rib" value="{{rib}}" disabled  >
+                        </div>
+                    </div>
+<!--prediliction domain  -->
+
+                    <div class="accordion-container w-100">
+                        <nb-accordion multi>
+                            <nb-accordion-item >
+                                <nb-accordion-item-header>
+                                    <h5>Cabinet Predilection Domains</h5>
+                                </nb-accordion-item-header>
+                                <nb-accordion-item-body>
+                                    <div  class="mt-3" *ngFor="let cpd of cabinet_predilection_domains" >
+                                        <div class="form-row" >
+                                            <div class="form-group col-4">
+                                                <label for="law_cat">Law Cat</label>
+                                                <input type="text" class="form-control" id="law_cat" value="{{cpd.law_cat}}" disabled >
+                                            </div>
+
+                                            <div class="form-group col-4">
+                                                <label for="jur_domain">jur domain</label>
+                                                <input type="text" class="form-control" id="jur_domain" value="{{cpd.jur_domain}}" disabled>
+                                            </div>
+
+                                            <div class="form-group col-4">
+                                                <label for="jointdate">Date</label>
+                                                <input type="text" class="form-control" id="jointdate" value="" disabled >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nb-accordion-item-body>
+                            </nb-accordion-item>
+                        </nb-accordion>
+                    </div>
+
+                    <!-- -->
+
+                    <div class="accordion-container">
+                        <nb-accordion multi>
+                            <nb-accordion-item >
+                                <nb-accordion-item-header>
+                                    <h5>Lawyers :</h5>
+                                </nb-accordion-item-header>
+                                <nb-accordion-item-body>
+                                    <div  class="mt-3" *ngFor="let layer of lawyers" >
+                                        <div class="form-row" (click)="laywer_detail(layer.id)" >
+                                            <div class="form-group col-3">
+                                                <label for="avokap_ref">avokap ref</label>
+                                                <input type="text" class="form-control" id="avokap_ref" value="{{layer.avokap_ref}}" disabled >
+                                            </div>
+
+                                            <div class="form-group col-2">
+                                                <label for="first_name">first name</label>
+                                                <input type="text" class="form-control" id="first_name" value="{{layer.user.first_name}}" disabled>
+                                            </div>
+
+                                            <div class="form-group col-2">
+                                                <label for="last_name">last name</label>
+                                                <input type="text" class="form-control" id="last_name" value="{{layer.user.last_name}}" disabled >
+                                            </div>
+
+                                            <div class="form-group col-3">
+                                                <label for="role_cabinet">role cabinet</label>
+                                                <input type="text" class="form-control" id="role_cabinet" value="{{layer.role_cabinet}}" disabled >
+                                            </div>
+
+                                            <div class="form-group col-2">
+                                                <label for="membership_statusl">status</label>
+                                                <input type="text" class="form-control" id="membership_statusl" value="" disabled >
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+                                </nb-accordion-item-body>
+                            </nb-accordion-item>
+                        </nb-accordion>
+                    </div>
+
+
+                    <!--lawyers-->
+
+
+
+                </form>
+
+            </div>
+
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <a routerLink="/pages/avokap/cabinet-smart-table" ><button class="float-right btn btn-success"  nbButton hero status="primary">Cabinets</button></a>
+        <button class="float-left btn btn-danger " nbButton status="primary" (click)="update()"  >Up Date</button>
+    </nb-card-footer>
+</nb-card>
+
+<!--  Modale  -->
