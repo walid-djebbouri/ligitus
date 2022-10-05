@@ -13,6 +13,9 @@ import { SmartTableProfileComponent } from './profile-smart-table/profile-smart-
 import {SmartTableUserComponent } from './user-smart-table/user-smart-table.component';
 import {CabinetDetailsComponent} from './cabinet-details/cabinet-details.component';
 import {LawyerDetailsComponent} from './lawyer-details/lawyer-details.component';
+import {BundlesCustCategoryComponent} from './bundles-cust-category/bundles-cust-category.component';
+import {MembershipStatusComponent} from './membership-status/membership-status.component';
+import {UserComponent} from './user/user.component';
 
 const routes: Routes = [{
   path: '',
@@ -23,20 +26,24 @@ const routes: Routes = [{
       component: SmartTableCabinetComponent,
     },
     {
-      path: 'profile-smart-table',
-      component: SmartTableProfileComponent,
-    },
-    {
-      path: 'profile-smart-table',
-      component: SmartTableUserComponent,
-    },
-    {
       path: 'cabinet-details/:id',
       component: CabinetDetailsComponent,
     },
     {
       path: 'lawyer-details/:id',
       component: LawyerDetailsComponent,
+    },
+    {
+      path: 'bundles-cust-category',
+      component: BundlesCustCategoryComponent,
+    },
+    {
+      path: 'membership-status/:id',
+      component: MembershipStatusComponent,
+    },
+    {
+      path: 'user',
+      component: UserComponent,
     },
   ],
 }];

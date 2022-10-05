@@ -15,12 +15,16 @@ import { takeWhile } from 'rxjs/operators';
 })
 export class TrafficCardsHeaderComponent implements OnDestroy {
   private alive = true;
-
-  @Output() periodChange = new EventEmitter<string>();
-
+  @Output() periodChange = new EventEmitter<string[]>();
+  @Output() stateChange = new EventEmitter<string[]>();
   @Input() type: string = 'week';
-
+  @Input() state: string = 'Total' ;
   types: string[] = ['week', 'month', 'year'];
+  states: string[] = [ 'Total' , 'Oran', 'Alger', 'Blida', 'Constantine', 'ADRAR',  'CHLEF', 'LAGHOUAT'
+    , 'OUM BOUAGHI', 'BATNA',  'BEJAIA', 'BISKRA',
+    'BECHAR', 'BOUIRA', 'TAMANRASSET', 'TEBESSA', 'TLEMCEN', 'TIARET', 'TIZI OUZOU', 'DJELFA', 'JIJEL', 'SETIF',
+    'SAIDA', 'SKIKDA', 'SIDI BEL ABBES', 'ANNABA', 'GUELMA', 'MEDEA', 'MOSTAGANEM', 'M\'SILA', 'MASCARA', 'OUARGLA', 'EL BAYDH', 'ILLIZI', 'BORDJ BOU ARRERIDJ', 'BOUMERDES', 'EL TAREF',
+    'TINDOUF', 'TISSEMSILT', 'EL OUED', 'KHENCHLA', 'SOUK AHRASS', 'TIPAZA', 'MILA', 'AÏN DEFLA', 'NÂAMA', 'AÏN TEMOUCHENT', 'GHARDAÏA', 'RELIZANE' ] ;
   currentTheme: string;
 
   constructor(private themeService: NbThemeService) {
@@ -33,7 +37,10 @@ export class TrafficCardsHeaderComponent implements OnDestroy {
 
   changePeriod(period: string): void {
     this.type = period;
-    this.periodChange.emit(period);
+    this.periodChange.emit([period , this.state]);
+  }
+  changeState(state: string): void {
+    this.stateChange.emit([state , this.type]);
   }
 
   ngOnDestroy() {

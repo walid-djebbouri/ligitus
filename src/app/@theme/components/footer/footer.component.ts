@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
   template: `
     <span class="created-by">Created with ♥ by <b>
-      <a href="https://akveo.com" target="_blank">Akveo</a></b> {{ currentYear }}</span>
+      <a href="http://avokap.com" target="_blank">Avokap</a></b> {{ currentYear }}</span>
     <div class="socials">
       <a href="#" target="_blank" class="ion ion-social-github"></a>
       <a href="#" target="_blank" class="ion ion-social-facebook"></a>

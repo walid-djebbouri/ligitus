@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NbDialogRef} from '@nebular/theme';
 import { NgForm} from '@angular/forms';
-import {SmartTableService} from '../../../@core/mock/common/smart-table.service';
 import {SmartTableData} from '../../../@core/interfaces/common/smart-table';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ngx-update-cabinet',
@@ -23,14 +23,15 @@ export class UpdateCabinetComponent  {
   @Input() membership_status: string ;
   @Input() domiciliation: string ;
   @Input() email: string ;
-  @Input() tel: [] ;
+  @Input() tel: any[] ;
   @Input() fax: string ;
   @Input() nif: string ;
   @Input() rib: string ;
   @Input() cabinet_predilection_domains: [] ;
   @Input() lawyers: [] ;
 
-  constructor(protected ref: NbDialogRef<UpdateCabinetComponent> , private service: SmartTableData) {}
+  constructor(protected ref: NbDialogRef<UpdateCabinetComponent> , private service: SmartTableData ,
+              private router: Router) {}
 
   dismiss() {
     this.ref.close();
@@ -38,6 +39,8 @@ export class UpdateCabinetComponent  {
 
   up_date(form: NgForm) {
       const id = form.value['id'];
+      const tele = [];
+      tele.push( (<HTMLInputElement>document.getElementById('tele')).value) ;
     this.donne = {
         'cabinet_ref' : form.value['cabinet_refe'],
         'legal_name': form.value['legal_namee'] ,
@@ -49,11 +52,16 @@ export class UpdateCabinetComponent  {
         'email': form.value['emaile'] ,
         'fax': form.value['faxe'] ,
         'nif' : form.value['nife'] ,
-        'rib' : form.value['ribe'] } ;
+        'rib' : form.value['ribe'],
+        'tel' : tele,
+        'join_date' : form.value['join_datee'] + 'T00:00:00.000Z'} ;
     this.service.totale_up_date_cabinet(this.donne , id).then(() => {
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+            this.router.navigate(['pages/avokap/cabinet-details/' + id]);
+            this.ref.close();
+        });
     }).catch( (error) => {
     } ) ;
-      this.ref.close();
   }
 
 }

@@ -67,6 +67,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
     this.initUserForm();
     this.loadUserData();
   }

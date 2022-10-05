@@ -1,0 +1,124 @@
+{
+  "category": [
+    "Right Of Persons",
+    "Criminal Law",
+    "Real Estate Property Law",
+    "Rural Law",
+    "Environmental Law",
+    "Public Law",
+    "Intellectual Property Law",
+    "Trade Law",
+    "Corporate Law",
+    "Tax Law",
+    "Social Law",
+    "Economic Law",
+    "Enforcement Proceedings",
+    "Community Law",
+    "International Law",
+    "Personal Data Protection",
+    "Human Rights"
+  ],
+  "criminallaw": [
+    "GENERAL CRIMINAL LAW",
+    "CRIMINAL BUSINESS LAW",
+    "PRESS LAW"
+  ],
+  "realestatepropertylaw": [
+    "BUILDING LAW",
+    "URBAN PLANNING LAW",
+    "CO-OWNERSHIP RIGHT",
+    "RESIDENTIAL LEASES",
+    "COMMERCIAL AND PROFESSIONAL LEASE",
+    "EXPROPRIATION",
+    "MINES ACT"
+  ],
+  "rurallaw": [
+    "AGRICULTURAL RENT",
+    "FOOD PRODUCTS LAW",
+    "AGRICULTURAL COOPERATION LAW"
+  ],
+  "environmentallaw": [
+    "ENVIRONMENTAL LAW"
+  ],
+  "publiclaw": [
+    "CONSTITUTIONAL LAW",
+    "ADMINISTRATIVE LAW",
+    "TAX LAW",
+    "ELECTORAL LAW",
+    "LOCAL AUTHORITIES",
+    "PUBLIC SERVICE",
+    "PUBLIC ECONOMIC LAW",
+    "PUBLIC INTERNATIONAL LAW"
+  ],
+  "intellectualpropertylaw": [
+    "PATENT LAW",
+    "TRADEMARK LAW",
+    "DESIGN LAW",
+    "LITERARY AND ARTISTIC PROPERTY",
+    "TELECOMMUNICATIONS LAW"
+  ],
+  "tradelaw": [
+    "BANKING AND FINANCE LAW ",
+    "COLLECTIVE PROCEDURES AND FIRMS IN DIFFICULTY",
+    "SALES  OF  BUSINESS  ASSETS  ",
+    "STOCK  EXCHANGE  LAW  ",
+    "AIR  TRANSPORT  LAW  ",
+    "MARITME  TRANSPORT  LAW  ",
+    "GROUND  TRANSPORTATION  LAW  ",
+    "ADVERTISING  LAW  "
+  ],
+  "corporatelaw": [
+    "COMMERCIAL AND PROFESSIONAL COMPANY LAW",
+    "MERGERS AND ACQUISITIONS LAW",
+    "ASSOCIATIONS AND FOUNDATIONS LAW"
+  ],
+  "taxlaw": [
+    "PERSONAL TAXATION",
+    "TAXATION OF PROFESSIONAL ACTIVITY",
+    "INTERNATIONAL TAX LAW",
+    "PROPERTY TAX LAW",
+    "VAT",
+    "REAL ESTATE TAXATION"
+  ],
+  "sociallaw": [
+    "LABOUR LAW",
+    "SOCIAL SECURITY AND MUTUAL BENEFIT LAW",
+    "SOCIAL  PROTECTION  LAW  "
+  ],
+  "economiclaw": [
+    "PROFESSIONAL REGULATION",
+    "COMPETITION LAW",
+    "CONSUMER LAW",
+    "DISTRIBUTION LAW"
+  ],
+  "enforcementproceedings": [
+    "COMPULSORY EXECUTION PROCEDURES",
+    "PROVISIONAL PROCEDURES"
+  ],
+  "communitylaw": [
+    "EUROPEAN AND COMMUNITY PUBLIC LAW",
+    "LITIGATION BEFORE THE EUROPEAN COURTS",
+    "EUROPEAN COMPETITION LAW",
+    "INTERNATIONAL RELATIONS LAW"
+  ],
+  "internationallaw": [
+    "INTERNATIONAL LAW",
+    "INTERNATIONAL LITIGATION",
+    "INTERNATIONAL CONTRACTING"
+  ],
+  "personaldataprotection": [
+    "PERSONAL DATA PROTECTION"
+  ],
+  "humanrights": [
+    "HUMAN RIGHTS"
+  ],
+  "rightofpersons": [
+    "FAMILY LAW",
+    "RIGHT OF FOREIGNERS",
+    "INHERITANCE AND GIFT LAW",
+    "HERITAGE LAW",
+    "CIVIL LIABILITY",
+    "JUVENILE LAW",
+    "COMPENSATION FOR BODILY INJURY"
+  ]
+}

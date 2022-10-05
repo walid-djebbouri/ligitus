@@ -16,15 +16,21 @@ import { takeWhile } from 'rxjs/operators';
 export class ECommerceProgressSectionComponent implements OnDestroy {
 
   private alive = true;
-
   progressInfoData: ProgressInfo[];
 
   constructor(private statsProgressBarService: StatsProgressBarData) {
-    this.statsProgressBarService.getProgressInfoData()
+    this.statsProgressBarService.getProgressInfoData('Naama')
       .pipe(takeWhile(() => this.alive))
       .subscribe((data) => {
         this.progressInfoData = data;
       });
+  }
+  upDateData(stateName: string): void {
+    this.statsProgressBarService.getProgressInfoData(stateName)
+        .pipe(takeWhile(() => this.alive))
+        .subscribe((data) => {
+          this.progressInfoData = data;
+        });
   }
 
   ngOnDestroy() {

@@ -8,6 +8,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { ProfitBarAnimationChartData } from '../../../../@core/interfaces/ecommerce/profit-bar-animation-chart';
 import { takeWhile } from 'rxjs/operators';
 import { ChartData } from '../../../../@core/interfaces/common/chart';
+import {BundlesCustCategoryService} from '../../../../@core/mock/common/bundles-cust-category.service';
 
 @Component({
   selector: 'ngx-stats-card-front',
@@ -18,14 +19,26 @@ export class StatsCardFrontComponent implements OnDestroy {
 
   private alive = true;
 
-  chartData: ChartData;
+  chartData: any;
 
-  constructor(private profitBarAnimationChartService: ProfitBarAnimationChartData) {
-    this.profitBarAnimationChartService.getChartData()
+  constructor(private profitBarAnimationChartService: ProfitBarAnimationChartData ,
+              private userActivities: BundlesCustCategoryService) {
+  /*  this.profitBarAnimationChartService.getChartData()
       .pipe(takeWhile(() => this.alive))
       .subscribe((chartData) => {
         this.chartData = chartData;
-      });
+      });*/
+    this.userActivities.getUserActivityDaily().subscribe((userActivity: any[]) => {
+      const chartData = {
+        chartLabel: [],
+        axisXLabels: [],
+        axisYLabels: [] ,
+        linesData: [],
+        legend: ['Active', 'Inactive'],
+      } ;
+      chartData.linesData = userActivity ;
+      this.chartData  = chartData ;
+    }) ;
   }
 
   ngOnDestroy(): void {

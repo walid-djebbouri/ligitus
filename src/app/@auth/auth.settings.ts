@@ -9,17 +9,17 @@ import { environment } from '../../environments/environment';
 
 export const socialLinks = [
   {
-    url: 'https://github.com/akveo/nebular',
+    url: '',
     target: '_blank',
     icon: 'github',
   },
   {
-    url: 'https://www.facebook.com/akveo/',
+    url: '',
     target: '_blank',
     icon: 'facebook',
   },
   {
-    url: 'https://twitter.com/akveo_inc',
+    url: '',
     target: '_blank',
     icon: 'twitter',
   },
@@ -43,7 +43,7 @@ export const authOptions = {
         method: 'post',
       },
       logout: {
-        endpoint: '/auth/sign-out',
+        endpoint: 'sign-out',
         method: 'post',
       },
       requestPass: {

@@ -34,9 +34,10 @@ export class Tab2Component { }
   styleUrls: ['./reference-tabs.component.scss'],
   templateUrl: './reference-tabs.component.html',
 })
+
 export class TabsComponent {
 
-  tabs: any[] = [
+ /* tabs: any[] = [
     {
       title: 'Route tab #1',
       route: '/pages/layout/tabs/tab1',
@@ -45,6 +46,6 @@ export class TabsComponent {
       title: 'Route tab #2',
       route: '/pages/layout/tabs/tab2',
     },
-  ];
+  ];*/
 
 }

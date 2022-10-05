@@ -31,13 +31,15 @@ export class CountryOrdersMapComponent implements OnDestroy {
   currentTheme: any;
   alive = true;
   selectedCountry;
+  popup = L.popup();
+  mapOfAlgeria ;
 
   options = {
-    zoom: 2,
+    zoom: 5,
     minZoom: 2,
-    maxZoom: 6,
+    maxZoom: 8,
     zoomControl: false,
-    center: L.latLng({lat: 38.991709, lng: -76.886109}),
+    center: L.latLng({lat: 30 ,  lng: 3}),
     maxBounds: new L.LatLngBounds(
       new L.LatLng(-89.98155760646617, -180),
       new L.LatLng(89.99346179538875, 180),
@@ -62,7 +64,7 @@ export class CountryOrdersMapComponent implements OnDestroy {
 
   mapReady(map: L.Map) {
     map.addControl(L.control.zoom({position: 'bottomright'}));
-
+    this.mapOfAlgeria = map ;
     // fix the map fully displaying, existing leaflet bag
     setTimeout(() => {
       map.invalidateSize();
@@ -106,6 +108,9 @@ export class CountryOrdersMapComponent implements OnDestroy {
         featureLayer.bringToFront();
       }
     }
+    this.popup.setLatLng([featureLayer._latlngs[0][0][0].lat , featureLayer._latlngs[0][0][0].lng])
+        .setContent(featureLayer.feature.properties.name  )
+        .openOn(this.mapOfAlgeria);
   }
 
   private moveout(featureLayer) {
@@ -137,7 +142,9 @@ export class CountryOrdersMapComponent implements OnDestroy {
   private findFeatureLayerByCountryId(id) {
     const layers = this.layers[0].getLayers();
     const featureLayer = layers.find(item => {
-      return item.feature.id === id;
+     // return item.feature.id === id;
+      return item.feature.properties.id === id;
+
     });
 
     return featureLayer ? featureLayer : null;

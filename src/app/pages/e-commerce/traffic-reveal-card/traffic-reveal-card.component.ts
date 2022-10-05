@@ -24,27 +24,48 @@ export class TrafficRevealCardComponent implements OnDestroy {
   period: string = 'week';
 
   constructor(private trafficListService: TrafficListData) {
-    this.getTrafficFrontCardData(this.period);
+    setTimeout(() => {
+      this.getTrafficFrontCardData(this.period);
+
+    } , 2000);
   }
 
   toggleView() {
     this.revealed = !this.revealed;
   }
 
-  setPeriodAngGetData(value: string): void {
+  setPeriodAngGetData(value: string , state: string): void {
     this.period = value;
-    this.getTrafficFrontCardData(value);
+    if (state === 'Total') {
+      this.getTrafficFrontCardData(value);
+    } else {
+      this.setStateAndGetData(state , value);
+    }
   }
-
+  setStateAndGetData(state: string , period: string): void {
+    this.trafficListService.getTrafficListDataForState(state , period)
+        .pipe(takeWhile(() => this.alive))
+        .subscribe((trafficListData: TrafficListItem[]) => {
+      this.trafficListData = trafficListData;
+      this.trafficBarData = {
+        data: trafficListData.map(item => item.value),
+        labels: trafficListData.map(item => item.date),
+        formatter: '{c0}',
+      };
+    });
+    if (state === 'Total' ) {
+      this.getTrafficFrontCardData(period);
+    }
+  }
   getTrafficFrontCardData(period: string) {
     this.trafficListService.getTrafficListData(period)
       .pipe(takeWhile(() => this.alive))
-      .subscribe(trafficListData => {
+      .subscribe((trafficListData: TrafficListItem[]) => {
         this.trafficListData = trafficListData;
         this.trafficBarData = {
           data: trafficListData.map(item => item.value),
           labels: trafficListData.map(item => item.date),
-          formatter: '{c0} GB',
+          formatter: '{c0}',
         };
       });
   }

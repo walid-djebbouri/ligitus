@@ -1,0 +1,37 @@
+<nb-card>
+    <nb-card-header>
+        Delete Membership
+    </nb-card-header>
+    <nb-card-body>
+                 <div class="form-group form-row" >
+                     <label class="col-6" for="membership_ref">Reference</label>
+                     <input class="form-control col-6 " type="text" nbInput  id="membership_ref" value="{{membership_ref}}" readonly>
+                 </div>
+
+                 <div class="form-group form-row " >
+                     <label class="col-6" for="bundle_name">Bundle Name </label>
+                     <input class="form-control col-6 " type="text" nbInput id="bundle_name" value="{{bundle_name}}" readonly>
+                 </div>
+
+                 <div class="form-group form-row " >
+                     <label class="col-6" for="payment_date">Payment Date</label>
+                     <input class="form-control col-6" type="text" nbInput id="payment_date" value="{{payment_date | date: 'dd/MM/y'}}" readonly>
+                 </div>
+
+                 <div class="form-group form-row  " >
+                     <label class="col-6" for="plan_price">Plan Price </label>
+                     <input class="form-control col-6 " type="text" nbInput id="plan_price" value="{{plan_price}}" >
+                 </div>
+
+                 <div class="form-group form-row " >
+                     <label class="col-6" for="plan_edate">Plan End Date</label>
+                     <input class="form-control col-6" type="text" nbInput id="plan_edate" value="{{plan_edate | date: 'dd/MM/y'}}" readonly >
+                 </div>
+
+    </nb-card-body>
+    <nb-card-footer>
+        <button class="float-left" nbButton hero status="danger" (click)="delete_membership()" >Delete</button>
+        <button class="float-right" nbButton hero status="primary" (click)="cancel()" >Cancel</button>
+
+    </nb-card-footer>
+</nb-card>

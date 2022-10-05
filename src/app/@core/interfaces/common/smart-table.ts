@@ -6,10 +6,20 @@
  */
 
 export abstract class SmartTableData {
+  cabinet;
+  Cabinets;
   abstract  getData(): Promise<any> ;
   abstract up_date_cabinet(donne: any[]): Promise<any> ;
   abstract cabinet_details(id: string): Promise<any>;
   abstract totale_up_date_cabinet(donne: any[] , id: string): Promise<any>;
-  abstract delet_cabinet(id: string): Promise<any>;
+  abstract delete_cabinet(id: string): Promise<any>;
   abstract create_cabinet(donne: any[]): Promise<any>;
+  abstract create_lawyer(donne: any[]): Promise<any>;
+  abstract up_date_lawyer(donne: any[]): Promise<any> ;
+  abstract delete_lawyer(userId: string): Promise<any> ;
+  abstract get_cabinet_of_lawyer(userId: string): Promise<any> ;
+  abstract change_Cabinet(donne: any[]): Promise<any> ;
+
+
+
 }

@@ -10,7 +10,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://api.avokap.com/',
+  apiUrl: 'https://api.avokap.com/',
   testUser: {
     // tslint:disable
     token: {

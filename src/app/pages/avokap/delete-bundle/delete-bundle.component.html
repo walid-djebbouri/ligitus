@@ -1,0 +1,58 @@
+<nb-card>
+    <nb-card-header>
+        Delete Bundle
+    </nb-card-header>
+    <nb-card-body>
+        <div class="form-group form-row">
+            <label class="col-6">Bundle Ref</label>
+            <input type="text" class="form-control col-6" nbInput  id="bundle_ref_2" value="{{bundle_ref}}"  readonly >
+        </div>
+
+
+        <div class="form-group form-row ">
+            <label class="col-6" >Bundle Name</label>
+            <input type="text" class="form-control col-6" nbInput  id="bundle_name_2" value="{{bundle_name}}" readonly>
+        </div>
+
+        <div class="form-group form-row ">
+            <label class="col-6">Plan Price</label>
+            <input type="number" class="form-control col-6" nbInput id="plan_price_2" value="{{plan_price}}" readonly >
+        </div>
+
+
+        <div class="form-group form-row ">
+            <label class="col-6">Currency</label>
+            <input type="text" class="form-control col-6" nbInput id="currency_2"  value="{{currency}}" readonly >
+        </div>
+
+
+        <div class="form-group form-row ">
+            <label class="col-6" >Number of Months</label>
+            <input type="number" class="form-control col-6" nbInput  id="nbmonths_2"  value="{{nbmonths}}" readonly >
+        </div>
+
+
+        <div class="form-group form-row ">
+            <label class="col-6">Bundle Start Date</label>
+            <input type="date" class="form-control col-6" nbInput  id="bundle_sdate_2" value="{{bundle_sdate | date: 'y-MM-dd'  }}" readonly>
+        </div>
+
+        <div class="form-group form-row ">
+            <label class="col-6" >Bundle End Date</label>
+            <input type="date" class="form-control col-6" nbInput id="bundle_edate_2" value="{{bundle_edate | date: 'y-MM-dd' }}" readonly>
+        </div>
+
+
+        <div class="form-group form-row " >
+            <label class="col-6" >Description</label>
+            <input type="text" class="form-control col-6"  nbInput id="description_2" value="{{description}}" readonly >
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="form-group" >
+            <button class="float-left" nbButton hero status="danger" (click)="update_bundle()" >Delete</button>
+            <button class="float-right" nbButton hero status="primary" (click)="cancel()" >Cancel</button>
+
+        </div>
+    </nb-card-footer>
+</nb-card>

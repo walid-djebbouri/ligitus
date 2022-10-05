@@ -1,0 +1,119 @@
+<nb-card>
+    <nb-card-header>
+        UpDate Membership
+    </nb-card-header>
+    <nb-card-body>
+        <form>
+            <div class="form-group form-row" >
+                <label class="col-6" for="membership_ref_2">Reference</label>
+                <input class="form-control col-6" type="text" nbInput  id="membership_ref_2" value="{{membership_ref}}"  readonly >
+            </div>
+
+        <!--    <div class="form-group form-row " >
+                <label class="col-6">Bundle Reference</label>
+                <nb-select class="col-6" id="bundle_name_1"   [(selected)]="selected"  >
+                    <nb-option *ngFor="let bundle of Bundles" [value]="bundle.id"  >{{bundle.bundle_name}} </nb-option>
+                </nb-select>
+            </div> -->
+
+            <div class="  form-group form-row">
+                <label class="col-6" for="plan_sdate_2" >Plan Start Date</label>
+                <input type="date" class="form-contro col-6" nbInput  id="plan_sdate_2" value="{{plan_sdate | date: 'y-MM-dd'}}" readonly  >
+            </div>
+
+            <div class="form-group form-row" >
+                <label class="col-6" for="plan_edate_2">Plan End Date</label>
+                <input class="form-control col-6" type="date" nbInput id="plan_edate_2" value="{{plan_edate | date: 'y-MM-dd'}}" >
+            </div>
+
+            <div class="form-group form-row" >
+                <label class="col-6" for="payment_date_2">Payment Date</label>
+                <input class="form-control col-6" type="date" nbInput id="payment_date_2" value="{{payment_date | date: 'y-MM-dd' }}" readonly >
+            </div>
+
+            <div class="form-group form-row ">
+                <label class="col-6" for="payer_name_2" >Payer Name</label>
+                <input type="text" class="form-control col-6 " nbInput  id="payer_name_2" value="{{payer_name}}" readonly >
+            </div>
+
+
+
+            <div class="form-group form-row" >
+                <label class="col-6" for="plan_price_2">Plan Price </label>
+                <input class="form-control col-6" type="number" nbInput id="plan_price_2"  value="{{plan_price}}" readonly>
+            </div>
+
+
+
+
+
+            <div class="form-group form-row">
+                <label class="col-6" for="CustCat_discount_2" >Customer Category Discount</label>
+                <input type="number" class="form-control col-6" nbInput id="CustCat_discount_2" value="{{CustCat_discount }}" readonly  >
+            </div>
+
+
+            <div class="form-group form-row">
+                <label class="col-6" for="special_discount_2" >Special Discount</label>
+                <input type="number" class="form-control col-6" nbInput id="special_discount_2" value="{{special_discount}}" readonly  >
+            </div>
+
+
+            <div class="form-group form-row">
+                <label class="col-6" for="final_discount_2" >Final Discount</label>
+                <input type="number" class="form-control col-6" nbInput  id="final_discount_2" value="{{final_discount}}" readonly  >
+            </div>
+
+
+
+            <div class="form-group form-row">
+                <label class="col-6" for="billed_amount_2" >Billed Amount</label>
+                <input type="number" class="form-control  col-6" nbInput id="billed_amount_2" value="{{billed_amount}}" readonly  >
+            </div>
+
+            <div class="form-group form-row">
+                <label class="col-6" for="remark_2" >Remark</label>
+                <input type="text" class="form-control col-6 " nbInput  id="remark_2" value="{{remark}}" >
+            </div>
+
+            <div class="form-group form-row">
+                <label class="col-6" >Payment Type</label>
+                <input type="text" class="form-control col-6" nbInput   value="{{selected_payment_cash}}" readonly >
+
+           <!--     <nb-select class="col-6"  id="payment_type_2"  [(selected)]="selected_payment_cash" readonly >
+                    <nb-option value="CASH" >CASH</nb-option>
+                    <nb-option value="BT" >BT</nb-option>
+                    <nb-option value="CHECK" >CHECK</nb-option>
+                    <nb-option value="mCCP" >mCCP</nb-option>
+                    <nb-option value="ePay" >ePay</nb-option>
+                    <nb-option value="dPay" >dPay</nb-option>
+
+                </nb-select>-->
+            </div>
+
+
+            <div class="form-group form-row">
+                <label class="col-6" for="national_identity_n_2">National Identity Number</label>
+                <input type="text" class="form-control col-6" nbInput  id="national_identity_n_2" value="{{national_identity_n}}" readonly >
+            </div>
+
+            <div class="form-group form-row">
+                <label class="col-6" for="designation_ref_2" >Designation Reference</label>
+                <input type="text" class="form-control col-6 " nbInput id="designation_ref_2" value="{{designation_ref}}" readonly >
+            </div>
+
+
+            <div class="form-group form-row " >
+                <label class="col-6" for="payment_ref_2" >Payment Reference</label>
+                <input type="text" class="form-control col-6"  nbInput id="payment_ref_2" value="{{payment_ref}}" readonly  >
+            </div>
+
+
+
+        </form>
+    </nb-card-body>
+    <nb-card-footer>
+        <button class="float-left" nbButton hero status="primary" (click)="update_membership()" >UpDate</button>
+        <button class="float-right" nbButton hero status="primary" (click)="cancel()" >Cancel</button>
+    </nb-card-footer>
+</nb-card>

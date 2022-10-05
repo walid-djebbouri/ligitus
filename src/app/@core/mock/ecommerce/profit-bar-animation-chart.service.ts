@@ -8,20 +8,25 @@ import { Injectable } from '@angular/core';
 import { of as observableOf,  Observable } from 'rxjs';
 import { ProfitBarAnimationChartData } from '../../interfaces/ecommerce/profit-bar-animation-chart';
 import { ChartData } from '../../interfaces/common/chart';
+import {BundlesCustCategoryService} from '../common/bundles-cust-category.service';
 
 @Injectable()
 export class ProfitBarAnimationChartService extends ProfitBarAnimationChartData {
 
   private data: any;
-
-  constructor() {
+  private lineData: any[] ;
+  constructor(private userActivities: BundlesCustCategoryService) {
     super();
     this.data = {
       chartLabel: [],
       axisXLabels: [],
-      linesData: [this.getDataForFirstLine(), this.getDataForSecondLine()],
-      legend: ['transactions', 'orders'],
+      linesData: [],
+      legend: ['Active', 'Inactive'],
     };
+    this.userActivities.getUserActivityDaily().subscribe(
+        (userActivity: any[]) => {
+          this.data.linesData = userActivity ;
+    }) ;
   }
 
   getDataForFirstLine(): number[] {
@@ -47,6 +52,7 @@ export class ProfitBarAnimationChartService extends ProfitBarAnimationChartData 
   }
 
   getChartData(): Observable<ChartData> {
+    // this.lineData[0] , this.lineData[1] ;
     return observableOf(this.data);
   }
 }

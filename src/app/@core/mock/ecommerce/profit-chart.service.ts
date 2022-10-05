@@ -4,85 +4,89 @@
  * See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
  */
 
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import { PeriodsService } from '../common/periods.service';
 import { ChartData } from '../../interfaces/common/chart';
+import {BundlesCustCategoryService} from '../common/bundles-cust-category.service';
+import {observable, Observable, of as observableOf, of} from 'rxjs';
+import {map} from 'rxjs/operators';
+
 
 @Injectable()
-export class ProfitChartService {
+export class ProfitChartService implements OnInit {
 
   private year = [
-    '2012',
-    '2013',
-    '2014',
-    '2015',
-    '2016',
-    '2017',
-    '2018',
+      '2020',
+      '2021',
   ];
 
-  private data = { };
-
-  constructor(private period: PeriodsService) {
-    this.data = {
-      week: this.getDataForWeekPeriod(),
-      month: this.getDataForMonthPeriod(),
-      year: this.getDataForYearPeriod(),
-    };
+  data: Observable<any>;
+  constructor(private period: PeriodsService ,
+              private bundleCategory: BundlesCustCategoryService) {
+    this.data = this.dataObservable() ;
   }
-
-  private getDataForWeekPeriod(): ChartData {
-    const nPoint = this.period.getWeeks().length;
-
-    return {
+    ngOnInit() {}
+    dataObservable(): Observable<any> {
+     const data = {
+      week  : null,
+      month : null,
+      year  : null,
+    };
+    this.getDataForWeek().subscribe((week) => {data.week = week ; });
+    this.getDataForMonth().subscribe((month) => {data.month = month; });
+    this.getDataForYear().subscribe((year) => {data.year = year; }) ;
+    const observableData = of(data);
+    return  observableData ;
+  }
+  private getDataForWeek(): Observable<any>     {
+    const week = of({
       chartLabel: '',
       axisXLabels: this.period.getWeeks(),
-      legend: ['Payment', 'Cancelled', 'All Orders'],
+      legend: ['AVOKAP BASIC', 'AVOKAP CLASSIC', 'AVOKAP PREMIUM'],
       linesData: [
-        this.getRandomData(nPoint),
-        this.getRandomData(nPoint),
-        this.getRandomData(nPoint),
+        [10 , 10 , 10 , 10 , 10 , 10 , 10] ,
+        [5 , 5 , 5 , 5 , 5 , 5 , 5 ] ,
+        [2 , 2 , 2 , 2 , 2 , 2 , 2 ] ,
       ],
-    };
-  }
-
-  private getDataForMonthPeriod(): ChartData {
-    const nPoint = this.period.getMonths().length;
-
-    return {
+    });
+    return week ;
+   }
+  private getDataForMonth(): Observable<any>     {
+    const ChartDataForMonth = {
       chartLabel: '',
       axisXLabels: this.period.getMonths(),
-      legend: ['Payment', 'Cancelled', 'All Orders'],
-      linesData: [
-        this.getRandomData(nPoint),
-        this.getRandomData(nPoint),
-        this.getRandomData(nPoint),
-      ],
-    };
-  }
-
-  private getDataForYearPeriod(): ChartData {
-    const nPoint = this.year.length;
-
-    return {
-      chartLabel: '',
-      axisXLabels: this.year,
-      legend: ['Payment', 'Cancelled', 'All Orders'],
-      linesData: [
-        this.getRandomData(nPoint),
-        this.getRandomData(nPoint),
-        this.getRandomData(nPoint),
-      ],
-    };
-  }
-
-  private getRandomData(nPoints: number): number[] {
-    return Array.from(Array(nPoints)).map(() => {
-      return Math.round(Math.random() * 500);
+      legend: ['AVOKAP BASIC', 'AVOKAP CLASSIC', 'AVOKAP PREMIUM'],
+      linesData: [],
+    } ;
+    this.bundleCategory.getDataForMonth().subscribe((Avokap) => {
+      ChartDataForMonth.linesData = [
+        Avokap[0] ,
+        Avokap[1] ,
+        Avokap[2] ,
+      ];
     });
+    const month = of(ChartDataForMonth);
+    return month;
   }
-
-  getProfitChartData(period: string): ChartData {
-    return this.data[period];
+  private getDataForYear(): Observable<any>     {
+    const ChartDataForYear = {
+      chartLabel: '',
+      axisXLabels: null,
+      legend: ['AVOKAP BASIC', 'AVOKAP CLASSIC', 'AVOKAP PREMIUM'],
+      linesData: [],
+    } ;
+    this.bundleCategory.getDataForYear().subscribe((Avokap) => {
+      ChartDataForYear.linesData = [
+        Avokap[0] ,
+        Avokap[1] ,
+        Avokap[2] ,
+      ];
+      ChartDataForYear.axisXLabels = Avokap[3];
+    });
+    const year = of(ChartDataForYear);
+    return year;
+  }
+  getProfitChartData(period: string): Observable<ChartData>  {
+    return  this.data.pipe( map (data =>   data[period] ) ) ;
   }
 }

@@ -1,0 +1,380 @@
+<nb-card class=" m-auto" >
+    <nb-card-header>Create Lawyer   </nb-card-header>
+    <nb-card-body  class="m-3" >
+        <div class="row">
+            <div class="col-md-12 ">
+                <form [formGroup]="myFormGroup" (ngSubmit)="create_confirmed()"  >
+
+                    <div class="form-group row">
+                        <label for="cabinet_refc" class="col-sm-6 col-form-label">cabinet ref </label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="cabinet_refc"  value="{{cabinet_ref}}" readonly >
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="legal_namec" class="col-6 col-form-label">Legal Name </label>
+                        <div class="col-6">
+                            <input  type="text" nbInput fullWidth id="legal_namec"  value="{{legal_name}}"  readonly>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="commercial_namec" class="col-sm-6 col-form-label">Commercial Name </label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="commercial_namec"  value="{{commercial_name}}" readonly >
+                        </div>
+                    </div>
+                    <div class="accordion-container mb-5 " fullWidth >
+                        <nb-accordion multi>
+                            <nb-accordion-item >
+                                <nb-accordion-item-header>
+                                    <label>Cabinet Role</label>
+                                </nb-accordion-item-header>
+                                <nb-accordion-item-body  >
+                                    <div  >
+                                        <div class="form-row" >
+                                            <div class="form-group col-3">
+                                                <label>Role Cabinet <span> *</span> </label>
+                                                <nb-select id="role_cabinetc" fullWidth status="primary" placeholder="Select a Role">
+                                                    <nb-option value="MANAGING_PARTNER" >Managing partner</nb-option>
+                                                    <nb-option value="COLLABORATOR" >Collaborator</nb-option>
+                                                    <nb-option value="ADMINISTRATIVE_ASSISTANCE" >Administrative Assistance</nb-option>
+                                                </nb-select>
+                                            </div>
+
+                                            <div class="form-group col-2">
+                                                <label for="role_cab_raf">Cabinet Ref</label>
+                                                <input type="text" nbInput class="form-control" id="role_cab_raf" value="{{cabinet_ref}}"  >
+                                            </div>
+
+                                            <div class="form-group col-2">
+                                                <label for="from_cabinet">From Cabinet</label>
+                                                <input type="text" nbInput class="form-control" id="from_cabinet"   >
+                                            </div>
+
+                                            <div class="form-group col-3">
+                                                <label for="role_date">Date <span> *</span></label>
+                                                <input type="date" nbInput class="form-control" id="role_date" >
+                                            </div>
+
+                                            <div class="form-group col-2">
+                                                <label for="role_remark">Remark</label>
+                                                <input type="text" nbInput class="form-control" id="role_remark" placeholder="Remark" >
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </nb-accordion-item-body>
+                            </nb-accordion-item>
+
+                        </nb-accordion>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="emailc" class="col-sm-6 col-form-label">Email <span> *</span></label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="emailc" placeholder="Enter Your E Mail"  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="passwordc" class="col-sm-6 col-form-label">Password <span> *</span></label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="passwordc" placeholder="Enter Your Password"  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="first_namec" class="col-sm-6 col-form-label">First Name <span> *</span></label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="first_namec"  (change)="affiche($event ,  2)" placeholder="Enter Your First Name"  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="last_namec" class="col-sm-6 col-form-label">Last Name <span> *</span></label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="last_namec"   (change)="affiche($event ,  3)" placeholder="Enter Your Last Name" >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="first_name_localc" class="col-sm-6 col-form-label">First Name Local </label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="first_name_localc" placeholder="Enter Your Local First Name "  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="last_name_localc" class="col-sm-6 col-form-label">Last Name Local </label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="last_name_localc" placeholder="Enter Your Local Last Name "    >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="avokap_refc" class="col-sm-6 col-form-label">Avokap Refrence </label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="avokap_refc"   value="{{avokap_ref}}" readonly placeholder="Avokap Refrence" >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="short_descc" class="col-sm-6 col-form-label">Short Description </label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="short_descc" placeholder="Enter a Short Description"  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="long_descc" class="col-sm-6 col-form-label">Long Description </label>
+                        <div class="col-sm-6">
+                            <textarea  type="text" nbInput fullWidth id="long_descc"  placeholder="Enter  a Long Description" ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="addressc" class="col-sm-6 col-form-label">Address <span> *</span></label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="addressc" placeholder="Enter Your Address"  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="mobilec" class="col-sm-6 col-form-label">Mobile <span> *</span></label>
+                        <div class="col-sm-6">
+                            <input  type="number" nbInput fullWidth id="mobilec"  placeholder="Enter Your Mobile Number" >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="phonec" class="col-sm-6 col-form-label">Phone </label>
+                        <div class="col-sm-6">
+                            <input  type="number" nbInput fullWidth id="phonec"  placeholder="Enter Your Phone Number" >
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group row">
+                        <label for="license_numc" class="col-sm-6 col-form-label">License Num <span> *</span></label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth id="license_numc"  (change)="affiche($event ,  4)" placeholder="Enter Your License Number" >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="license_end_datec" class="col-sm-6 col-form-label">License End Date <span> *</span></label>
+                        <div class="col-sm-6">
+                            <input  type="date" nbInput fullWidth id="license_end_datec"   placeholder="Enter Your License End Date " >
+                        </div>
+                    </div>
+
+                    <div  >
+                        <div class="form-group row">
+                            <label for="join_datec" class="col-sm-6 col-form-label">Join Date <span> *</span></label>
+                            <div class="col-sm-6">
+                                <input  type="date" nbInput fullWidth id="join_datec"  placeholder="Enter The Join Date "   >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-container mb-5 " fullWidth >
+                        <nb-accordion multi>
+                            <nb-accordion-item >
+                                <nb-accordion-item-header>
+                                    <label>Bar Role</label>
+                                </nb-accordion-item-header>
+                                <nb-accordion-item-body  >
+                                    <div class="form-row" >
+
+
+                                        <div class="form-group col-3">
+                                            <label>Bar Name <span> *</span></label>
+                                            <nb-select name="bar_nameh" fullWidth  (selectedChange)="affiche($event , 1)" placeholder="Select The Bar Name" >
+                                                <nb-option value="ALGER" >ALGER</nb-option>
+                                                <nb-option value="SETIF" >SETIF</nb-option>
+                                                <nb-option value="SIDIBEL" >SIDI BEL ABBES</nb-option>
+
+                                                <nb-option value="ANNABA" >ANNABA</nb-option>
+                                                <nb-option value="TIZIOUZOU" >TIZI OUZOU</nb-option>
+                                                <nb-option value="MEDEA" >MEDEA</nb-option>
+
+                                                <nb-option value="BATNA" >BATNA</nb-option>
+                                                <nb-option value="CONSTANTINE" >CONTANTINE</nb-option>
+                                                <nb-option value="MOSTAGANEM" >MOSTAGHANEM</nb-option>
+
+
+                                                <nb-option value="BEJAIA" >BEJAIA</nb-option>
+                                                <nb-option value="BOUMERDES" >BOUMERDES</nb-option>
+                                                <nb-option value="MASCARA" >MASCARA</nb-option>
+
+                                                <nb-option value="BLIDA" >BLIDA</nb-option>
+                                                <nb-option value="BOUAGHI" >OUM EL BOUAGHI</nb-option>
+                                                <nb-option value="OUARGLA" >OUARGLA</nb-option>
+
+                                                <nb-option value="BOUIRA" >BOUIRA</nb-option>
+                                                <nb-option value="BISKRA" >BISKRA</nb-option>
+                                                <nb-option value="KHENCHELA" >KHENCHELA</nb-option>
+
+                                                <nb-option value="SAIDA" >SAIDA</nb-option>
+                                                <nb-option value="ORAN" >ORAN</nb-option>
+                                                <nb-option value="TIARET" >TIARET</nb-option>
+
+                                                <nb-option value="RELIZANE" >RELIZANE</nb-option>
+                                            </nb-select>
+                                        </div>
+
+
+                                        <div class="form-group col-3">
+                                            <label>Bar Role <span> *</span></label>
+                                            <nb-select name="bar_roleh" fullWidth placeholder="Select The Bar Role "    >
+                                                <nb-option value="PRESIDENT" >President</nb-option>
+                                                <nb-option value="ORDER" >Order</nb-option>
+                                                <nb-option value="MEMBER" >Member</nb-option>
+                                                <nb-option value="SUSPENDED" >Suspended</nb-option>
+                                                <nb-option value="DISBARED" >Disbarred</nb-option>
+                                            </nb-select>
+                                        </div>
+
+                                        <div class="form-group col-3">
+                                            <label for="rol_date">Role Date <span> *</span></label>
+                                            <input type="date" class="form-control" nbInput   name="role_date" id="rol_date" placeholder="Enter The Date"  >
+                                        </div>
+
+                                        <div class="form-group col-3">
+                                            <label for="remarkb">Remark</label>
+                                            <input type="text" class="form-control" nbInput name="remarkb" id="remarkb" placeholder="Enter a Remark" >
+                                        </div>
+                                    </div>
+                                </nb-accordion-item-body>
+                            </nb-accordion-item>
+
+                        </nb-accordion>
+                    </div>
+
+                    <label>Predilection Domains</label>
+                    <div class="form-group row  " >
+
+                        <nb-icon   icon="plus-circle" status="danger"   	(click)="ajouter_cpd()" ></nb-icon>
+                        <!--<nb-icon   icon="minus-circle" status="danger"  	(click)="supprimer_cpd()" ></nb-icon>-->
+
+                    </div>
+                    <!-- -->
+
+                    <div *ngFor="let form_elem of formTemplate; let i = index"  >
+                        <div [ngSwitch]="form_elem.type" >
+                            <div *ngSwitchCase="'select_cat'">
+                                <div class="form-group row">
+                                    <nb-icon   icon="minus-circle" status="danger"  	(click)="supprimer_cpd(i)" ></nb-icon>
+                                    <nb-select name="law_cat" fullWidth class="col-5"  id="cat{{form_elem.id}}"  (selectedChange)="changeTheme($event)" status="primary" placeholder="Law Category" >
+                                        <nb-option  *ngFor="let opt of form_elem.options" value="{{opt}}" >
+                                            {{opt}}
+                                        </nb-option>
+                                    </nb-select>
+                                    <nb-select name="jur_domain" fullWidth class="col-6 " id="dom{{form_elem.id}}"     status="primary"  placeholder="Jur Domain" >
+                                        <nb-option  *ngFor="let fis of selected " value= "{{fis}}">{{fis}} </nb-option>
+                                    </nb-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-container mb-5 " fullWidth >
+                        <nb-accordion multi>
+                            <nb-accordion-item >
+                                <nb-accordion-item-header>
+                                    <label>Category</label>
+                                </nb-accordion-item-header>
+                                <nb-accordion-item-body  >
+                                    <div class="form-row" >
+
+                                        <div class="form-group col-4">
+                                            <label>Category <span> *</span></label>
+                                            <nb-select name="category_h"   fullWidth placeholder="Select a Category" >
+                                                <nb-option *ngFor="let cus_cat of Customer_Category" value="{{cus_cat.category}}" >{{cus_cat.category}}</nb-option>
+                                            </nb-select>
+                                        </div>
+
+
+                                        <div class="form-group col-4">
+                                            <label for="cat_date">Category Date <span> *</span></label>
+                                            <input type="date" class="form-control" nbInput  id="cat_date" name="cat_date" placeholder="Enter a Date"  >
+                                        </div>
+
+                                        <div class="form-group col-4">
+                                            <label for="remark">Remark</label>
+                                            <input type="text" class="form-control" nbInput  id="remark" name="cat_remark"  placeholder="Enter a Remark" >
+                                        </div>
+                                    </div>
+                                </nb-accordion-item-body>
+                            </nb-accordion-item>
+
+                        </nb-accordion>
+                    </div>
+
+                    <div class="accordion-container mb-5 " fullWidth >
+                        <nb-accordion multi>
+                            <nb-accordion-item >
+                                <nb-accordion-item-header>
+                                    <label>Special Discount</label>
+                                </nb-accordion-item-header>
+                                <nb-accordion-item-body  >
+                                    <div class="form-row " >
+                                        <div class="form-group col-2">
+                                            <label for="discount">Discount</label>
+                                            <input  class="form-control" nbInput type="number"  name="discount" id="discount" placeholder="Enter a Discount" >
+                                        </div>
+
+                                        <div class="form-group col-3">
+                                            <label for="start_date">Start Date</label>
+                                            <input class="form-control" nbInput type="date"  name="start_date" id="start_date" placeholder="Enter a Start Date "  >
+                                        </div>
+
+                                        <div class="form-group col-3">
+                                            <label for="end_date">End Date</label>
+                                            <input  class="form-control" type="date"  nbInput name="end_date" id="end_date" placeholder="Enter an End Date " >
+                                        </div>
+
+                                        <div class="form-group col-4">
+                                            <label >Remark</label>
+                                            <input  class="form-control" type="text"  nbInput name="remark_discount" id="remarkd" placeholder="Enter a Remark "  >
+                                        </div>
+
+                                    </div>
+
+                                </nb-accordion-item-body>
+                            </nb-accordion-item>
+
+                        </nb-accordion>
+                    </div>
+
+                    <div  class="mt-5 mb-5 pt-3 pb-2 bg-danger " *ngIf="Errors && Errors.length > 0 ">
+                        <div class="form-group  text-center " *ngFor="let error of Errors"  >
+                            <label  >! Error : {{error}}</label>
+                        </div>
+                    </div>
+
+                    <button class="float-right"  nbButton hero status="primary" (click)="dismiss()" >Cancel</button>
+                    <button class="float-left" nbButton hero status="primary" (click)="create_confirmed()"  >Create</button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+
+    </nb-card-footer>
+</nb-card>
+
+<!--  Modale  -->

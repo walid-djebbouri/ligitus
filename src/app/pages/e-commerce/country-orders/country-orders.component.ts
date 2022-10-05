@@ -4,7 +4,7 @@
  * See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
  */
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import { NbMediaBreakpoint, NbMediaBreakpointsService, NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 import { CountryOrderData } from '../../../@core/interfaces/ecommerce/country-order';
@@ -17,13 +17,13 @@ import { CountryOrderData } from '../../../@core/interfaces/ecommerce/country-or
       <nb-card-header>Country Orders Statistics</nb-card-header>
       <nb-card-body [nbSpinner]="!countriesCategories">
         <ngx-country-orders-map (select)="selectCountryById($event)"
-                                countryId="USA">
+                                countryId="DZ031">
         </ngx-country-orders-map>
         <ngx-country-orders-chart *ngIf="countriesCategories"
                                   [countryName]="countryName"
                                   [data]="countryData"
                                   [labels]="countriesCategories"
-                                  maxValue="20">
+                                  maxValue="10">
         </ngx-country-orders-chart>
       </nb-card-body>
     </nb-card>
@@ -32,6 +32,7 @@ import { CountryOrderData } from '../../../@core/interfaces/ecommerce/country-or
 export class CountryOrdersComponent implements OnInit, OnDestroy {
 
   private alive = true;
+  @Output() stateNameEvent = new EventEmitter();
 
   countryName = '';
   countryData: number[] = [];
@@ -60,14 +61,13 @@ export class CountryOrdersComponent implements OnInit, OnDestroy {
 
   selectCountryById(event: any) {
     this.countryName = event.name;
-
-    this.countryOrderService.getCountriesCategoriesData(event.code)
+    this.stateNameEvent.emit(event.name);
+    this.countryOrderService.getCountriesCategoriesData(event.name)
       .pipe(takeWhile(() => this.alive))
-      .subscribe((countryData) => {
+      .subscribe((countryData: number[]) => {
         this.countryData = countryData;
       });
   }
-
   ngOnDestroy() {
     this.alive = false;
   }

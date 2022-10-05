@@ -6,25 +6,25 @@
 
 <nb-card size="large">
   <nb-tabset fullWidth (changeTab)="changeTab($event)">
-    <nb-tab tabTitle="Orders" [active]="true">
+    <nb-tab tabTitle="Memberships" [active]="true">
       <div class="chart-container">
         <div [nbSpinner]="!ordersChartData" class="chart-container">
           <ngx-chart-panel-summary [summary]="chartPanelSummary"></ngx-chart-panel-summary>
           <ngx-chart-panel-header #ordersHeader [type]="period"
-                                  [legend]="ordersChartData?.legend"
-                                  (periodChange)="setPeriodAndGetChartData($event)">
+                                  (periodChange)="setPeriodAndGetChartData($event)"
+                                  [selectedTab]="selectedTab">
           </ngx-chart-panel-header>
           <ngx-orders-chart #ordersChart *ngIf="ordersChartData" [ordersChartData]="ordersChartData"></ngx-orders-chart>
         </div>
       </div>
     </nb-tab>
-    <nb-tab tabTitle="Profit" [lazyLoad]="true">
+    <nb-tab tabTitle="Bundles" [lazyLoad]="true">
       <div class="chart-container">
         <div [nbSpinner]="!profitChartData" class="chart-container">
           <ngx-chart-panel-summary [summary]="chartPanelSummary"></ngx-chart-panel-summary>
           <ngx-chart-panel-header #profitHeader [type]="period"
-                                  [legend]="profitChartData?.legend"
-                                  (periodChange)="setPeriodAndGetChartData($event)">
+                                  (periodChange)="setPeriodAndGetChartData($event)"
+                                  [selectedTab]="selectedTab">
           </ngx-chart-panel-header>
           <ngx-profit-chart #profitChart *ngIf="profitChartData" [profitChartData]="profitChartData"></ngx-profit-chart>
         </div>

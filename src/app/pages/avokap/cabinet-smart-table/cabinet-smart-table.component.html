@@ -4,9 +4,14 @@
   ~ See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
   -->
 
-<nb-card>
+<nb-card
+        [nbSpinner]="loading_cabinets"
+        nbSpinnerStatus="primary"
+        nbSpinnerSize="large"
+        nbSpinnerMessage="Loading Cabinets">
   <nb-card-header>
-    Cabinet Entity
+    Cabinet <span>( {{number_of_cabinet}} )</span>
+    <button class="float-right" nbButton hero status="primary" (click)="creat_cabinet($event)" > Create Cabinet </button>
   </nb-card-header>
 
   <nb-card-body>
@@ -15,8 +20,10 @@
                      [source]="source"
                      (deleteConfirm)="onDeleteConfir($event)"
                      (editConfirm)  ="oneditConfirm($event)"
-                     (userRowSelect) = "onUserRowSelect($event)"
-                     (create)="creat_cabinet($event)">
+                     (edit)="delete_cabinet($event)"
+                     (delete)="cabinetDetails($event)"
+                     (rowSelect)="nb_cabinets($event)"
+                     >
     </ng2-smart-table>
   </nb-card-body>
 </nb-card>

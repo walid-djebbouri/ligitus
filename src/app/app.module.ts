@@ -49,8 +49,7 @@ import {TokenInterceptor} from './token.interceptor';
     ThemeModule.forRoot(),
   ],
   bootstrap: [AppComponent],
-  providers: [
-  ],
+  providers: [],
 })
 export class AppModule {
 }

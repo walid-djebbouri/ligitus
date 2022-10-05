@@ -5,86 +5,136 @@
  */
 
 import { Injectable } from '@angular/core';
-import { of as observableOf,  Observable } from 'rxjs';
+import {of as observableOf, Observable, of} from 'rxjs';
 import { PeriodsService } from '../common/periods.service';
 import { TrafficListItem, TrafficListData } from '../../interfaces/ecommerce/traffic-list';
+import {BundlesCustCategoryService} from '../common/bundles-cust-category.service';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class TrafficListService extends TrafficListData {
 
-  private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
-  private data = {};
+  data: Observable<any>;
+  userActivityRegionalWeek = [] ;
+  userActivityRegionalMonth = [] ;
+  userActivityRegionalYear = [] ;
 
-  constructor(private period: PeriodsService) {
+  constructor(private period: PeriodsService ,
+              private userHistorical: BundlesCustCategoryService) {
     super();
-    this.data = {
-      week: this.getDataWeek(),
-      month: this.getDataMonth(),
-      year: this.getDataYear(),
-    };
+    this.data =  this.dataObservable() ;
+    this.userHistorical.getMonthlyActivitiesOfStates()
+        .subscribe((data) => { this.userActivityRegionalMonth = data ; }) ;
+    this.userHistorical.getWeeklyActivitiesOfStates()
+        .subscribe((data) => {this.userActivityRegionalWeek = data ; });
+    this.userHistorical.getYearlyActivitiesOfStates()
+        .subscribe((data) => {this.userActivityRegionalYear = data  ; } ) ;
   }
 
-  private getDataWeek(): TrafficListItem[] {
+  private getDataWeek(dataOfWeek: number[]): TrafficListItem[] {
     const getFirstDateInPeriod = () => {
-      const weeks = this.period.getWeeks();
-
+      const weeks = this.period.getWeeksForTraffic();
       return weeks[weeks.length - 1];
     };
 
-    return this.reduceData(this.period.getWeeks(), getFirstDateInPeriod);
+    return this.reduceData(this.period.getWeeksForTraffic() , dataOfWeek);
   }
 
-  private getDataMonth(): TrafficListItem[] {
+  private getDataMonth(dataOfMonth: number[]): TrafficListItem[] {
     const getFirstDateInPeriod = () => {
-      const months = this.period.getMonths();
+      const months = this.period.getMonthsForTraffic();
       return months[months.length - 1];
     };
 
-    return this.reduceData(this.period.getMonths(), getFirstDateInPeriod);
+    return this.reduceData(this.period.getMonthsForTraffic(), dataOfMonth);
   }
 
-  private getDataYear(): TrafficListItem[] {
+  private getDataYear(dataOfYear): TrafficListItem[] {
     const getFirstDateInPeriod = () => {
-      const years = this.period.getYears();
+      const years = this.period.getYearsForTraffic();
 
       return `${parseInt(years[0], 10) - 1}`;
     };
 
-    return this.reduceData(this.period.getYears(), getFirstDateInPeriod);
+    return this.reduceData(this.period.getYearsForTraffic() , dataOfYear);
   }
 
-  private reduceData(timePeriods: string[], getFirstDateInPeriod: () => string): TrafficListItem[] {
+  private reduceData(timePeriods: string[], value: number[]): TrafficListItem[] {
+    const max = Math.max(...value);
     return timePeriods.reduce((result, timePeriod, index) => {
-      const hasResult = result[index - 1];
-      const prevDate = hasResult ?
-        result[index - 1].comparison.nextDate :
-        getFirstDateInPeriod();
-      const prevValue = hasResult ?
-        result[index - 1].comparison.nextValue :
-        this.getRandom(100);
-      const nextValue = this.getRandom(100);
-      const deltaValue = prevValue - nextValue;
-
+    const hasResult = value[index - 1] ;
+      const prevDate = timePeriods[(index + 1) % 12] ;
+      const prevValue = value[index + 1] ;
+      const deltaValue = Number((prevValue - value[index]).toFixed(3))     ;
       const item = {
         date: timePeriod,
-        value: this.getRandom(1000),
+        value: value[index],
         delta: {
           up: deltaValue <= 0,
           value: Math.abs(deltaValue),
         },
         comparison: {
           prevDate,
-          prevValue,
+          prevValue : (prevValue / max) * 130 ,
           nextDate: timePeriod,
-          nextValue,
+          nextValue: (value[index] / max) * 130 ,
         },
       };
 
       return [...result, item];
     }, []);
   }
+  dataObservable(): Observable<any> {
+    const data = {
+      week: [],
+      month: [],
+      year: [],
+    };
+    this.userHistorical.getUserDailyHistorical().subscribe(
+        (daily: number[]) => {data.week = this.getDataWeek(daily) ;   }) ;
+    this.userHistorical.getUserMonthlyHistorical().subscribe(
+        (monthly: number[]) => {data.month = this.getDataMonth(monthly) ;  }) ;
+    this.userHistorical.getUserYearlyHistorical().subscribe(
+        (yearly: number[]) => {data.year = this.getDataYear(yearly) ; }) ;
+    return  of(data);
+  }
+    getTrafficListData(period: string): Observable<any> {
+      return  this.data.pipe( map (
+          (data) => {
+            return  data[period] ;
+          }   ) ) ;
 
-  getTrafficListData(period: string): Observable<TrafficListItem[]> {
-    return observableOf(this.data[period]);
+
+    }
+  getTrafficListDataForState(state: string , period: string): Observable<any> {
+    const dataOfState = {
+      week: [],
+      month: [],
+      year: [],
+    };
+    const  week: number[] = [0, 0, 0, 0, 0, 0, 0, 0] ;
+    const  month: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ;
+    const  year: number[] = [0, 0, 0, 0, 0, 0] ;
+    this.userActivityRegionalWeek.filter( element => {
+      if ( element.wilaya_name === state ) {
+        week.push( parseFloat(element.activity_count ) ) ;
+        week.shift();
+      }
+    } ) ;
+    this.userActivityRegionalMonth.filter( element => {
+      if ( element.wilaya_name === state ) {
+         month.push( parseFloat(element.activity_count ) ) ;
+         month.shift();
+      }
+    } ) ;
+    this.userActivityRegionalYear.filter( element => {
+      if ( element.wilaya_name === state ) {
+        year.push( parseFloat(element.activity_count ) ) ;
+      }
+    } ) ;
+    dataOfState.week = this.getDataWeek(week) ;
+    dataOfState.month = this.getDataMonth(month) ;
+    dataOfState.year = this.getDataYear(year) ;
+    return  of(dataOfState[period]);
   }
 }

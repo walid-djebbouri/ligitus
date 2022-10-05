@@ -1,13 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="83954a50-a9b8-4dab-b6e7-1093be8dddfd" name="Default Changelist" comment="" />
+    <list default="true" id="83954a50-a9b8-4dab-b6e7-1093be8dddfd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/@auth/components/login/Logo-admin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/@auth/components/login/login.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/@core/mock/common/bundles-cust-category.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/@core/mock/common/dash-bord.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/@core/mock/common/membership-status.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/@core/mock/common/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/@core/mock/common/validation.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/bundles-cust-category/bundles-cust-category.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/bundles-cust-category/bundles-cust-category.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/bundles-cust-category/bundles-cust-category.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/bundles-cust-category/bundles-cust-category.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-details/code.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/change-cabinet/change-cabinet.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/change-cabinet/change-cabinet.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/change-cabinet/change-cabinet.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/change-cabinet/change-cabinet.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/change-status/change-status.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/change-status/change-status.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/change-status/change-status.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/change-status/change-status.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-bundle/create-bundle.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-bundle/create-bundle.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-bundle/create-bundle.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-bundle/create-bundle.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-category/create-category.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-category/create-category.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-category/create-category.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-category/create-category.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-lawyer/create-lawyer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-lawyer/create-lawyer.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-lawyer/create-lawyer.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-lawyer/create-lawyer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-membership/create-membership.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-membership/create-membership.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-membership/create-membership.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-membership/create-membership.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-user/create-user.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-user/create-user.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-user/create-user.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-user/create-user.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-bundle/delete-bundle.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-bundle/delete-bundle.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-bundle/delete-bundle.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-bundle/delete-bundle.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-cabinet/delete-cabinet.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-cabinet/delete-cabinet.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-cabinet/delete-cabinet.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-cabinet/delete-cabinet.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-customer-category/delete-customer-category.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-customer-category/delete-customer-category.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-customer-category/delete-customer-category.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-customer-category/delete-customer-category.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-lawyer/delete-lawyer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-lawyer/delete-lawyer.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-lawyer/delete-lawyer.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-lawyer/delete-lawyer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-membership/delete-membership.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-membership/delete-membership.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-membership/delete-membership.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-membership/delete-membership.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-user/delete-user.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-user/delete-user.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-user/delete-user.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/delete-user/delete-user.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/law_domain.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/matricule.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/membership-status/membership-status.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/membership-status/membership-status.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/membership-status/membership-status.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/membership-status/membership-status.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/reset-password/reset-password.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/reset-password/reset-password.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/reset-password/reset-password.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/reset-password/reset-password.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-bundle/update-bundle.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-bundle/update-bundle.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-bundle/update-bundle.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-bundle/update-bundle.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-customer-category/update-customer-category.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-customer-category/update-customer-category.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-customer-category/update-customer-category.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-customer-category/update-customer-category.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-lawyer/update-lawyer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-lawyer/update-lawyer.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-lawyer/update-lawyer.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-lawyer/update-lawyer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-membership/update-membership.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-membership/update-membership.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-membership/update-membership.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-membership/update-membership.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/user/user.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/user/user.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/user/user.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/avokap/user/user.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/Logo-admin-white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/Logo-admin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/leaflet-countries/wilaya.geo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/favicon2.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protractor.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/protractor.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@auth/auth.settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@auth/auth.settings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@auth/components/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@auth/components/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@auth/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@auth/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@auth/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@auth/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/backend/common/api/users.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/backend/common/api/users.api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/interfaces/common/smart-table.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/interfaces/common/smart-table.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/interfaces/ecommerce/earning.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/interfaces/ecommerce/earning.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/interfaces/ecommerce/stats-progress-bar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/interfaces/ecommerce/stats-progress-bar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/interfaces/ecommerce/traffic-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/interfaces/ecommerce/traffic-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/common/periods.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/common/periods.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/common/smart-table.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/common/smart-table.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/country-order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/country-order.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/earning.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/earning.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/orders-chart.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/orders-chart.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/orders-profit-chart.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/orders-profit-chart.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/profit-bar-animation-chart.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/profit-bar-animation-chart.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/profit-chart.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/profit-chart.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/stats-progress-bar.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/stats-progress-bar.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/traffic-list.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/mock/ecommerce/traffic-list.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@theme/components/footer/footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@theme/components/footer/footer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@theme/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@theme/components/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@theme/components/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@theme/components/header/header.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@theme/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@theme/components/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-details/cabinet-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-details/cabinet-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-details/cabinet-details.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-details/cabinet-details.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-details/cabinet-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-details/cabinet-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-smart-table/cabinet-smart-table.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-smart-table/cabinet-smart-table.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-smart-table/cabinet-smart-table.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-smart-table/cabinet-smart-table.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-smart-table/cabinet-smart-table.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/cabinet-smart-table/cabinet-smart-table.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/create-cabinet/create-cabinet.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-cabinet/create-cabinet.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/create-cabinet/create-cabinet.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-cabinet/create-cabinet.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/create-cabinet/create-cabinet.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/create-cabinet/create-cabinet.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/lawyer-details/lawyer-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/lawyer-details/lawyer-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/lawyer-details/lawyer-details.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/lawyer-details/lawyer-details.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/lawyer-details/lawyer-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/lawyer-details/lawyer-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/reference-tabs/reference-tabs.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/reference-tabs/reference-tabs.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/reference-tabs/reference-tabs.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/reference-tabs/reference-tabs.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/tables-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/tables-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/tables.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/tables.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/update-cabinet/update-cabinet.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-cabinet/update-cabinet.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/update-cabinet/update-cabinet.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-cabinet/update-cabinet.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/avokap/update-cabinet/update-cabinet.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/avokap/update-cabinet/update-cabinet.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/chart-panel-header/chart-panel-header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/chart-panel-header/chart-panel-header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/chart-panel-header/chart-panel-header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/chart-panel-header/chart-panel-header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts-panel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts-panel.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts-panel.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts-panel.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts-panel.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts/orders-chart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts/orders-chart.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts/profit-chart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/charts-panel/charts/profit-chart.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/country-orders/country-orders.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/country-orders/country-orders.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/country-orders/map/country-orders-map.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/country-orders/map/country-orders-map.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/country-orders/map/country-orders-map.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/country-orders/map/country-orders-map.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/e-commerce.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/e-commerce.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/e-commerce.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/e-commerce.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/e-commerce.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/e-commerce.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/earning-card/back-side/earning-card-back.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/earning-card/back-side/earning-card-back.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/earning-card/back-side/earning-card-back.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/earning-card/back-side/earning-card-back.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/earning-card/front-side/earning-card-front.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/earning-card/front-side/earning-card-front.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/earning-card/front-side/earning-card-front.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/earning-card/front-side/earning-card-front.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/profit-card/front-side/stats-bar-animation-chart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/profit-card/front-side/stats-bar-animation-chart.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/profit-card/front-side/stats-card-front.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/profit-card/front-side/stats-card-front.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/profit-card/front-side/stats-card-front.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/profit-card/front-side/stats-card-front.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/profit-card/profit-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/profit-card/profit-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/progress-section/progress-section.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/progress-section/progress-section.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/progress-section/progress-section.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/progress-section/progress-section.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/traffic-reveal-card/traffic-cards-header/traffic-cards-header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/traffic-reveal-card/traffic-cards-header/traffic-cards-header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/traffic-reveal-card/traffic-cards-header/traffic-cards-header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/traffic-reveal-card/traffic-cards-header/traffic-cards-header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/traffic-reveal-card/traffic-reveal-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/traffic-reveal-card/traffic-reveal-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/e-commerce/traffic-reveal-card/traffic-reveal-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/e-commerce/traffic-reveal-card/traffic-reveal-card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/pages-menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/pages-menu.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/pages.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/pages.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/users/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/users/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/alan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/camera1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/camera2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/camera3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/camera4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/cover1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/cover2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/cover3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/eva.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/jack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/kate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/kitten-corporate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/kitten-cosmic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/kitten-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/kitten-default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/nick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/team.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/tsconfig.app.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1hedHQkmGz9HIO7HsDnrQne4GfJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,6 +235,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.stylelint" value="$PROJECT_DIR$/node_modules/stylelint" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -37,6 +248,7 @@
   <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Tests (ngx-admin-demo)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
       <working-directory value="$PROJECT_DIR$" />
       <node-interpreter value="project" />
       <envs />
@@ -45,6 +257,7 @@
     <configuration name="E2E Tests (ngx-admin-demo-e2e)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/protractor.conf.js" />
       <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/node_modules/protractor" />
       <protractor-options value="" />
       <envs />
       <scope-kind value="ALL" />
@@ -132,44 +345,422 @@
       <workItem from="1601990607440" duration="565000" />
       <workItem from="1601991886046" duration="1027000" />
       <workItem from="1602049127950" duration="7746000" />
+      <workItem from="1602147709019" duration="396000" />
+      <workItem from="1602148916384" duration="11529000" />
+      <workItem from="1602405406204" duration="6699000" />
+      <workItem from="1602426496755" duration="1405000" />
+      <workItem from="1602491300300" duration="3352000" />
+      <workItem from="1602496685573" duration="4793000" />
+      <workItem from="1602514106160" duration="9747000" />
+      <workItem from="1602667859674" duration="2341000" />
+      <workItem from="1602672042805" duration="36000" />
+      <workItem from="1602752456135" duration="304000" />
+      <workItem from="1602759435589" duration="1187000" />
+      <workItem from="1602761275189" duration="1010000" />
+      <workItem from="1602762498241" duration="6792000" />
+      <workItem from="1602785334474" duration="613000" />
+      <workItem from="1603015955490" duration="335000" />
+      <workItem from="1603016654412" duration="4417000" />
+      <workItem from="1603024826951" duration="35000" />
+      <workItem from="1603042526825" duration="1693000" />
+      <workItem from="1603045080717" duration="11000" />
+      <workItem from="1603046554435" duration="231000" />
+      <workItem from="1603048159939" duration="1695000" />
+      <workItem from="1603053088592" duration="14000" />
+      <workItem from="1603094158477" duration="12088000" />
+      <workItem from="1603119543241" duration="107000" />
+      <workItem from="1603186886731" duration="12397000" />
+      <workItem from="1603205142122" duration="12000" />
+      <workItem from="1603205471594" duration="5089000" />
+      <workItem from="1603212656014" duration="1051000" />
+      <workItem from="1603259753977" duration="1634000" />
+      <workItem from="1603263901609" duration="6350000" />
+      <workItem from="1603275304926" duration="903000" />
+      <workItem from="1603278266984" duration="3928000" />
+      <workItem from="1603314594788" duration="3656000" />
+      <workItem from="1603346871175" duration="9534000" />
+      <workItem from="1603360762018" duration="34000" />
+      <workItem from="1603369602787" duration="1245000" />
+      <workItem from="1603701174762" duration="4707000" />
+      <workItem from="1603706702326" duration="13224000" />
+      <workItem from="1603797251049" duration="954000" />
+      <workItem from="1603799247437" duration="3087000" />
+      <workItem from="1603816073199" duration="2223000" />
+      <workItem from="1603819323943" duration="2791000" />
+      <workItem from="1603825179754" duration="2906000" />
+      <workItem from="1603870891377" duration="4395000" />
+      <workItem from="1603884756135" duration="1694000" />
+      <workItem from="1603891863172" duration="24000" />
+      <workItem from="1603893025498" duration="400000" />
+      <workItem from="1603893665675" duration="2086000" />
+      <workItem from="1603896194989" duration="2487000" />
+      <workItem from="1603898867825" duration="311000" />
+      <workItem from="1603899781488" duration="1693000" />
+      <workItem from="1603964887284" duration="1966000" />
+      <workItem from="1603975983377" duration="5287000" />
+      <workItem from="1604053596380" duration="2906000" />
+      <workItem from="1604058068965" duration="947000" />
+      <workItem from="1604391625363" duration="3047000" />
+      <workItem from="1604402664089" duration="726000" />
+      <workItem from="1604411013014" duration="11243000" />
+      <workItem from="1604476411434" duration="11983000" />
+      <workItem from="1604508528576" duration="6112000" />
+      <workItem from="1604561898121" duration="16000" />
+      <workItem from="1604566249929" duration="6040000" />
+      <workItem from="1604822327194" duration="2739000" />
+      <workItem from="1605076924489" duration="10114000" />
+      <workItem from="1605090474220" duration="4198000" />
+      <workItem from="1605107795624" duration="3722000" />
+      <workItem from="1605111975894" duration="2274000" />
+      <workItem from="1605167165829" duration="3791000" />
+      <workItem from="1605172655057" duration="1882000" />
+      <workItem from="1605196931883" duration="2264000" />
+      <workItem from="1605199533319" duration="3451000" />
+      <workItem from="1605340563843" duration="7276000" />
+      <workItem from="1605348806169" duration="704000" />
+      <workItem from="1605439798606" duration="20000" />
+      <workItem from="1605509982044" duration="14554000" />
+      <workItem from="1605560081872" duration="3344000" />
+      <workItem from="1605603855980" duration="9475000" />
+      <workItem from="1605773954000" duration="4982000" />
+      <workItem from="1605779285716" duration="9764000" />
+      <workItem from="1606027825726" duration="5744000" />
+      <workItem from="1606034466527" duration="16728000" />
+      <workItem from="1606055833298" duration="1548000" />
+      <workItem from="1606113862499" duration="5225000" />
+      <workItem from="1606129998286" duration="6501000" />
+      <workItem from="1606208699397" duration="7211000" />
+      <workItem from="1606292015691" duration="16947000" />
+      <workItem from="1606312750296" duration="627000" />
+      <workItem from="1606375094209" duration="15588000" />
+      <workItem from="1606637892636" duration="15589000" />
+      <workItem from="1606718941408" duration="18248000" />
+      <workItem from="1606763764408" duration="4196000" />
+      <workItem from="1606849847020" duration="1247000" />
+      <workItem from="1606901401459" duration="14267000" />
+      <workItem from="1606991591512" duration="1373000" />
+      <workItem from="1607325089367" duration="20306000" />
+      <workItem from="1607373399794" duration="588000" />
+      <workItem from="1607421597969" duration="9154000" />
+      <workItem from="1607450158018" duration="4652000" />
+      <workItem from="1607496821719" duration="6249000" />
+      <workItem from="1607517286793" duration="2071000" />
+      <workItem from="1607520169148" duration="4226000" />
+      <workItem from="1607526884040" duration="808000" />
+      <workItem from="1607583063486" duration="2215000" />
+      <workItem from="1607585726001" duration="8838000" />
+      <workItem from="1607596462447" duration="383000" />
+      <workItem from="1607598564640" duration="1105000" />
+      <workItem from="1607599992817" duration="2343000" />
+      <workItem from="1607606806141" duration="637000" />
+      <workItem from="1607844596350" duration="14065000" />
+      <workItem from="1607869894379" duration="2897000" />
+      <workItem from="1607927859310" duration="8166000" />
+      <workItem from="1607954352627" duration="1866000" />
+      <workItem from="1608013866956" duration="16634000" />
+      <workItem from="1608041318825" duration="281000" />
+      <workItem from="1608043068671" duration="575000" />
+      <workItem from="1608110479821" duration="1311000" />
+      <workItem from="1608113235105" duration="2860000" />
+      <workItem from="1608449139265" duration="7121000" />
+      <workItem from="1608467796629" duration="5534000" />
+      <workItem from="1608532583754" duration="6278000" />
+      <workItem from="1608550770882" duration="599000" />
+      <workItem from="1608570197970" duration="1892000" />
+      <workItem from="1608634079399" duration="190000" />
+      <workItem from="1608710139824" duration="5760000" />
+      <workItem from="1608723447010" duration="3668000" />
+      <workItem from="1608751743526" duration="1622000" />
+      <workItem from="1608810570270" duration="3785000" />
+      <workItem from="1609056354065" duration="40000" />
+      <workItem from="1609096615480" duration="4449000" />
+      <workItem from="1609137926795" duration="2377000" />
+      <workItem from="1609161733639" duration="225000" />
+      <workItem from="1609172033420" duration="2814000" />
+      <workItem from="1609242420930" duration="7138000" />
+      <workItem from="1609311897403" duration="3703000" />
+      <workItem from="1609321017659" duration="13028000" />
+      <workItem from="1609397955820" duration="16313000" />
+      <workItem from="1609420992012" duration="77000" />
+      <workItem from="1609425565311" duration="2116000" />
+      <workItem from="1609659746857" duration="106000" />
+      <workItem from="1609743777103" duration="1641000" />
+      <workItem from="1609747258044" duration="1540000" />
+      <workItem from="1609758713948" duration="3933000" />
+      <workItem from="1609830934123" duration="135000" />
+      <workItem from="1609842649536" duration="5871000" />
+      <workItem from="1609849625246" duration="22000" />
+      <workItem from="1609855599120" duration="2965000" />
+      <workItem from="1609918740849" duration="10226000" />
+      <workItem from="1609965101073" duration="6961000" />
+      <workItem from="1610004528870" duration="111000" />
+      <workItem from="1610011952198" duration="11146000" />
+      <workItem from="1610264787448" duration="394000" />
+      <workItem from="1610268870831" duration="662000" />
+      <workItem from="1610270007985" duration="311000" />
+      <workItem from="1610272318172" duration="5021000" />
+      <workItem from="1610282937282" duration="523000" />
+      <workItem from="1610358879297" duration="9176000" />
+      <workItem from="1610373802635" duration="2308000" />
+      <workItem from="1610437872676" duration="15466000" />
+      <workItem from="1610522959185" duration="2627000" />
+      <workItem from="1610526464217" duration="13058000" />
+      <workItem from="1610606702210" duration="9262000" />
+      <workItem from="1610654953360" duration="2142000" />
+      <workItem from="1610885224732" duration="2315000" />
+      <workItem from="1610912311887" duration="284000" />
+      <workItem from="1610963252664" duration="422000" />
+      <workItem from="1610965856573" duration="427000" />
+      <workItem from="1610970454463" duration="4129000" />
+      <workItem from="1610999816208" duration="17000" />
+      <workItem from="1611053888178" duration="933000" />
+      <workItem from="1611127353469" duration="1281000" />
+      <workItem from="1611213408437" duration="11412000" />
+      <workItem from="1611476940656" duration="14476000" />
+      <workItem from="1611561331034" duration="12029000" />
+      <workItem from="1611606733514" duration="598000" />
+      <workItem from="1611651408464" duration="5244000" />
+      <workItem from="1611689847833" duration="5889000" />
+      <workItem from="1611739799162" duration="1234000" />
+      <workItem from="1611742673450" duration="1330000" />
+      <workItem from="1611746948591" duration="2892000" />
+      <workItem from="1612080174742" duration="13894000" />
+      <workItem from="1612169365172" duration="16000" />
+      <workItem from="1612171712788" duration="3346000" />
+      <workItem from="1612252316252" duration="17426000" />
+      <workItem from="1612341726719" duration="10245000" />
+      <workItem from="1612359535848" duration="245000" />
+      <workItem from="1612363949285" duration="5095000" />
+      <workItem from="1612421864780" duration="5719000" />
+      <workItem from="1612436985225" duration="11440000" />
+      <workItem from="1612458445202" duration="82000" />
+      <workItem from="1612594922778" duration="1262000" />
+      <workItem from="1612596577148" duration="3356000" />
+      <workItem from="1612629359678" duration="1963000" />
+      <workItem from="1612631729837" duration="6824000" />
+      <workItem from="1612694522964" duration="7998000" />
+      <workItem from="1612730007985" duration="5879000" />
+      <workItem from="1612768697241" duration="5588000" />
+      <workItem from="1612775981402" duration="9317000" />
+      <workItem from="1612862093568" duration="410000" />
+      <workItem from="1612864543466" duration="7721000" />
+      <workItem from="1612943457737" duration="3688000" />
+      <workItem from="1613042222470" duration="3622000" />
+      <workItem from="1613197943145" duration="1853000" />
+      <workItem from="1613288747415" duration="1566000" />
+      <workItem from="1613294296577" duration="9111000" />
+      <workItem from="1613312275963" duration="744000" />
+      <workItem from="1613333200351" duration="1044000" />
+      <workItem from="1613399867910" duration="3775000" />
+      <workItem from="1613469041919" duration="3174000" />
+      <workItem from="1613473299519" duration="930000" />
+      <workItem from="1613479303694" duration="8856000" />
+      <workItem from="1613492684994" duration="1025000" />
+      <workItem from="1613493918236" duration="287000" />
+      <workItem from="1613505395960" duration="12000" />
+      <workItem from="1613505678715" duration="906000" />
+      <workItem from="1613553525026" duration="4290000" />
+      <workItem from="1613894309951" duration="14000" />
+      <workItem from="1613976207563" duration="18052000" />
+      <workItem from="1614007093413" duration="684000" />
+      <workItem from="1614008058024" duration="4672000" />
+      <workItem from="1614014296622" duration="1985000" />
+      <workItem from="1614060937860" duration="3085000" />
+      <workItem from="1614067875104" duration="9265000" />
+      <workItem from="1614093886540" duration="4729000" />
+      <workItem from="1614233198367" duration="404000" />
+      <workItem from="1614233636328" duration="282000" />
+      <workItem from="1614234025006" duration="18961000" />
+      <workItem from="1614284787516" duration="43000" />
+      <workItem from="1614593619253" duration="7429000" />
+      <workItem from="1614610536240" duration="18000" />
+      <workItem from="1614672425661" duration="1951000" />
+      <workItem from="1614802380590" duration="1118000" />
+      <workItem from="1614853340041" duration="1899000" />
+      <workItem from="1614860706975" duration="528000" />
+      <workItem from="1614870695352" duration="7282000" />
+      <workItem from="1615108730507" duration="13202000" />
+      <workItem from="1615218939950" duration="888000" />
+      <workItem from="1615223077793" duration="911000" />
+      <workItem from="1615280731794" duration="1078000" />
+      <workItem from="1615299674918" duration="3449000" />
+      <workItem from="1615375081440" duration="623000" />
+      <workItem from="1615376733325" duration="2876000" />
+      <workItem from="1615385570319" duration="545000" />
+      <workItem from="1615466805532" duration="618000" />
+      <workItem from="1615706491246" duration="47000" />
+      <workItem from="1615730070402" duration="12948000" />
+      <workItem from="1615787675512" duration="32471000" />
+      <workItem from="1615883284444" duration="9080000" />
+      <workItem from="1615902822250" duration="2763000" />
+      <workItem from="1615970084950" duration="5751000" />
+      <workItem from="1616048133649" duration="4667000" />
+      <workItem from="1616058252774" duration="7652000" />
+      <workItem from="1616066378840" duration="8420000" />
+      <workItem from="1616096662998" duration="76000" />
+      <workItem from="1616306877996" duration="47000" />
+      <workItem from="1616325180729" duration="8573000" />
+      <workItem from="1616337058522" duration="1862000" />
+      <workItem from="1616347109267" duration="2892000" />
+      <workItem from="1616409574043" duration="1366000" />
+      <workItem from="1616415643579" duration="444000" />
+      <workItem from="1616425058197" duration="3113000" />
+      <workItem from="1616489478846" duration="10838000" />
+      <workItem from="1616580487295" duration="6049000" />
+      <workItem from="1616602271651" duration="711000" />
+      <workItem from="1616651853281" duration="7898000" />
+      <workItem from="1616666775692" duration="209000" />
+      <workItem from="1617004733456" duration="5417000" />
+      <workItem from="1617138015595" duration="1012000" />
+      <workItem from="1617178797310" duration="1794000" />
+      <workItem from="1617180767682" duration="144000" />
+      <workItem from="1617182002723" duration="1191000" />
+      <workItem from="1617184021504" duration="25620000" />
+      <workItem from="1617527966422" duration="9395000" />
+      <workItem from="1617542442186" duration="1779000" />
+      <workItem from="1617613654719" duration="189000" />
+      <workItem from="1617619585713" duration="419000" />
+      <workItem from="1617622801693" duration="3099000" />
+      <workItem from="1618046673941" duration="1858000" />
+      <workItem from="1618128501055" duration="1506000" />
+      <workItem from="1618215836809" duration="4968000" />
+      <workItem from="1618304555986" duration="11439000" />
+      <workItem from="1618409286750" duration="1801000" />
+      <workItem from="1618491693766" duration="3775000" />
+      <workItem from="1618739238197" duration="7738000" />
+      <workItem from="1618827305282" duration="3287000" />
+      <workItem from="1618940560760" duration="71000" />
+      <workItem from="1619002429245" duration="2147000" />
+      <workItem from="1619084456205" duration="2389000" />
+      <workItem from="1619306042358" duration="238000" />
+      <workItem from="1619308367300" duration="599000" />
+      <workItem from="1619343037907" duration="649000" />
+      <workItem from="1619388493353" duration="12000" />
+      <workItem from="1619389318377" duration="5420000" />
+      <workItem from="1619431245822" duration="599000" />
+      <workItem from="1619479166802" duration="1322000" />
+      <workItem from="1619483364809" duration="2479000" />
+      <workItem from="1619569133221" duration="654000" />
+      <workItem from="1619570125087" duration="2419000" />
+      <workItem from="1619612649198" duration="9276000" />
+      <workItem from="1619655743440" duration="2565000" />
+      <workItem from="1619703744697" duration="166000" />
+      <workItem from="1619968745910" duration="4338000" />
+      <workItem from="1620049476280" duration="2129000" />
+      <workItem from="1620559470353" duration="1637000" />
+      <workItem from="1620739843976" duration="207000" />
+      <workItem from="1621153360365" duration="13787000" />
+      <workItem from="1621242138709" duration="66000" />
+      <workItem from="1621243400290" duration="2552000" />
+      <workItem from="1621248546850" duration="3126000" />
+      <workItem from="1621327800071" duration="601000" />
+      <workItem from="1621342338500" duration="894000" />
+      <workItem from="1621506116280" duration="46000" />
+      <workItem from="1625221784578" duration="1291000" />
+      <workItem from="1625387145845" duration="567000" />
+      <workItem from="1625393514718" duration="200000" />
+      <workItem from="1625400737610" duration="287000" />
+      <workItem from="1625401991770" duration="315000" />
+      <workItem from="1625402401711" duration="8000" />
+      <workItem from="1625651644547" duration="310000" />
+      <workItem from="1625652510404" duration="667000" />
+      <workItem from="1625656233759" duration="161000" />
+      <workItem from="1630496766106" duration="1260000" />
+      <workItem from="1630567753791" duration="568000" />
+      <workItem from="1630570106432" duration="243000" />
+      <workItem from="1630573621712" duration="87000" />
+      <workItem from="1630574148975" duration="613000" />
+      <workItem from="1630580015355" duration="31000" />
+      <workItem from="1631202562493" duration="298000" />
+      <workItem from="1631434486153" duration="997000" />
+      <workItem from="1631435710284" duration="21000" />
+      <workItem from="1631478456831" duration="28000" />
+      <workItem from="1631478489349" duration="2408000" />
+      <workItem from="1631521792589" duration="770000" />
+      <workItem from="1631522729949" duration="18000" />
+      <workItem from="1631534316988" duration="680000" />
+      <workItem from="1631784733942" duration="614000" />
+      <workItem from="1632214555745" duration="60000" />
+      <workItem from="1633359039476" duration="176000" />
+      <workItem from="1633359818243" duration="309000" />
+      <workItem from="1634028446790" duration="2212000" />
+      <workItem from="1634030756580" duration="13000" />
+      <workItem from="1634031551527" duration="1229000" />
+      <workItem from="1634113065472" duration="1869000" />
+      <workItem from="1634466818502" duration="105000" />
+      <workItem from="1634806882255" duration="382000" />
+      <workItem from="1637484786671" duration="721000" />
+      <workItem from="1637490375249" duration="28000" />
+      <workItem from="1637576690115" duration="2263000" />
+      <workItem from="1638200457525" duration="1378000" />
+      <workItem from="1638254155439" duration="1065000" />
+      <workItem from="1640456561811" duration="654000" />
+      <workItem from="1640505641769" duration="769000" />
+      <workItem from="1641029746102" duration="390000" />
+      <workItem from="1645084997051" duration="1270000" />
+      <workItem from="1645339501063" duration="5278000" />
+      <workItem from="1645346382118" duration="8667000" />
+      <workItem from="1645431268599" duration="2784000" />
+      <workItem from="1645441003026" duration="67000" />
+      <workItem from="1645456240313" duration="1281000" />
+      <workItem from="1646925962871" duration="78000" />
+      <workItem from="1647270188349" duration="599000" />
+      <workItem from="1647326805759" duration="611000" />
+      <workItem from="1650153183899" duration="1545000" />
+      <workItem from="1650218515983" duration="849000" />
+      <workItem from="1652025239516" duration="403000" />
+      <workItem from="1653559822321" duration="1540000" />
+      <workItem from="1654964264874" duration="382000" />
+      <workItem from="1660129408275" duration="1108000" />
+      <workItem from="1663571524709" duration="1488000" />
+      <workItem from="1663582490708" duration="4204000" />
+      <workItem from="1663662677785" duration="5527000" />
+      <workItem from="1663702628671" duration="643000" />
+      <workItem from="1663742027895" duration="94000" />
+      <workItem from="1663742147465" duration="720000" />
+      <workItem from="1663757043308" duration="580000" />
+      <workItem from="1663764748601" duration="5201000" />
+      <workItem from="1663772284096" duration="1717000" />
+      <workItem from="1663775741115" duration="110000" />
+      <workItem from="1663780377078" duration="1932000" />
+      <workItem from="1663836087930" duration="588000" />
+      <workItem from="1663837880780" duration="59000" />
+      <workItem from="1664018187137" duration="712000" />
+      <workItem from="1664051521633" duration="17000" />
+      <workItem from="1664086837635" duration="9936000" />
+      <workItem from="1664269497087" duration="11251000" />
+      <workItem from="1664351081148" duration="6588000" />
+      <workItem from="1664432683307" duration="3865000" />
+      <workItem from="1664706729658" duration="412000" />
+      <workItem from="1664871540647" duration="10609000" />
+      <workItem from="1664949888250" duration="1290000" />
+      <workItem from="1664972045350" duration="2661000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="324" y="285" width="775" height="222" key="#Stylelint" timestamp="1600591434605">
+    <state x="380" y="175" key="run.anything.popup" timestamp="1613993376749">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="324" y="285" width="775" height="222" key="#Stylelint/67.27.1299.741@67.27.1299.741" timestamp="1600591434605" />
-    <state width="1276" height="537" key="GridCell.Tab.0.bottom" timestamp="1600632811804">
+    <state x="380" y="175" key="run.anything.popup/67.27.1299.741@67.27.1299.741" timestamp="1613993376749" />
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1621244786190">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1276" height="537" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1600632811804" />
-    <state width="1276" height="537" key="GridCell.Tab.0.center" timestamp="1600632811803">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state width="1276" height="537" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1600632811803" />
-    <state width="1276" height="537" key="GridCell.Tab.0.left" timestamp="1600632811803">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state width="1276" height="537" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1600632811803" />
-    <state width="1276" height="537" key="GridCell.Tab.0.right" timestamp="1600632811804">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state width="1276" height="537" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1600632811804" />
-    <state width="574" height="446" key="SwitcherDM" timestamp="1602056929854">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state width="574" height="446" key="SwitcherDM/67.27.1299.741@67.27.1299.741" timestamp="1602056929854" />
-    <state x="225" y="27" width="618" height="741" key="find.popup" timestamp="1600507776658">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state x="225" y="27" width="618" height="741" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1600507776658" />
-    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601562321731">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1601562321731" />
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1621244786190" />
   </component>
 </project>

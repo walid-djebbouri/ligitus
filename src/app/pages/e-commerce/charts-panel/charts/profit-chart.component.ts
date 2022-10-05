@@ -110,10 +110,10 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
       ],
       series: [
         {
-          name: this.profitChartData.legend[0], // 'Canceled',
+          name: this.profitChartData.legend[0],
           type: 'bar',
           barGap: 0,
-          barWidth: '20%',
+          barWidth: '15%',
           itemStyle: {
             normal: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -130,7 +130,7 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
         {
           name: this.profitChartData.legend[1], // 'Payment',
           type: 'bar',
-          barWidth: '20%',
+          barWidth: '15%',
           itemStyle: {
             normal: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -147,7 +147,7 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
         {
           name: this.profitChartData.legend[2], // 'All orders',
           type: 'bar',
-          barWidth: '20%',
+          barWidth: '15%',
           itemStyle: {
             normal: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{

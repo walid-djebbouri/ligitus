@@ -23,16 +23,19 @@ export class ECommerceChartsPanelComponent implements OnInit, OnDestroy {
   private alive = true;
 
   chartPanelSummary: ChartSummary[];
-  period: string = 'week';
+  period: string = 'month';
   ordersChartData: ChartData;
   profitChartData: ChartData;
+  selectedTab: string;
 
   @ViewChild('ordersHeader', { static: true }) ordersHeader: ChartPanelHeaderComponent;
   @ViewChild('profitHeader', { static: true }) profitHeader: ChartPanelHeaderComponent;
   @ViewChild('ordersChart', { static: true }) ordersChart: OrdersChartComponent;
   @ViewChild('profitChart', { static: true }) profitChart: ProfitChartComponent;
 
-  constructor(private ordersProfitChartService: OrdersProfitChartData) { }
+  constructor(private ordersProfitChartService: OrdersProfitChartData) {
+    // console.log('constructor');
+  }
 
   ngOnInit(): void {
     this.ordersProfitChartService.getOrderProfitChartSummary()
@@ -55,6 +58,7 @@ export class ECommerceChartsPanelComponent implements OnInit, OnDestroy {
   }
 
   changeTab(selectedTab) {
+    this.selectedTab = selectedTab.tabTitle ;
     if (selectedTab.tabTitle === 'Profit') {
       this.profitChart && this.profitChart.resizeChart();
     } else {
@@ -67,7 +71,7 @@ export class ECommerceChartsPanelComponent implements OnInit, OnDestroy {
       .pipe(takeWhile(() => this.alive))
       .subscribe(ordersChartData => {
         this.ordersChartData = ordersChartData;
-        this.ordersHeader.legend = ordersChartData.legend;
+     //   this.ordersHeader.legend = ordersChartData.legend;
         this.ordersHeader.init();
       });
   }
@@ -77,7 +81,7 @@ export class ECommerceChartsPanelComponent implements OnInit, OnDestroy {
       .pipe(takeWhile(() => this.alive))
       .subscribe(profitChartData => {
         this.profitChartData = profitChartData;
-        this.profitHeader.legend = profitChartData.legend;
+       // this.profitHeader.legend = profitChartData.legend;
         this.profitHeader.init();
       });
   }

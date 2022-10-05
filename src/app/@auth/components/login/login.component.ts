@@ -20,6 +20,7 @@ import { InitUserService } from '../../../@theme/services/init-user.service';
 @Component({
   selector: 'ngx-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
@@ -41,6 +42,8 @@ export class NgxLoginComponent implements OnInit {
   submitted: boolean = false;
   loginForm: FormGroup;
   alive: boolean = true;
+  hidden: boolean = true ;
+  theme: string ;
 
   get email() { return this.loginForm.get('email'); }
   get password() { return this.loginForm.get('password'); }
@@ -51,7 +54,10 @@ export class NgxLoginComponent implements OnInit {
     protected themeService: NbThemeService,
     private fb: FormBuilder,
     protected router: Router,
-    protected initUserService: InitUserService) { }
+    protected initUserService: InitUserService ,
+              protected themService: NbThemeService) {
+     this.theme = this.themeService.currentTheme;
+  }
 
   ngOnInit(): void {
     const emailValidators = [
@@ -71,6 +77,15 @@ export class NgxLoginComponent implements OnInit {
       rememberMe: this.fb.control(false),
     });
   }
+  change_input(): void {
+    this.hidden = !this.hidden;
+    if (this.hidden === true) {
+      (<HTMLInputElement>document.getElementById('input-password')).type = 'password' ;
+    } else {
+      (<HTMLInputElement>document.getElementById('input-password')).type = 'text' ;
+
+    }
+  }
 
   login(): void {
     this.user = this.loginForm.value;
@@ -79,10 +94,9 @@ export class NgxLoginComponent implements OnInit {
     this.submitted = true;
     this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
-
       if (result.isSuccess()) {
         this.messages = result.getMessages();
-        this.initUserService.initCurrentUser().subscribe();
+       this.initUserService.initCurrentUser().subscribe();
       } else {
         this.errors = result.getErrors();
       }
@@ -94,7 +108,9 @@ export class NgxLoginComponent implements OnInit {
         }, this.redirectDelay);
       }
       this.cd.detectChanges();
-    });
+    } ,
+        (error) => {} ,
+        () => {});
   }
 
   getConfigValue(key: string): any {

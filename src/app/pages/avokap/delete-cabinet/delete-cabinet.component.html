@@ -1,0 +1,24 @@
+<nb-card>
+    <nb-card-header>
+        Delete Cabinet
+    </nb-card-header>
+    <nb-card-body>
+        <div class="form-row form-group" >
+            <label class="col-6" >Cabinet Reference </label>
+            <input class="col-6 form-control" nbInput type="text" value="{{Cabinet_Ref}}" readonly >
+        </div>
+        <div class="form-row form-group" >
+            <label class="col-6" >Commercial Name</label>
+            <input class="col-6 form-control" nbInput type="text" value="{{Commercial_nme}}" readonly >
+        </div>
+        <div class="form-row form-group" >
+            <label class="col-6" >Legal Name</label>
+            <input class="col-6 form-control" nbInput type="text" value="{{Legal_Name}}" readonly >
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button  class="float-leftt" nbButton hero status="danger" (click)="delete_cabinet()" >Delete</button>
+        <button  class="float-right" nbButton hero status="primary" (click)="cancel()" >Cancel</button>
+
+    </nb-card-footer>
+</nb-card>

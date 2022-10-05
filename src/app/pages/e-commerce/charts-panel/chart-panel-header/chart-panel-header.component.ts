@@ -20,11 +20,12 @@ export class ChartPanelHeaderComponent implements OnDestroy {
 
   @Output() periodChange = new EventEmitter<string>();
 
-  @Input() type: string = 'week';
-  @Input() legend: string[] = ['', '', ''];
+  @Input() type: string = 'month';
+  @Input() selectedTab: string;
 
-  types: string[] = ['week', 'month', 'year'];
-  chartLegend: {iconColor: string; title: string}[];
+  types: string[] = ['month', 'year'];
+  chartLegendBundles: {iconColor: string; title: string}[];
+  chartLegendMemberships: {iconColor: string; title: string}[];
   breakpoint: NbMediaBreakpoint = { name: '', width: 0 };
   breakpoints: any;
   currentTheme: string;
@@ -41,7 +42,9 @@ export class ChartPanelHeaderComponent implements OnDestroy {
         const orderProfitLegend = theme.variables.orderProfitLegend;
 
         this.currentTheme = theme.name;
-        this.setLegendItems(orderProfitLegend);
+        this.setLegendItemsBundle(orderProfitLegend);
+        this.setLegendItemsMembership(orderProfitLegend);
+
       });
 
     this.breakpoints = this.breakpointService.getBreakpointsMap();
@@ -52,19 +55,43 @@ export class ChartPanelHeaderComponent implements OnDestroy {
       });
   }
 
-  setLegendItems(orderProfitLegend) {
-    this.chartLegend = [
+  setLegendItemsBundle(orderProfitLegend) {
+    this.chartLegendBundles = [
       {
         iconColor: orderProfitLegend.firstItem,
-        title: this.legend[0],
+        title: 'AVOKAP PREMIUM',
       },
       {
         iconColor: orderProfitLegend.secondItem,
-        title: this.legend[1],
+        title: 'AVOKAP CLASSIC',
       },
       {
         iconColor: orderProfitLegend.thirdItem,
-        title: this.legend[2],
+        title: 'AVOKAP BASIC',
+      },
+    ];
+  }
+  setLegendItemsMembership(orderProfitLegend) {
+    this.chartLegendMemberships = [
+      {
+        iconColor: '#61FF33',
+        title: 'New ',
+      },
+      {
+        iconColor: orderProfitLegend.secondItem,
+        title: 'Renewal',
+      },
+      {
+        iconColor: '#f85aaa',
+        title: 'Upgrade',
+      },
+      {
+        iconColor: '#002193',
+        title: 'Downgrade',
+      },
+      {
+        iconColor: '#876521',
+        title: 'Drop-offs',
       },
     ];
   }

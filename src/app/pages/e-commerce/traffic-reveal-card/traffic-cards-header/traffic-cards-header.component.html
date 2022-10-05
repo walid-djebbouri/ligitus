@@ -5,7 +5,10 @@
   -->
 
 <nb-card-header>
-  <span>Traffic</span>
+  <span>Averge User Activity </span>
+  <nb-select   class="col-3" [(selected)]="state" (selectedChange)="changeState($event)">
+    <nb-option  *ngFor="let state of states" [value]="state">{{state}}</nb-option>
+  </nb-select>
   <nb-select [selected]="type" (selectedChange)="changePeriod($event)">
     <nb-option *ngFor="let period of types" [value]="period">{{ period }}</nb-option>
   </nb-select>

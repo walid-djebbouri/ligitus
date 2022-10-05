@@ -143,14 +143,58 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
         },
       },
       series: [
-        this.getLinePayment(eTheme),
-        this.getLineCancelled(eTheme),
-        this.getLineAll(eTheme),
+        this.membershipNew(eTheme),
+        this.membershipRenewal(eTheme),
+        this.membershipUpgrade(eTheme),
+        this.membershipDowngrade(eTheme),
+        this.membershipDropoff(eTheme),
       ],
     };
   }
-
-  getLineAll(eTheme) {
+  membershipNew(eTheme) {
+    return {
+      type: 'line',
+      smooth: true,
+      symbolSize: 20,
+      itemStyle: {
+        normal: {
+          opacity: 0,
+        },
+        emphasis: {
+          color: '#ffffff',
+          borderColor: eTheme.itemBorderColor,
+          borderWidth: 2,
+          opacity: 1,
+        },
+      },
+      lineStyle: {
+        normal: {
+          width: eTheme.lineWidth,
+          type: eTheme.lineStyle,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: '#61FF33',
+          }, {
+            offset: 1,
+            color: '#61FF33',
+          }]),
+        },
+      },
+      areaStyle: {
+        normal: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: 'rgba(97, 255, 51 , 0.3)',
+          }, {
+            offset: 1,
+            color:  'rgba(97, 255, 51 , 0.3)',
+          }]),
+        },
+      },
+      data: [],
+    };
+  }
+  membershipRenewal(eTheme) {
     return {
       type: 'line',
       smooth: true,
@@ -165,17 +209,25 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
       },
       lineStyle: {
         normal: {
-          width: 0,
+          width: eTheme.lineWidth,
+          type: eTheme.lineStyle,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: eTheme.secondAreaGradFrom,
+          }, {
+            offset: 1,
+            color: eTheme.secondAreaGradTo,
+          }]),
         },
       },
       areaStyle: {
         normal: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
             offset: 0,
-            color: eTheme.firstAreaGradFrom,
+            color: eTheme.secondAreaGradFrom,
           }, {
             offset: 1,
-            color: eTheme.firstAreaGradTo,
+            color: eTheme.secondAreaGradTo,
           }]),
           opacity: 1,
         },
@@ -183,8 +235,50 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
       data: [],
     };
   }
-
-  getLinePayment(eTheme) {
+  membershipUpgrade(eTheme) {
+    return {
+      type: 'line',
+      smooth: true,
+      symbolSize: 20,
+      itemStyle: {
+        normal: {
+          opacity: 0,
+        },
+        emphasis: {
+          color: '#ffffff',
+          borderColor: eTheme.itemBorderColor,
+          borderWidth: 2,
+          opacity: 1,
+        },
+      },
+      lineStyle: {
+        normal: {
+          width: eTheme.lineWidth,
+          type: eTheme.lineStyle,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: '#f85aaa',
+          }, {
+            offset: 1,
+            color: '#f85aaa',
+          }]),
+        },
+      },
+      areaStyle: {
+        normal: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: 'rgb(248, 90, 170, 0.3)',
+          }, {
+            offset: 1,
+            color:  'rgb(248, 90, 170, 0.3)',
+          }]),
+        },
+      },
+      data: [],
+    };
+  }
+  membershipDropoff(eTheme) {
     return         {
       type: 'line',
       smooth: true,
@@ -206,10 +300,10 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
           type: eTheme.lineStyle,
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
             offset: 0,
-            color: eTheme.secondLineGradFrom,
+            color: '#876521',
           }, {
             offset: 1,
-            color: eTheme.secondLineGradTo,
+            color: '#876521',
           }]),
         },
       },
@@ -217,19 +311,18 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
         normal: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
             offset: 0,
-            color: eTheme.secondAreaGradFrom,
+            color: 'rgb(135, 101, 33 , 0.3)',
           }, {
             offset: 1,
-            color: eTheme.secondAreaGradTo,
+            color: 'rgb(135, 101, 33 , 0.3)',
           }]),
         },
       },
       data: [],
     };
   }
-
-  getLineCancelled(eTheme) {
-    return {
+  membershipDowngrade(eTheme) {
+    return         {
       type: 'line',
       smooth: true,
       symbolSize: 20,
@@ -250,10 +343,10 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
           type: eTheme.lineStyle,
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
             offset: 0,
-            color: eTheme.thirdLineGradFrom,
+            color: '#002193',
           }, {
             offset: 1,
-            color: eTheme.thirdLineGradTo,
+            color: '#002193',
           }]),
         },
       },
@@ -261,16 +354,18 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
         normal: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
             offset: 0,
-            color: eTheme.thirdAreaGradFrom,
+            color: 'rgb(0, 33, 147 , 0.3)' ,  // eTheme.secondAreaGradFrom,
           }, {
             offset: 1,
-            color: eTheme.thirdAreaGradTo,
+            color:  'rgb(0, 33, 147 , 0.3)' , // eTheme.secondAreaGradTo,
           }]),
         },
       },
       data: [],
     };
   }
+
+
 
   updateOrdersChartOptions(ordersChartData: ChartData) {
     const options = this.option;

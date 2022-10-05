@@ -1,174 +1,211 @@
 <nb-card class=" m-auto" >
-    <nb-card-header>Lawyer Profile (details)</nb-card-header>
+    <nb-card-header>
+         <span id="lawyer_details" > <a id="cabinet" routerLink="/pages/avokap/cabinet-details/{{id_cabinet}}">Cabinet</a> / Lawyer Profile (details)</span>
+        <i class="nb-arrow-dropleft float-left " routerLink="/pages/avokap/cabinet-details/{{id_cabinet}}"></i>
+        <button class="ml-5" nbButton status="success" (click)="change_cabinet()" >Change Cabinet</button>
+        <button class="float-right" nbButton hero status="primary"  routerLink="/pages/avokap/membership-status/{{id_lawyer}}" >MemberShip</button>
+        <button class="float-right mr-5" nbButton hero status="primary"  (click)="update_lawyer()" >UpDate lawyer</button>
+
+    </nb-card-header>
     <nb-card-body  class="m-3" >
         <div class="row">
             <div class="col-md-12 ">
-                <form class="zimahek" >
-
-                    <div class="form-group row">
-                        <label for="cabinet_ref" class="label col-sm-6 col-form-label">cabinet ref :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="cabinet_ref" value="" disabled  >
-                        </div>
+                <form  >
+                    <div class="form-group" >
+                        <label>Cabinet : {{commercial_name}} , {{legal_name}} , {{cabinet_ref}} </label>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="legal_name" class="label col-6 col-form-label">Legal Name :</label>
-                        <div class="col-6">
-                            <input  type="text" nbInput fullWidth id="legal_name" value="" disabled  >
-                        </div>
-                    </div>
+                    <div class="accordion-container w-100 mb-5 " >
+                        <nb-accordion multi>
+                            <nb-accordion-item  >
+                                <nb-accordion-item-header>
+                                    <h5>Cabinet Role </h5>
+                                </nb-accordion-item-header>
+                                <nb-accordion-item-body   *ngFor="let crh of  role_cabinet_hist " >
+                                    <div *ngIf="crh.role">
+                                        <div class="form-row walid" >
+                                            <div class="form-group col-2">
+                                                <label>Role Cabinet </label>
+                                                <input id="cabinet_role" type="text" nbInput class="form-control p-2"  value="{{crh.role}}" readonly>
+                                            </div>
 
-                    <div class="form-group row">
-                        <label for="commercial_name" class="label col-sm-6 col-form-label">Commercial Name :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="commercial_name" value="" disabled  >
-                        </div>
-                    </div>
+                                            <div class="form-group col-2">
+                                                <label >Cabinet Ref</label>
+                                                <input id="cabinet_ref" type="text" nbInput class="form-control p-2 "  value="{{crh.cabinet_ref}}" readonly >
+                                            </div>
 
+                                            <div class="form-group col-2">
+                                                <label >From Cabinet</label>
+                                                <input id="from_cabinet_ref" type="text" nbInput class="form-control p-2" value="{{crh.from_cab_ref}}" readonly  >
+                                            </div>
 
-                    <div class="form-group row">
-                        <label for="project_ref" class="label col-sm-6 col-form-label">Project Reference:</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="project_ref"  disabled  >
-                        </div>
-                    </div>
+                                            <div class="form-group col-2">
+                                                <label >Date</label>
+                                                <input type="text" nbInput class="form-control" value="{{crh.role_date | date: 'dd/MM/y' }}" readonly >
+                                            </div>
 
+                                            <div class="form-group col-4">
+                                                <label >Remark</label>
+                                                <input type="text" nbInput class="form-control" value="{{crh.remark}}" readonly  >
+                                            </div>
 
-                    <div class="form-group row">
-                        <label for="email" class="label col-sm-6 col-form-label">Email :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="email" value="" disabled  >
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label for="password" class="label col-sm-6 col-form-label">Password :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="password"  disabled  >
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label for="first_name" class="label col-sm-6 col-form-label">First Name :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="first_name"  disabled  >
-                        </div>
+                                        </div>
+                                    </div>
+                                </nb-accordion-item-body>
+                            </nb-accordion-item>
+                        </nb-accordion>
                     </div>
 
 
+                <div  class="w-75 m-auto" >
+
                     <div class="form-group row">
-                        <label for="last_name" class="label col-sm-6 col-form-label">Last Name :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="last_name"  disabled  >
+                        <label for="email" class="col-sm-3 col-form-label">Email :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="email" value="{{email}}" readonly  >
                         </div>
                     </div>
 
 
+
                     <div class="form-group row">
-                        <label for="first_name_local" class="label col-sm-6 col-form-label">First Name Local :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="first_name_local"  disabled  >
+                        <label for="first_name" class="col-sm-3 col-form-label">First Name :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="first_name" value="{{first_name  | titlecase}}" readonly  >
                         </div>
                     </div>
 
 
                     <div class="form-group row">
-                        <label for="last_name_local" class="label col-sm-6 col-form-label">Last Name Local :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="last_name_local"  disabled  >
+                        <label for="last_name" class="col-sm-3 col-form-label">Last Name :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="last_name" value="{{last_name | titlecase}}"  readonly  >
                         </div>
                     </div>
 
-                    <!-- Tableaux Des Roles -->
 
                     <div class="form-group row">
-                        <label for="roles" class="label col-sm-6 col-form-label">Roles :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="roles"  disabled  >
+                        <label for="first_name_local" class="col-sm-3 col-form-label">First Name Local :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="first_name_local" value="{{first_name_local}}" readonly  >
                         </div>
                     </div>
+
+
+                    <div class="form-group row">
+                        <label for="last_name_local" class="col-sm-3 col-form-label">Last Name Local :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="last_name_local" value="{{last_name_local}}" readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="avokap_ref" class="col-sm-3 col-form-label">Avokap Refrence :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="avokap_ref" value="{{avokap_ref}}" readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="short_desc" class="col-sm-3 col-form-label">Short Description :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="short_desc" value="{{short_desc}}" readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="long_desc" class="col-sm-3 col-form-label">Long Description :</label>
+                        <div class="col-sm-9">
+                            <textarea  type="text" nbInput fullWidth id="long_desc" value="{{long_desc}}" readonly  > </textarea>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group row">
+                        <label for="address" class="col-sm-3 col-form-label">Address :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="address" value="{{address}}" readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="mobile" class="col-sm-3 col-form-label">Mobile :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="mobile" value="{{mobile}}" readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="phone" class="col-sm-3 col-form-label">Phone :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="phone" value="{{phone}}" readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="license_num" class="col-sm-3 col-form-label">License Num :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="license_num" value="{{license_num}}" readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="license_end_date" class="col-sm-3 col-form-label">License End Date :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="license_end_date" value="{{license_end_date | date: 'dd/MM/y'}}" readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="avg_rating" class="col-sm-3 col-form-label">Average Rating :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth id="avg_rating" value="{{avg_rating}}" readonly  >
+                        </div>
+                    </div>
+
+                   <div *ngIf="userStatus" class="form-group row">
+                        <label class="col-sm-3 col-form-label">User Status :</label>
+                        <div class="col-sm-9">
+                            <input  type="text" nbInput fullWidth  value="{{userStatus}}" readonly  >
+                        </div>
+                    </div>
+
 
                     <!-- -->
-                    <div  >
+                    <div>
                         <div class="form-group row">
-                            <label for="join_date" class="label col-sm-6 col-form-label">Join Date :</label>
-                            <div class="col-sm-6">
-                                <input  type="text" nbInput fullWidth id="join_date"  disabled  >
+                            <label for="join_date" class="col-sm-3 col-form-label">Join Date :</label>
+                            <div class="col-sm-9">
+                                <input  type="text" nbInput fullWidth id="join_date" value="{{join_date | date: 'dd/MM/y'}}" readonly  >
                             </div>
                         </div>
                     </div>
 
-                    <!-- -->
+                </div>    <!-- -->
 
-                    <div class="form-group row">
-                        <label for="avokap_ref" class="label col-sm-6 col-form-label">Avokap Refrence :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="avokap_ref"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="address" class="label col-sm-6 col-form-label">Address :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="address"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="mobile" class="label col-sm-6 col-form-label">Mobile :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="mobile"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="phone" class="label col-sm-6 col-form-label">Phone :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="phone"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="license_num" class="label col-sm-6 col-form-label">License Num :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="license_num"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="license_end_date" class="label col-sm-6 col-form-label">License End Date :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="license_end_date"  disabled  >
-                        </div>
-                    </div>
-
-                    <!-- -->
-
-                    <div class="accordion-container w-100">
+                    <div class="accordion-container w-100 mb-5 ">
                         <nb-accordion multi>
                             <nb-accordion-item >
                                 <nb-accordion-item-header>
-                                    <h5>Cabinet Predilection Domains</h5>
+                                    <h5>Predilection Domains</h5>
                                 </nb-accordion-item-header>
-                                <nb-accordion-item-body>
-                                    <div  class="mt-3" >
+                                <nb-accordion-item-body *ngFor="let cpd of predilection_domains " >
+                                    <div    *ngIf="cpd.law_cat" >
                                         <div class="form-row" >
                                             <div class="form-group col-4">
                                                 <label for="law_cat">Law Cat</label>
-                                                <input type="text" class="form-control" id="law_cat"  disabled >
+                                                <input type="text" nbInput class="form-control" id="law_cat" value="{{cpd.law_cat}}"  readonly >
                                             </div>
 
                                             <div class="form-group col-4">
                                                 <label for="jur_domain">jur domain</label>
-                                                <input type="text" class="form-control" id="jur_domain"  disabled>
+                                                <input type="text" nbInput class="form-control" id="jur_domain" value="{{cpd.jur_domain}}" readonly>
                                             </div>
 
                                             <div class="form-group col-4">
-                                                <label for="jointdate">Date</label>
-                                                <input type="text" class="form-control" id="jointdate" value="" disabled >
+                                                <label for="add_date">Date</label>
+                                                <input type="text" nbInput class="form-control" id="add_date" value="{{cpd.add_date }}" readonly >
                                             </div>
                                         </div>
                                     </div>
@@ -179,12 +216,12 @@
                     </div>
                     <!-- -->
 
-                    <div class="form-group row">
+               <!--     <div class="form-group row">
                         <label for="category" class="label col-sm-6 col-form-label">Category :</label>
                         <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="category"  disabled  >
+                            <input  type="text" nbInput fullWidth id="category" value="{{category}}" readonly  >
                         </div>
-                    </div>
+                    </div>-->
 
                     <!--  category historical -->
 
@@ -192,24 +229,24 @@
                         <nb-accordion multi>
                             <nb-accordion-item >
                                 <nb-accordion-item-header>
-                                    <h5>Category Historical</h5>
+                                    <h5>Category </h5>
                                 </nb-accordion-item-header>
-                                <nb-accordion-item-body>
-                                    <div  class="mt-3" >
-                                        <div class="form-row" >
+                                <nb-accordion-item-body *ngFor="let cat_h of category_hist" >
+                                    <div  *ngIf="cat_h.category" >
+                                        <div class="form-row w-100 " fullWidth >
                                             <div class="form-group col-4">
                                                 <label for="category_h">category</label>
-                                                <input type="text" class="form-control" id="category_h"  disabled >
+                                                <input type="text" nbInput class="form-control" id="category_h" value="{{cat_h.category}}" readonly >
                                             </div>
 
                                             <div class="form-group col-4">
                                                 <label for="cat_date">Category Date</label>
-                                                <input type="text" class="form-control" id="cat_date"  disabled>
+                                                <input type="text" nbInput class="form-control" id="cat_date"  value="{{cat_h.cat_date | date: 'dd/MM/y'}}" readonly>
                                             </div>
 
                                             <div class="form-group col-4">
                                                 <label for="remark">Remark</label>
-                                                <input type="text" class="form-control" id="remark" value="" disabled >
+                                                <input type="text" nbInput class="form-control" id="remark" value="{{cat_h.remark}}" readonly >
                                             </div>
                                         </div>
                                     </div>
@@ -218,50 +255,38 @@
 
                         </nb-accordion>
                     </div>
-                    <!-- -->
 
-                    <div class="form-group row">
-                        <label for="bar_name" class="label col-sm-6 col-form-label">Bar Name :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="bar_name"  disabled  >
-                        </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="bar_role" class="label col-sm-6 col-form-label">Bar Role :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="bar_role"  disabled  >
-                        </div>
-                    </div>
 
-                    <!-- -->
+
+                    <!-- Bar Role Historical -->
                     <div class="accordion-container w-100 mb-5">
                         <nb-accordion multi>
                             <nb-accordion-item >
                                 <nb-accordion-item-header>
-                                    <h5>Bar Role Historical</h5>
+                                    <h5>Bar Role </h5>
                                 </nb-accordion-item-header>
-                                <nb-accordion-item-body>
-                                    <div  class="mt-3" >
+                                <nb-accordion-item-body *ngFor=" let brh of bar_role_hist" >
+                                    <div  *ngIf="brh.bar_name" >
                                         <div class="form-row" >
                                             <div class="form-group col-3">
                                                 <label for="bar_nameh">Bar Name</label>
-                                                <input type="text" class="form-control" id="bar_nameh"  disabled >
+                                                <input type="text" nbInput class="form-control" id="bar_nameh" value="{{brh.bar_name}}" readonly >
                                             </div>
 
-                                            <div class="form-group col-3">
+                                            <div class="form-group col-2">
                                                 <label for="bar_roleh">Bar Role</label>
-                                                <input type="text" class="form-control" id="bar_roleh"  disabled>
+                                                <input type="text" nbInput class="form-control" id="bar_roleh" value="{{brh.bar_role}}" readonly>
                                             </div>
 
-                                            <div class="form-group col-3">
+                                            <div class="form-group col-2">
                                                 <label for="role_date">Role Date</label>
-                                                <input type="text" class="form-control" id="role_date" value="" disabled >
+                                                <input type="text" nbInput class="form-control" id="role_date" value="{{brh.role_date | date: 'dd/MM/y'}}" readonly >
                                             </div>
 
-                                            <div class="form-group col-3">
+                                            <div class="form-group col-5">
                                                 <label for="remarkb">Remark</label>
-                                                <input type="text" class="form-control" id="remarkb" value="" disabled >
+                                                <input type="text" nbInput class="form-control" id="remarkb" value="{{brh.remark}}" readonly >
                                             </div>
                                         </div>
                                     </div>
@@ -271,76 +296,37 @@
                         </nb-accordion>
                     </div>
 
-                    <!-- -->
 
-                    <div class="form-group row">
-                        <label for="role_cabinet" class="label col-sm-6 col-form-label">Role Cabinet :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="role_cabinet"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="date_joined" class="label col-sm-6 col-form-label">Date Joined :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="date_joined"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="short_desc" class="label col-sm-6 col-form-label">Short Description :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="short_desc"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="long_desc" class="label col-sm-6 col-form-label">Long Description :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="long_desc"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="avg_rating" class="label col-sm-6 col-form-label">Average Rating :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="avg_rating"  disabled  >
-                        </div>
-                    </div>
 
                     <!-- -->
-                    <div class="accordion-container w-100 mb-5">
+                    <div class="accordion-container w-100 mb-5" >
                         <nb-accordion multi>
                             <nb-accordion-item >
                                 <nb-accordion-item-header>
-                                    <h5>Special Discount</h5>
+                                    <h5>Special Discount  </h5>
                                 </nb-accordion-item-header>
-                                <nb-accordion-item-body>
+                                <nb-accordion-item-body  *ngFor=" let sd of special_discount" >
                                     <div  class="mt-3" >
                                         <div class="form-row" >
-                                            <div class="form-group col-1">
+                                            <div class="form-group col-2">
                                                 <label for="discount">Discount</label>
-                                                <input type="text" class="form-control" id="discount"  disabled >
+                                                <input type="text" nbInput class="form-control" id="discount" value="{{sd.discount}}" readonly >
                                             </div>
 
                                             <div class="form-group col-3">
                                                 <label for="start_date">Start Date</label>
-                                                <input type="text" class="form-control" id="start_date"  disabled>
+                                                <input type="text" nbInput class="form-control" id="start_date" value="{{sd.start_date | date: 'dd/MM/y'}}" readonly>
                                             </div>
 
-                                            <div class="form-group col-1">
-                                                <label for="nbdays">Date</label>
-                                                <input type="text" class="form-control" id="nbdays" value="" disabled >
-                                            </div>
 
                                             <div class="form-group col-3">
                                                 <label for="end_date">End Date</label>
-                                                <input type="text" class="form-control" id="end_date" value="" disabled >
+                                                <input type="text" nbInput class="form-control" id="end_date" value="{{sd.end_date | date: 'dd/MM/y'}}"  readonly >
                                             </div>
 
-                                            <div class="form-group col-3">
+                                            <div class="form-group col-4">
                                                 <label for="remarkd">Remark</label>
-                                                <input type="text" class="form-control" id="remarkd" value="" disabled >
+                                                <input type="text" nbInput class="form-control" id="remarkd" value="{{sd.remark}}" readonly >
                                             </div>
                                         </div>
                                     </div>
@@ -350,46 +336,6 @@
                         </nb-accordion>
                     </div>
 
-                    <!-- -->
-
-                    <div class="form-group row">
-                        <label for="membership_status" class="label col-sm-6 col-form-label">Membership Sٍtatus :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="membership_status"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="cabinetId" class="label col-sm-6 col-form-label">Cabinet Id :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="cabinetId"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="userId" class="label col-sm-6 col-form-label">User Id :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="userId"  disabled  >
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="custcatId" class="label col-sm-6 col-form-label">Custcat Id :</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="custcatId"  disabled  >
-                        </div>
-                    </div>
-
-
-
-                    <!--prediliction domain  -->
-
-
-                    <!-- -->
-
-
-
-                    <!--lawyers-->
 
 
 
@@ -400,8 +346,10 @@
         </div>
     </nb-card-body>
     <nb-card-footer>
-        <a routerLink="/pages/avokap/cabinet-smart-table" ><button class="float-right btn btn-success"  nbButton hero status="primary">Cabinets</button></a>
-        <button class="float-left btn btn-danger " nbButton status="primary"   >Up Date</button>
+      <!--  <a routerLink="/pages/avokap/cabinet-smart-table" ><button class="float-right btn btn-success"  nbButton hero status="primary">Cabinets</button></a>-->
+        <a class="float-right" href="/pages/avokap/lawyer-details/{{id_lawyer}}#lawyer_details" ><nb-icon  icon="arrowhead-up-outline" pack="eva"></nb-icon></a>
+
+
     </nb-card-footer>
 </nb-card>
 

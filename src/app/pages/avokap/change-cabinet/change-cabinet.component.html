@@ -1,0 +1,66 @@
+<nb-card>
+    <nb-card-header>
+        Change Cabinet
+    </nb-card-header>
+    <nb-card-body>
+        <div class="form-group row">
+
+            <label class="col-6 col-form-label" >Commercial Name :</label>
+            <input nbInput id="commercial_name_bro" list="browsers" class="form-control col-6" placeholder="Commercial Name" (focusout)="check()"   (keyup)="recherche($event , 'Commercial Name') " >
+            <datalist id="browsers" >
+                <option class="form-control"  nbInput *ngFor="let wa of List" value="{{wa.commercial_name}}">{{wa.commercial_name}}</option>
+            </datalist>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-6 col-form-label" >Legal Name :</label>
+            <input nbInput id="legal_name_bro" list="browsers_2" class="form-control col-6" placeholder="Legal Name" (focusout)="check()"  (keyup)="recherche($event , 'Legal Name')" >
+            <datalist id="browsers_2" >
+                <option class="form-control"  nbInput *ngFor="let wa of List" value="{{wa.legal_name}}">{{wa.legal_name}}</option>
+            </datalist>
+        </div>
+
+        <div class="form-group row">
+            <label  class="col-sm-6 col-form-label" >Cabinet Reference :</label>
+                <input nbInput id="cab_ref_bro" list="browsers_3" class="col-6" placeholder="Cabinet Reference" (focusout)="check()"  (keyup)="recherche($event , 'Cabinet Reference')" >
+                <datalist id="browsers_3" >
+                    <option   nbInput *ngFor="let wa of List" value="{{wa.cabinet_ref}}">{{wa.cabinet_ref}}</option>
+                </datalist>
+
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-6 col-form-label" >Role Cabinet :</label>
+            <nb-select id="selected_category" class="col-6 m-0 p-0" fullWidth [(selected)]="selected_category"   status="primary">
+                <nb-option value="managing partner" >managing partner</nb-option>
+                <nb-option value="collaborator" >collaborator</nb-option>
+                <nb-option value="admin assistant" >admin assistant</nb-option>
+            </nb-select>
+
+        </div>
+
+
+
+
+
+
+        <div *ngIf="Confirmed && selected_category" class="form-group text-danger text-center" >
+            <label>Do You Want To Save The Changes ?</label>
+            <label>You can Confirm The Changes In 2 Second</label>
+        </div>
+
+        <div  *ngIf="Errors" class="form-group bg-danger text-center" >
+            <label>{{Errors}}</label>
+        </div>
+
+
+
+    </nb-card-body>
+    <nb-card-footer>
+        <button *ngIf="!selected_category" class="float-left" nbButton hero status="danger"  (click)="check_category()">Change</button>
+        <button *ngIf="selected_category && !Confirmed" class="float-left" nbButton hero status="danger"  (click)="change()">Change</button>
+        <button *ngIf="Confirmed && selected_category" [disabled]="Disabled" class="float-left" nbButton hero status="primary"  (click)="confirm()" >Confirm</button>
+        <button class="float-right" nbButton hero status="danger"  (click)="cancel()" >Cancel</button>
+    </nb-card-footer>
+</nb-card>

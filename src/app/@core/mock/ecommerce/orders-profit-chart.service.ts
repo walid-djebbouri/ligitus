@@ -10,32 +10,36 @@ import { ChartData, ChartSummary } from '../../interfaces/common/chart';
 import { OrdersProfitChartData } from '../../interfaces/ecommerce/orders-profit-chart';
 import { OrdersChartService } from './orders-chart.service';
 import { ProfitChartService } from './profit-chart.service';
+import {BundlesCustCategoryService} from '../common/bundles-cust-category.service';
 
 @Injectable()
 export class OrdersProfitChartService extends OrdersProfitChartData {
 
   private summary = [
-    {
-      title: 'Marketplace',
-      value: 3654,
+      {
+      title: 'Total Memberships',
+      value: 0 ,
     },
     {
       title: 'Last Month',
-      value: 946,
+      value: 0,
     },
     {
       title: 'Last Week',
-      value: 654,
-    },
-    {
-      title: 'Today',
-      value: 230,
+      value: 0,
     },
   ];
 
   constructor(private ordersChartService: OrdersChartService,
-              private profitChartService: ProfitChartService) {
+              private profitChartService: ProfitChartService ,
+              private summaryData: BundlesCustCategoryService) {
     super();
+    this.summaryData.getMembershipTotal().subscribe((membershipTotal) => {
+      this.summary[0].value = membershipTotal[0] ;
+      this.summary[1].value = membershipTotal[1] ;
+      this.summary[2].value = membershipTotal[2] ;
+
+    }) ;
   }
 
   getOrderProfitChartSummary(): Observable<ChartSummary[]> {
@@ -43,10 +47,10 @@ export class OrdersProfitChartService extends OrdersProfitChartData {
   }
 
   getOrdersChartData(period: string): Observable<ChartData> {
-    return observableOf(this.ordersChartService.getOrdersChartData(period));
+    return this.ordersChartService.getOrdersChartData(period);
   }
 
   getProfitChartData(period: string): Observable<ChartData> {
-    return observableOf(this.profitChartService.getProfitChartData(period));
+    return this.profitChartService.getProfitChartData(period);
   }
 }

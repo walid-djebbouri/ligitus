@@ -1,0 +1,136 @@
+<nb-card>
+    <nb-card-header>
+        Create Membership
+    </nb-card-header>
+    <nb-card-body>
+        <form>
+            <div class="form-group form-row" >
+                <label class="col-6" for="membership_ref_1">Reference</label>
+                <input class="form-control col-6" type="text" nbInput  id="membership_ref_1" value="{{membership_ref}}" readonly >
+            </div>
+
+
+            <div class="form-group form-row " >
+                <label class="col-6">Bundle Reference <span>*</span></label>
+                <nb-select class="col-6" id="bundle_name_1"  [(selected)]="selected" (selectedChange)="Bundle_Details($event)" placeholder="Select a Bundle">
+                    <nb-option *ngFor="let bundle of Bundles" [value]="bundle.id" >{{bundle.bundle_name}}</nb-option>
+                </nb-select>
+            </div>
+
+            <div class="  form-group form-row">
+                <label class="col-6" for="plan_sdate_1" >Plan Start Date <span>*</span></label>
+                <input type="date" class="form-contro col-6" nbInput  id="plan_sdate_1"  (change)="membershipReference($event)" placeholder="Enter The Start Date">
+            </div>
+
+            <div class="form-group form-row" >
+                <label class="col-6" for="payment_date_1">Payment Date <span>*</span></label>
+                <input class="form-control col-6" type="date" nbInput id="payment_date_1" placeholder="Enter The Payment Date" >
+            </div>
+
+            <div class="form-group form-row">
+                <label class="col-6" for="payer_type_1" >Payer Type</label>
+                <nb-select class="col-6"  id="payer_type_1"  [(selected)]="selected_payer_type" placeholder="Select a Payer Type" >
+                    <nb-option value="Cabinet" >Cabinet</nb-option>
+                    <nb-option value="Self" >Self</nb-option>
+                    <nb-option value="Third-Party" >Third-Party</nb-option>
+                </nb-select>
+            </div>
+
+            <div class="form-group form-row ">
+                <label class="col-6" for="payer_name_1" >Payer Name</label>
+                <input type="text" class="form-control col-6 " nbInput  id="payer_name_1" placeholder="Enter The Payer Name" >
+            </div>
+
+            <div class="form-group form-row" >
+                <label class="col-6"  >Plan Price</label>
+                <input type="text" class="form-control col-6 " nbInput  value="{{plan_price}}" readonly placeholder="Plan Price">
+            </div>
+
+            <div class="form-group form-row">
+                <label class="col-6"  >Customer Category Discount</label>
+                <input type="text" class="form-control col-6 " nbInput  value="{{category_discount}}" readonly placeholder="The Category Discount">
+            </div>
+
+
+                <div class="form-group form-row">
+                    <label class="col-6" for="special_discount_1" >Special Discount</label>
+                    <input type="number" class="form-control col-6" nbInput id="special_discount_1" value="{{lawyer_special_discount}}" readonly placeholder="The Special Discount"  >
+                </div>
+
+
+               <div class="form-group form-row">
+                    <label class="col-6" for="final_discount_1" >Final Discount</label>
+                    <input type="number" class="form-control col-6" nbInput  id="final_discount_1"  value="{{ final_discount }}" readonly placeholder="The Final Discount">
+                </div>
+
+                <div class="form-group form-row">
+                    <label class="col-6" for="quantity_1" >Quantity <span>*</span></label>
+                    <input *ngIf="Max_Quantity" type="number" class="form-control col-6" nbInput placeholder="equal or smaller then {{Max_Quantity}}"  id="quantity_1"   [max]="Max_Quantity" (blur)="max_quantity($event)">
+                    <input *ngIf="!Max_Quantity" type="number" class="form-control col-6" placeholder="Disabled" nbInput disabled>
+
+                </div>
+
+
+
+               <div class="form-group form-row">
+                    <label class="col-6" for="billed_amount_1" >Billed Amount</label>
+                    <input type="number" class="form-control  col-6" nbInput id="billed_amount_1"  value="{{billed_amount}}" readonly placeholder="Billed Amount Is">
+                </div>
+
+
+                <div class="form-group form-row">
+                    <label class="col-6" for="remark_1" >Remark</label>
+                    <textarea type="text" class="form-control col-6 " nbInput  id="remark_1" placeholder="Enter The Remark" ></textarea>
+                </div>
+
+
+                <div class="form-group form-row">
+                    <label class="col-6" for="payment_type_1" >Payment Type</label>
+                    <nb-select class="col-6"  id="payment_type_1"  [(selected)]="selected_payment_cash" placeholder="Select Payement Type" >
+                        <nb-option value="CASH" >CASH</nb-option>
+                        <nb-option value="BT" >BT</nb-option>
+                        <nb-option value="CHECK" >CHECK</nb-option>
+                        <nb-option value="mCCP" >mCCP</nb-option>
+                        <nb-option value="ePay" >ePay</nb-option>
+                        <nb-option value="dPay" >dPay</nb-option>
+
+                    </nb-select>
+                </div>
+
+
+            <div class="form-group form-row">
+                    <label class="col-6" for="national_identity_n_1">National Identity Number</label>
+                    <input type="text" class="form-control col-6" nbInput  id="national_identity_n_1" placeholder="Enter The National Identity Number">
+                </div>
+
+                <div class="form-group form-row">
+                    <label class="col-6" for="designation_ref_1" >Designation Reference</label>
+                    <nb-select class="col-6"  id="designation_ref_1"  [(selected)]="selected_designation_ref" placeholder="Designation Reference"  >
+                        <nb-option value="Card Number" >Card Number</nb-option>
+                        <nb-option value="Check Number" >Check Number</nb-option>
+                        <nb-option value="Mandat Number" >Mandat Number</nb-option>
+                        <nb-option value="Transfer Number" >Transefer Number</nb-option>
+
+                    </nb-select>
+                </div>
+
+                <div class="form-group form-row " >
+                    <label class="col-6" for="payment_ref_1" >Payment Reference</label>
+                    <input type="text" class="form-control col-6"  nbInput id="payment_ref_1" placeholder="Enter The Payment Reference" >
+                </div>
+
+                <div  class="mt-5 mb-5 pt-3 pb-2 bg-danger " *ngIf="Errors && Errors.length > 0">
+                    <div class="form-group  text-center " *ngFor="let error of Errors"  >
+                        <label  >! Error : {{error}}</label>
+                    </div>
+                </div>
+
+
+        </form>
+        <button class="float-left" nbButton hero status="primary" (click)="create_membership()" >Create</button>
+        <button class="float-right" nbButton hero status="primary" (click)="cancel()" >Cancel</button>
+    </nb-card-body>
+    <nb-card-footer>
+
+    </nb-card-footer>
+</nb-card>

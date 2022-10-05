@@ -1,0 +1,36 @@
+i{
+font-size: 40px;
+}
+i.nb-trash:hover{
+  color: #b94a48;
+}
+i.nb-edit:hover{
+  color: #6329AA;
+}
+.bundle{
+  position: relative;
+  left: 35%;
+  top: 20px
+}
+#label_action{
+  position: relative;
+  left: 40%;
+  top: 22px;
+}
+#edit0 , #trash0 {
+  position: relative;
+  left: 35%;
+  top: 22px
+}
+.customer{
+  position: relative;
+  left: 35%;
+}
+#label-customer{
+  position: relative;
+  left: 40%;
+}
+#edit-customer0 , #trash-customer0{
+position: relative;
+  top: -3px;
+}

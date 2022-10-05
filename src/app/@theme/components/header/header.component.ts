@@ -4,7 +4,7 @@
  * See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
  */
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
 import { LayoutService } from '../../../@core/utils';
@@ -13,13 +13,15 @@ import { Subject } from 'rxjs';
 import { UserStore } from '../../../@core/stores/user.store';
 import { SettingsData } from '../../../@core/interfaces/common/settings';
 import { User } from '../../../@core/interfaces/common/users';
+import {NB_AUTH_OPTIONS, NbAuthService, NbLogoutComponent, NbTokenService} from '@nebular/auth';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ngx-header',
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent extends NbLogoutComponent implements OnInit,  OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
@@ -34,17 +36,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       value: 'dark',
       name: 'Dark',
     },
-    {
-      value: 'cosmic',
-      name: 'Cosmic',
-    },
-    {
-      value: 'corporate',
-      name: 'Corporate',
-    },
   ];
 
-  currentTheme = 'default';
+  currentTheme = 'dark';
+  theme = 'default' ;
 
   userMenu = this.getMenuItems();
 
@@ -54,7 +49,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private userStore: UserStore,
               private settingsService: SettingsData,
               private layoutService: LayoutService,
-              private breakpointService: NbMediaBreakpointsService) {
+              protected service: NbAuthService,
+              private breakpointService: NbMediaBreakpointsService,
+               protected router: Router,
+              protected tokenService: NbTokenService ,
+              @Inject(NB_AUTH_OPTIONS) protected options = {},
+  ) {
+    super(service, options, router);
   }
 
   getMenuItems() {
@@ -99,12 +100,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   changeTheme(themeName: string) {
-    this.userStore.setSetting(themeName);
-    this.settingsService.updateCurrent(this.userStore.getUser().settings)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe();
-
+    this.theme = themeName;
     this.themeService.changeTheme(themeName);
+    this.userStore.setSetting(themeName);
+   /* this.settingsService.updateCurrent(this.userStore.getUser().settings)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();*/
+
   }
 
   toggleSidebar(): boolean {
@@ -118,4 +120,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.menuService.navigateHome();
     return false;
   }
+  logout(): void {
+    this.tokenService.clear();
+    this.router.navigate(['/auth/login']);  }
 }

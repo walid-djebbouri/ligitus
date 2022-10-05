@@ -5,19 +5,29 @@
  */
 
 import { Injectable } from '@angular/core';
-import { of as observableOf, Observable } from 'rxjs';
+import {of as observableOf, Observable, of} from 'rxjs';
 import { CountryOrderData } from '../../interfaces/ecommerce/country-order';
+import {BundlesCustCategoryService} from '../common/bundles-cust-category.service';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class CountryOrderService extends CountryOrderData {
 
   private countriesCategories = [
-    'Sofas',
-    'Furniture',
-    'Lighting',
-    'Tables',
-    'Textiles',
+    'Terminated',
+    'On Hold',
+    'Browse',
+    'Active',
+    'Total Registered',
   ];
+  private stateData: any[] ;
+  constructor(private status_data: BundlesCustCategoryService) {
+    super();
+    this.status_data.getStatusOfStat().subscribe(((statusOfStates: any[]) => {
+      this.stateData = statusOfStates ;
+    }));
+  }
+
   private countriesCategoriesLength = this.countriesCategories.length;
   private generateRandomData(nPoints: number): number[] {
     return Array.from(Array(nPoints)).map(() => {
@@ -30,6 +40,12 @@ export class CountryOrderService extends CountryOrderData {
   }
 
   getCountriesCategoriesData(country: string): Observable<number[]> {
-    return observableOf(this.generateRandomData(this.countriesCategoriesLength));
+    let Data: number[] = [0 , 0 , 0 , 0 , 0]  ;
+    this.stateData.find(State => {
+      if (State.state ===  country) {
+        Data = State.values ;
+      }
+    }) ;
+    return  of(Data)   ;
   }
 }

@@ -7,26 +7,38 @@
 import { Injectable } from '@angular/core';
 import { of as observableOf, Observable } from 'rxjs';
 import { LiveUpdateChart, PieChart, EarningData } from '../../interfaces/ecommerce/earning';
+import {BundlesCustCategoryService} from '../common/bundles-cust-category.service';
 
 @Injectable()
 export class EarningService extends EarningData {
-
   private currentDate: Date = new Date();
   private currentValue = Math.random() * 1000;
   private ONE_DAY = 24 * 3600 * 1000;
+  private index: number = 0;
+  constructor(private dataPieChart: BundlesCustCategoryService) {
+    super();
+    this.dataPieChart.getBundlesProportions().subscribe(
+        (bundlesProportion: any[]) => {
+          const total =  bundlesProportion[0] +  bundlesProportion[1] +  bundlesProportion[2] ;
+          this.pieChartData[2].value = Number((100 * bundlesProportion[0] / total).toFixed(2))  ;
+          this.pieChartData[1].value = Number((100 * bundlesProportion[1] / total).toFixed(2))  ;
+          this.pieChartData[0].value = Number((100 * bundlesProportion[2] / total).toFixed(2))  ;
 
+        });
+    this.dataPieChart.getActivityUserRealTime().subscribe((userActivity) => {});
+  }
   private pieChartData = [
     {
-      value: 50,
-      name: 'Bitcoin',
+      value: 0,
+      name: 'Avokap Premium',
     },
     {
-      value: 25,
-      name: 'Tether',
+      value: 0,
+      name: 'Avokap Classic',
     },
     {
-      value: 25,
-      name: 'Ethereum',
+      value: 0,
+      name: 'Avokap Basic',
     },
   ];
 
@@ -37,7 +49,7 @@ export class EarningService extends EarningData {
         up: true,
         value: 4,
       },
-      dailyIncome: 45895,
+      dailyIncome: null ,
     },
     tether: {
       liveChart: [],
@@ -56,23 +68,14 @@ export class EarningService extends EarningData {
       dailyIncome: 584,
     },
   };
-
   getDefaultLiveChartData(elementsNumber: number) {
     this.currentDate = new Date();
-    this.currentValue = Math.random() * 1000;
-
     return Array.from(Array(elementsNumber))
-      .map(item => this.generateRandomLiveChartData());
+      .map(item => this.generateRandomLiveChartData(0));
   }
 
-  generateRandomLiveChartData() {
+  generateRandomLiveChartData(v: number) {
     this.currentDate = new Date(+this.currentDate + this.ONE_DAY);
-    this.currentValue = this.currentValue + Math.random() * 20 - 11;
-
-    if (this.currentValue < 0) {
-      this.currentValue = Math.random() * 100;
-    }
-
     return {
       value: [
         [
@@ -80,18 +83,18 @@ export class EarningService extends EarningData {
           this.currentDate.getMonth(),
           this.currentDate.getDate(),
         ].join('/'),
-        Math.round(this.currentValue),
+          v ,
       ],
     };
   }
 
-  getEarningLiveUpdateCardData(currency): Observable<any[]> {
+  getEarningLiveUpdateCardData(currency, Data: number[]): Observable<any[]> {
+    if  ( this.index ===  150) { this.index = 0 ; }
     const data = this.liveUpdateChartData[currency.toLowerCase()];
-    const newValue = this.generateRandomLiveChartData();
-
+    const newValue = this.generateRandomLiveChartData(Data[this.index] + 1);
     data.liveChart.shift();
     data.liveChart.push(newValue);
-
+    this.index++;
     return observableOf(data.liveChart);
   }
 

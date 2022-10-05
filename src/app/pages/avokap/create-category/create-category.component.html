@@ -1,0 +1,43 @@
+<nb-card  >
+    <nb-card-header>Create New Category</nb-card-header>
+    <nb-card-body  class="m-3" >
+
+        <div class=" form-row form-group  ">
+            <label class="col-6" for="custcat_ref_1">Custcat Ref</label>
+            <input type="text" class="form-control col-6 " nbInput id="custcat_ref_1" value="CAT0{{costumer_category_reference}}" readonly  >
+        </div>
+
+        <div class="form-row form-group ">
+            <label  class="col-6" for="category_1">Category <span>*</span></label>
+            <input type="text" class="form-control col-6 " nbInput id="category_1" placeholder="Enter The Category Name" >
+        </div>
+
+        <div class="form-row form-group ">
+            <label class="col-6" for="discount_1">Discount <span>*</span></label>
+            <input type="number" class="form-control col-6" nbInput id="discount_1" placeholder="Enter The Discount" >
+        </div>
+
+        <div class="form-row form-group">
+            <label class="col-6" for="grace_period_1">Grace Period <span>*</span></label>
+            <input type="number" class="form-control col-6 " nbInput id="grace_period_1"  placeholder="Enter The Grace Period">
+        </div>
+
+        <div class="form-row form-group ">
+            <label class="col-6" for="remark_1">Remark</label>
+            <input type="text" class="form-control col-6 " nbInput id="remark_1"  placeholder="Enter a Remark" >
+        </div>
+
+        <div  class="mt-5 mb-5 pt-3 pb-2 bg-danger " *ngIf="Errors && Errors.length > 0">
+            <div class="form-group  text-center " *ngFor="let error of Errors"  >
+                <label  >! Error : {{error}}</label>
+            </div>
+        </div>
+        <button class="float-left" nbButton hero status="primary" (click)="create_category()" >Create</button>
+        <button class="float-right"  nbButton hero status="primary" (click)="cancel()">Cancel</button>
+
+
+    </nb-card-body>
+    <nb-card-footer>
+          </nb-card-footer>
+</nb-card>
+

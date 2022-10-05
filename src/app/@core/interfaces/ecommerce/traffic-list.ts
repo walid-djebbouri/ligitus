@@ -25,4 +25,5 @@ export interface Comparison {
 
 export abstract class TrafficListData {
   abstract getTrafficListData(period: string): Observable<TrafficListItem[]>;
+  abstract getTrafficListDataForState(state: string, period: string): Observable<any>;
 }

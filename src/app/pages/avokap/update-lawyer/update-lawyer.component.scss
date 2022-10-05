@@ -1,0 +1,27 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card {
+    width:825px;
+    max-height: 500px;
+  }
+}
+
+input , label {
+
+  font-size: 16px;
+}
+
+nb-icon{
+  font-size: 40px;
+}
+
+nb-icon:hover{
+  color: #2ce69b;
+}
+.cdk-global-scrollblock {
+  position: static !important;
+}
+nb-select.placeholder{
+  color: #b94a48;
+}

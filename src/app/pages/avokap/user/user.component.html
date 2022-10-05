@@ -1,0 +1,187 @@
+<nb-card id="user">
+    <nb-card-header>
+        Users <span *ngIf="Users">({{Users.length}})</span>
+        <button id="create_user" nbButton status="primary" hero  (click)="create_user()" >Create User</button>
+        <a class="float-right"  href="/pages/avokap/user#footer" ><nb-icon  icon="arrowhead-down-outline" pack="eva"></nb-icon></a>
+    </nb-card-header>
+    <nb-card-body
+            size="tiny" [nbSpinner]="loading"
+            nbSpinnerStatus="primary"
+            nbSpinnerSize="large"
+            nbSpinnerMessage="Loading Users">
+        <form>
+            <nb-card>
+                <nb-card-header>
+                    Filters
+                    <button type="reset" class="float-right"  nbButton hero status="success"  (click)="rest()" >Clear</button>
+                </nb-card-header>
+                <nb-card-body>
+                    <div class="form-group form-row" >
+                        <div class="col-3" >
+                            <label>First Name</label>
+                            <input class="form-control" nbInput status="primary" placeholder="First Name" (keyup)="filter($event , 'First Name')" >
+                        </div>
+                        <div class="col-3" >
+                            <label>First Name Local</label>
+                            <input class="form-control" nbInput status="primary" placeholder="First Name Local" (keyup)="filter($event , 'First Name Local')" >
+                        </div>
+                        <div class="col-3 " >
+                            <label>Avokap Reference</label>
+                            <input class="form-control" nbInput status="primary" placeholder="Avokap Reference" (keyup)="filter($event , 'Avokap Reference')" >
+                        </div>
+
+                        <div class="col-3" >
+                            <label>Role</label>
+                            <nb-select id="category_selected" fullWidth status="primary" [(selected)]="category_selected" (selectedChange)="filter($event , 'Roles' )">
+                                <nb-option value="admin" >Admin</nb-option>
+                                <nb-option value="support" >Support</nb-option>
+                                <nb-option value="Customer" >Lawyer</nb-option>
+                            </nb-select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group form-row" >
+                        <div class="col-3" >
+                            <label>Last Name</label>
+                            <input class="form-control" nbInput status="primary" placeholder="Last Name" (keyup)="filter($event , 'Last Name')">
+                        </div>
+                        <div class="col-3" >
+                            <label>Last Name Local</label>
+                            <input class="form-control" nbInput status="primary" placeholder="Last Name Local" (keyup)="filter($event , 'Last Name Local')">
+                        </div>
+                        <div class="col-3" >
+                            <label>User Status</label>
+                           <!-- <input class="form-control" nbInput status="primary" placeholder="Membership Status" (keyup)="filter($event , 'Membership')">-->
+                            <nb-select id="status_selected" fullWidth status="primary" [(selected)]="category_selected" (selectedChange)="filter($event , 'Membership' )">
+                                <nb-option value="ACTIVE" >Active</nb-option>
+                                <nb-option value="BROWSE" >Browse</nb-option>
+                                <nb-option value="ONHOLD" >On Hold</nb-option>
+                                <nb-option value="TERMINATED" >Terminated</nb-option>
+
+                            </nb-select>
+
+
+                        </div>
+                        <div class="col-3" >
+                            <label>Category</label>
+                            <nb-select [disabled]="category_selected != 'Customer'" fullWidth status="primary" [(selected)]="category_selected" (selectedChange)="filter($event , 'Category' )">
+                                <nb-option *ngFor="let customer_category of Customer_Category" value="{{customer_category.category}}" >{{customer_category.category}}</nb-option>
+
+                            </nb-select>
+                        </div>
+                    </div>
+                    <div class="form-group form-row" >
+                        <div class="col-4">
+                            <label id="joint_date_between"  >Joint Date Between :</label>
+                        </div>
+                        <div class="col-4" >
+                            <label>First Date</label>
+                            <input class="form-control" id="first_date" type="date" nbInput status="primary" (change)="active()"  (change)="filter($event , 'Joint Date')"   >
+                        </div>
+                        <div class="col-4" >
+                            <label>Second Date</label>
+                            <input class="form-control" id="second_date" type="date" nbInput status="primary"  (change)="filter($event , 'Joint Date')" [disabled]="first_date_empty" >
+                        </div>
+
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </form>
+
+
+        <div class="row" *ngFor="let user of Users ; let i = index" >
+            <nb-card>
+                <nb-card-header>
+                    User N° {{i+1}}
+                </nb-card-header>
+                <nb-card-body>
+                    <div class="form-row" >
+                        <div class="form-group col-2 mt-4" >
+                                <i *ngIf="user.lawyer" class="ion-ios-eye-outline float-left"
+                                   nbTooltip="User Details" nbTooltipPlacement="top"
+                                   (click)="go_to_lawyer(user.id)" ></i>
+                                <i *ngIf=" user.userStatuses &&
+                                           user.userStatuses[0].status === 'TERMINATED'"
+                                   class="nb-trash"
+                                   nbTooltip="Delete User" nbTooltipPlacement="top"
+                                   (click)="delete_user(i)"></i>
+                                <i class="nb-loop-circled float-right "
+                                   nbTooltip="Change Password" nbTooltipPlacement="top"
+                                   (click)="reset_password(user.id)" ></i>
+                                <i *ngIf="user.userStatuses && (user.roles[0] == 'support' || user.roles[0] == 'admin' )" class="nb-edit"
+                                   nbTooltip="Change Status" nbTooltipPlacement="top"
+                                (click)="change_status(i)"></i>
+                        </div>
+                        <div class="col-3" *ngIf="user.lawyer" >
+                            <label>Avokap Reference</label>
+                            <input class="form-control" type="text" nbInput value="{{user.lawyer.avokap_ref}}" readonly >
+                        </div>
+                        <div class="col-3" *ngIf="!user.lawyer" >
+                            <label>Avokap Reference</label>
+                            <input class="form-control bg-dark" type="text" nbInput value="NَA" disabled >
+                        </div>
+                        <div class="col-2" >
+                            <label>First Name</label>
+                            <input class="form-control" type="text" nbInput value="{{user.first_name | titlecase}}" readonly >
+                        </div>
+                        <div class="col-2" >
+                            <label>Last Name</label>
+                            <input class="form-control" type="text" nbInput value="{{user.last_name | titlecase}}" readonly >
+                        </div>
+                        <div class="col-2"  *ngIf="user.lawyer" >
+                            <label>Category</label>
+                            <input class="form-control" type="text" nbInput value="{{user.lawyer.category }}" readonly >
+                        </div>
+                        <div class="col-2"  *ngIf="!user.lawyer" >
+                            <label>Category</label>
+                            <input class="form-control bg-dark" type="text" nbInput value="NA" disabled >
+                        </div>
+                    </div>
+                    <div class="form-row" >
+
+                        <div class="col-2" *ngIf="user.userStatuses " >
+                            <label>User Status </label>
+                            <input class="form-control" type="text" nbInput value="{{user.userStatuses[0].status }}" readonly >
+                        </div>
+
+
+                        <div class="col-2" *ngIf="!user.userStatuses && user.lawyer" >
+                            <label>User Status </label>
+                            <input class="form-control" type="text" nbInput value="NA" readonly >
+                        </div>
+                        <div class="col-2" *ngIf="!user.lawyer && !user.userStatuses" >
+                            <label>User Status</label>
+                            <input class="form-control bg-dark" type="text" nbInput value="NA" disabled >
+                        </div>
+                        <div class="col-3" >
+                            <label>E Mail</label>
+                            <input class="form-control" type="text" nbInput value="{{user.email}}" readonly >
+                        </div>
+                        <div class="col-2" >
+                            <label>First Name Local</label>
+                            <input class="form-control" type="text" nbInput value="{{user.first_name_local}}" readonly >
+                        </div>
+                        <div class="col-2" >
+                            <label>Last Name Local</label>
+                            <input class="form-control" type="text" nbInput value="{{user.last_name_local}}" readonly >
+                        </div>
+                        <div class="col-2" >
+                            <label>Days Left</label>
+                            <!--<input class="form-control" type="text" nbInput value="{{user.roles[0]  }}" readonly >-->
+                            <input *ngIf="user.memberships"  class="form-control" type="text" nbInput [value]="membershipEnDate(user.memberships[0].plan_edate)" [ngClass]="colorClass" readonly >
+                            <input *ngIf="!user.memberships" class="form-control" type="text" nbInput [value]="'No Data'" readonly >
+
+                        </div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+
+        </div>
+
+
+    </nb-card-body>
+    <nb-card-footer id="footer">
+        <a class="float-right"  href="/pages/avokap/user#user" ><nb-icon  icon="arrowhead-up-outline" pack="eva"></nb-icon></a>
+    </nb-card-footer>
+</nb-card>

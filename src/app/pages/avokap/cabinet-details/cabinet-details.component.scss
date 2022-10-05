@@ -1,22 +1,69 @@
-label{
-
-  font-size: 16px;
-
+i{
+  font-size: 40px;
+}
+i:hover{
+  color: #b94a48;
+}
+i.ion-ios-eye-outline:hover{
+  color: #6329AA;
+}
+td{
+  color: white;
+  font-size: 14px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.ion-ios-eye-outline{
+  position: relative;
+  left: 20px;
 }
 
-input{
-
-  font-size: 16px;
+i.nb-arrow-dropleft:hover{
+  color: #2ce69b;
+  font-weight: bold;
+}
+#lawyer_details{
+  position: relative;
+  top: 6px;
+}
+#cabinet:hover{
+  color: #2ce69b;
 
 }
-
-.zimahek{
-  input:disabled{
-    color: #8f9bb3;
-  }
+#cabinet{
+  text-decoration:none;
+}
+a{
+  color: white;
+}
+nb-icon{
+  font-size: 50px;
+}
+#avokap_ref{
+  width: 80%;
+  position: relative;
+  right: 20%;
+}
+#first_name{
+  width: 130%;
+  position: relative;
+  right: 60%;
+}
+#last_name{
+  width: 130%;
+  position: relative;
+  right: 30%;
+}
+#label_avokap_ref{
+  position: relative;
+  right: 20%;
 }
 
-h5{
-  color: #8f9bb3;
-
+#label_first_name{
+  position: relative;
+  right: 60%;
+}
+#label_last_name{
+  position: relative;
+  right: 30%;
 }

@@ -1,0 +1,72 @@
+<nb-card>
+    <nb-card-header>
+    Create Bundle
+    </nb-card-header>
+    <nb-card-body>
+
+            <div class="form-group form-row">
+                <label class="col-6">Bundle Ref</label>
+                <input type="text" class="form-control col-6" nbInput  id="bundle_ref_1"  value="BUND0{{bundle_reference}}" readonly  >
+            </div>
+
+
+            <div class="form-group form-row ">
+                <label class="col-6" >Bundle Name <span>*</span></label>
+                <input type="text" class="form-control col-6" nbInput  id="bundle_name_1" placeholder="Enter a Bundle Name" >
+            </div>
+
+            <div class="form-group form-row ">
+                <label class="col-6">Plan Price <span>*</span></label>
+                <input type="number" class="form-control col-6" nbInput id="plan_price_1" placeholder="Enter The Plan Price"  >
+            </div>
+
+
+            <div class="form-group form-row ">
+                <label class="col-6">Currency</label>
+                <input type="text" class="form-control col-6" nbInput id="currency_1" value="DZD" placeholder="Enter a Currency" >
+            </div>
+
+
+            <div class="form-group form-row ">
+                <label class="col-6" >Number of Months <span>*</span></label>
+                <input type="number" class="form-control col-6" nbInput  id="nbmonths_1" placeholder="Enter The Number of Months" >
+            </div>
+
+
+            <div class="form-group form-row ">
+                <label class="col-6">Bundle Start Date <span>*</span></label>
+                <input type="date" class="form-control col-6" nbInput  id="bundle_sdate_1" placeholder="Enter The Start Date" >
+            </div>
+
+            <div class="form-group form-row ">
+                <label class="col-6" >Bundle End Date <span>*</span></label>
+                <input type="date" class="form-control col-6" nbInput id="bundle_edate_1" placeholder="Enter The End Date" >
+            </div>
+
+            <div class="form-group form-row ">
+                <label class="col-6" >Quantity Max <span>*</span></label>
+                <input type="number" class="form-control col-6" nbInput id="quantity_max_1" placeholder="Enter The Quantity Max" >
+            </div>
+
+            <div class="form-group form-row " >
+                <label class="col-6" >Description</label>
+                <input type="text" class="form-control col-6"  nbInput id="description_1" placeholder="Enter a Description" >
+            </div>
+
+        <div  class="mt-5 mb-5 pt-3 pb-2 bg-danger " *ngIf="Errors && Errors.length > 0">
+            <div class="form-group  text-center " *ngFor="let error of Errors"  >
+                <label  >! Error : {{error}}</label>
+            </div>
+        </div>
+
+        <div class="form-group" >
+            <button class="float-left" nbButton hero status="primary" (click)="create_bundle()" >Create</button>
+            <button class="float-right" nbButton hero status="primary" (click)="cancel()" >Cancel</button>
+
+        </div>
+    </nb-card-body>
+
+    <nb-card-footer>
+
+    </nb-card-footer>
+</nb-card>

@@ -1,0 +1,186 @@
+<div class="row">
+
+    <div class="col-12">
+        <nb-card>
+            <nb-tabset fullWidth>
+
+                <nb-tab tabTitle="Bundle">
+                    <button class="float-right" nbButton hero status="primary" (click)="create_bundle()" >Create Bundle</button>
+                    <br><br><br><br>
+                    <div  *ngFor="let bundle of bundles ; let i = index " >
+                        <div class="row" >
+
+                            <div class="form-group col-2 " >
+                                <label *ngIf="i == 0" class="form-row"  id="label_action" >Action</label>
+                                <div class="form-row ">
+                                    <i class="nb-edit bundle " id="edit{{i}}" (click)="update_bundle(i)" ></i>
+                                    <i class="nb-trash bundle " id="trash{{i}}" (click)="delete_bundle(i)" ></i>
+                                </div>
+                            </div>
+                            <div class="accordion-container form-group col-10">
+                                <nb-accordion multi>
+                                    <nb-accordion-item >
+                                        <nb-accordion-item-header>
+                                            <div class="form-row"  >
+
+                                                <div class="  form-group col-3">
+                                                    <label *ngIf="i == 0" for="bundle_ref">Bundle Ref</label>
+                                                    <input type="text" class="form-control" nbInput id="bundle_ref" value="{{bundle.bundle_ref}}" readonly >
+                                                </div>
+
+                                                <div class="form-group col-3">
+                                                    <label *ngIf="i == 0" for="bundle_name">Bundle Name</label>
+                                                    <input type="text" class="form-control" nbInput id="bundle_name" value="{{bundle.bundle_name}}" readonly>
+                                                </div>
+
+                                                <div class="form-group col-2">
+                                                    <label *ngIf="i == 0" for="plan_price">Plan Price</label>
+                                                    <input type="text" class="form-control" nbInput id="plan_price" value="{{bundle.plan_price}}" readonly >
+                                                </div>
+
+                                                <div class="form-group col-3">
+                                                    <label *ngIf="i == 0" for="description">Description</label>
+                                                    <input type="text" class="form-control" nbInput id="description" value="{{bundle.description}}" readonly >
+                                                </div>
+
+
+
+
+                                            </div>
+
+                                        </nb-accordion-item-header>
+                                        <nb-accordion-item-body>
+
+                                            <div class="form-row" >
+                                                <div class="  form-group col-6">
+                                                    <label>ID</label>
+                                                    <input type="text" class="form-control" nbInput  value="{{bundle.id}}" readonly >
+                                                </div>
+
+                                                <div class="  form-group col-6">
+                                                    <label>Bundle Ref</label>
+                                                    <input type="text" class="form-control" nbInput  value="{{bundle.bundle_ref}}" readonly >
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-row" >
+                                                <div class="form-group col-6">
+                                                    <label>Bundle Name</label>
+                                                    <input type="text" class="form-control" nbInput  value="{{bundle.bundle_name}}" readonly>
+                                                </div>
+
+                                                <div class="form-group col-6">
+                                                    <label>Plan Price</label>
+                                                    <input type="text" class="form-control" nbInput value="{{bundle.plan_price}}" readonly >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row" >
+
+                                                <div class="form-group col-6">
+                                                    <label>Currency</label>
+                                                    <input type="text" class="form-control" nbInput value="{{bundle.currency}}" readonly >
+                                                </div>
+
+
+                                                <div class="  form-group col-6">
+                                                    <label>Number of Months</label>
+                                                    <input type="text" class="form-control" nbInput  value="{{bundle.nbmonths}}" readonly >
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-row" >
+                                                <div class="form-group col-6">
+                                                    <label for="bundle_name">Bundle Start Date</label>
+                                                    <input type="text" class="form-control" nbInput  value="{{bundle.bundle_sdate | date: 'dd/MM/y'  }}" readonly>
+                                                </div>
+
+                                                <div class="form-group col-6">
+                                                    <label>Bundle End Date</label>
+                                                    <input type="text" class="form-control" nbInput value="{{bundle.bundle_edate | date: 'dd/MM/y' }}" readonly >
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-row" >
+                                                <div class="form-group col-6 " >
+                                                    <label >Quantity Max</label>
+                                                    <input type="text" class="form-control"  nbInput value="{{bundle.quantity_max}}" readonly >
+                                                </div>
+                                                <div class="form-group col-6 " >
+                                                    <label >Description</label>
+                                                    <input type="text" class="form-control"  nbInput value="{{bundle.description}}" readonly >
+                                                </div>
+                                            </div>
+
+
+
+                                        </nb-accordion-item-body>
+                                    </nb-accordion-item>
+                                </nb-accordion>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                </nb-tab>
+
+                <nb-tab tabTitle="Customer Category"  >
+                    <button class="float-right" nbButton hero status="primary" (click)="create_category()"  >Create Category</button>
+                    <br><br><br><br>
+                    <div class="form-row" *ngFor="let costumer_categories of costumer_categories ; let i = index " >
+
+                                            <div class="form-group col-2" >
+                                                <label id="label-customer" *ngIf="i == 0" >Action</label>
+                                                <div class=" form-row ">
+                                                    <i class="nb-edit customer " id="edit-customer{{i}}"   (click)="update_category(i)" ></i>
+                                                    <i class="nb-trash customer " id="trash-customer{{i}}"  (click)="delete_category(i)" ></i>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="  form-group col-2">
+                                                <label *ngIf="i == 0" for="custcat_ref">Custcat Ref</label>
+                                                <input type="text" class="form-control" nbInput id="custcat_ref" value="{{costumer_categories.custcat_Ref}}" readonly >
+                                            </div>
+
+                                            <div class="form-group col-2">
+                                                <label *ngIf="i == 0" for="category">Category</label>
+                                                <input type="text" class="form-control" nbInput id="category" value="{{costumer_categories.category}}" readonly>
+                                            </div>
+
+                                            <div class="form-group col-1">
+                                                <label *ngIf="i == 0" for="plan_price">Discount</label>
+                                                <input type="text" class="form-control" nbInput id="discount" value="{{costumer_categories.discount}}" readonly >
+                                            </div>
+
+                                            <div class="form-group col-1">
+                                                <label *ngIf="i == 0" for="grace_period">Grace </label>
+                                                <input type="text" class="form-control" nbInput id="grace_period" value="{{costumer_categories.grace_period}}" readonly >
+                                            </div>
+
+                                            <div class="form-group col-4">
+                                                <label *ngIf="i == 0" for="remark">remark</label>
+                                                <input type="text" class="form-control" nbInput id="remark" value="{{costumer_categories.remark}}" readonly >
+                                            </div>
+
+                                        </div>
+                </nb-tab>
+
+
+            </nb-tabset>
+        </nb-card>
+    </div>
+</div>

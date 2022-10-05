@@ -4,65 +4,60 @@
  * See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
  */
 
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/interfaces/common/smart-table';
 import {NbDialogService} from '@nebular/theme';
-import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import {Router} from '@angular/router';
-import {UpdateCabinetComponent} from '../update-cabinet/update-cabinet.component';
 import {CreateCabinetComponent} from '../create-cabinet/create-cabinet.component';
+import {DeleteCabinetComponent} from '../delete-cabinet/delete-cabinet.component';
 
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './cabinet-smart-table.component.html',
   styleUrls: ['./cabinet-smart-table.component.scss'] ,
 })
-export class SmartTableCabinetComponent {
+export class SmartTableCabinetComponent implements OnInit {
+  loading_cabinets: boolean = true;
   donne = [];
-
+  number_of_cabinet: number;
   settings = {
     mode: 'external',
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-      confirmCreate: true ,
+   add: {
+      addButtonContent: '<i class="nb-search"></i>',
+   },
+    delete: {
+      deleteButtonContent: '<i class="ion-ios-eye-outline"></i>',
+      confirmDelete: true,
     },
     edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-      confirmSave: true ,
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
+      editButtonContent: '<i class="nb-trash"></i>',
     },
     columns: {
         CabinetRef: {
         title: 'Cabinet Ref',
         type: 'string',
-      },
+        width: '20%',
+        },
       legalName: {
         title: 'Legal Name',
         type: 'string',
+        width: '30%',
       },
       comName: {
         title: 'Commercial Name',
         type: 'string',
-      },
-      membershipStatus: {
-        title: 'Status',
-        type: 'string',
+        width: '30%',
       },
       numLawyer: {
-        title: 'N° Lawyers',
+        title: 'Lawyers',
         type: 'string',
+        width: '10%',
       },
-      id: {
-        title: 'id',
+      wilaya: {
+        title: 'Wilaya',
         type: 'string',
+        width: '10%',
       },
     },
   };
@@ -71,14 +66,16 @@ export class SmartTableCabinetComponent {
 
   constructor(private router: Router , private dialogService: NbDialogService  , private service: SmartTableData) {
     const data = this.service.getData().then((cabinet: any[]) => {
+      this.loading_cabinets = false;
       this.source.load(cabinet);
     }).catch((error) => {
     });
   }
-
+  ngOnInit(): void {
+  }
   onDeleteConfir(event): void {
     if (window.confirm('Are you sure you want to delete ?')) {
-      this.service.delet_cabinet(event.newData.id).then(() => {
+      this.service.delete_cabinet(event.newData.id).then(() => {
       }).catch((error) => {
       });
       event.confirm.resolve();
@@ -99,9 +96,6 @@ export class SmartTableCabinetComponent {
       event.confirm.reject();
     }
   }
-  onUserRowSelect(event): void {
-    this.router.navigate(['/pages/avokap/cabinet-details/' + event.data.id]);
-  }
 
   creat_cabinet(event) {
     this.dialogService.open(CreateCabinetComponent, {
@@ -111,4 +105,22 @@ export class SmartTableCabinetComponent {
     });
 
   }
+  cabinetDetails(event): void {
+    this.router.navigate(['/pages/avokap/cabinet-details/' + event.data.id]);
+  }
+  delete_cabinet(event): void {
+    this.dialogService.open(DeleteCabinetComponent , {
+      context : {
+        IdCabinet : event.data.id,
+        Cabinet_Ref : event.data.CabinetRef ,
+        Commercial_nme : event.data.comName,
+        Legal_Name : event.data.legalName,
+      },
+    });
+  }
+  nb_cabinets(event) {
+     this.number_of_cabinet = this.source.count();
+
+  }
+
 }

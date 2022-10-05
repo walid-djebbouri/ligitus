@@ -1,0 +1,85 @@
+<nb-card>
+    <nb-card-header>
+        Create User
+    </nb-card-header>
+    <nb-card-body>
+
+            <div >
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">email <span>*</span> </label>
+                        <div class="col-sm-6">
+                            <input  type="email" nbInput fullWidth  id="email" placeholder="Enter The E Mail" >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">Password <span>*</span></label>
+                        <div class="col-sm-6">
+                            <input  type="email" nbInput fullWidth  id="password" placeholder="Enter The Password">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">First Name <span>*</span></label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth  id="first_name" placeholder="Enter The First Name" >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">Last Name <span>*</span></label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth  id="last_name" placeholder="Enter The Last Name">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">Local First Name</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth  id="local_first_name" placeholder="Enter The Local First Name">
+                        </div>
+                    </div>
+
+
+                   <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">Local Last Name</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth  id="local_last_name" placeholder="Enter The Local Last Name " >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">Joint Date <span>*</span></label>
+                        <div class="col-sm-6">
+                            <input  type="date" nbInput fullWidth  id="joint_date" placeholder="Enter The  Joint Date"  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label"  >Roles <span>*</span></label>
+                        <nb-select class="col-6" [(selected)]="selected_role" placeholder="Select The Role">
+                            <nb-option value="admin">admin</nb-option>
+                            <nb-option value="support">support</nb-option>
+                        </nb-select>
+                    </div>
+
+            </div>
+
+        <div  class="mt-5 mb-5 pt-3 pb-2 bg-danger " *ngIf="Errors && Errors.length > 0">
+            <div class="form-group  text-center " *ngFor="let error of Errors"  >
+                <label  >! Error : {{error}}</label>
+            </div>
+        </div>
+
+       <button class="float-left" nbButton hero status="primary" (click)="create_user()" >Create</button>
+        <button class="float-right" nbButton hero status="danger" (click)="cancel()" >cancel</button>
+
+
+    </nb-card-body>
+    <nb-card-footer>
+
+    </nb-card-footer>
+</nb-card>

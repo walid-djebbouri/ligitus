@@ -1,0 +1,36 @@
+<nb-card  >
+    <nb-card-header>Update Customer Category</nb-card-header>
+    <nb-card-body  class="m-3" >
+
+        <div class=" form-row form-group  ">
+            <label class="col-6" >Custcat Ref</label>
+            <input type="text" class="form-control col-6 " nbInput value="{{custcat_Ref}}" id="custcat_ref_2"  >
+        </div>
+
+        <div class="form-row form-group ">
+            <label  class="col-6" >Category</label>
+            <input type="text" class="form-control col-6 " nbInput value="{{category}}" id="category_2"  >
+        </div>
+
+        <div class="form-row form-group ">
+            <label class="col-6">Discount</label>
+            <input type="text" class="form-control col-6" nbInput value="{{discount}}" id="discount_2"   >
+        </div>
+
+        <div class="form-row form-group">
+            <label class="col-6" >Grace Period</label>
+            <input type="text" class="form-control col-6 " nbInput  value="{{grace_period}}" id="grace_period_2" >
+        </div>
+
+        <div class="form-row form-group ">
+            <label class="col-6">Remark</label>
+            <input type="text" class="form-control col-6 " nbInput  value="{{remark}}" id="remark_2" >
+        </div>
+
+    </nb-card-body>
+    <nb-card-footer>
+        <button class="float-left" nbButton hero status="danger" (click)="update_customer_category(custcat_id)" >Update</button>
+        <button class="float-right"  nbButton hero status="primary" (click)="cancel()">Cancel</button>
+    </nb-card-footer>
+</nb-card>
+

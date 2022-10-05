@@ -1,0 +1,30 @@
+
+for ( n = 0 ; n < 7 ; n++ ) {
+
+	count = 0 ;
+
+	for ( i = 0 ; i < nombre de ligne ; i++) {
+
+		for( j = 0 ; j < nombre de colonne ; j++ ) {
+
+			if ( matrice[i][j] == n) {
+
+				count ++ ;
+
+				if (count == 1) {
+
+					x = i ;
+					y = j ;
+
+				} else {
+
+					matrice[x][y] = 100 ;
+					matrice[i][j] = 100 ;
+
+				}
+				
+
+			} 
+		}
+	}
+}

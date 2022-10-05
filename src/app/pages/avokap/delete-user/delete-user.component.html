@@ -1,0 +1,56 @@
+<nb-card class=" m-auto" >
+    <nb-card-header>Delete User   </nb-card-header>
+    <nb-card-body  class="m-3" >
+        <div class="row">
+            <div class="col-md-12 ">
+                <form >
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">First Name :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth  value="{{first_name}}" readonly  >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">Last Name :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth  value="{{last_name}}"  readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">Last Name :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth  value="{{email}}"  readonly  >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label  class="col-sm-6 col-form-label">Role :</label>
+                        <div class="col-sm-6">
+                            <input  type="text" nbInput fullWidth  value="{{role}}"  readonly  >
+                        </div>
+                    </div>
+
+
+
+
+
+                </form>
+
+            </div>
+
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+
+        <button class="float-right "  nbButton hero status="primary" (click)="dismiss()" >Cancel</button>
+
+        <button class="float-left  " nbButton hero status="danger" (click)="delete_user()" >Delete</button>
+
+    </nb-card-footer>
+</nb-card>
+
+<!--  Modale  -->

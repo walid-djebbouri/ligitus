@@ -4,6 +4,8 @@ import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dial
 import {UpdateCabinetComponent} from '../update-cabinet/update-cabinet.component';
 import {NbDialogService} from '@nebular/theme';
 import {ActivatedRoute, Router} from '@angular/router';
+import {CreateLawyerComponent} from '../create-lawyer/create-lawyer.component';
+import {DeleteLawyerComponent} from '../delete-lawyer/delete-lawyer.component';
 
 @Component({
   selector: 'ngx-cabinet-details',
@@ -27,8 +29,9 @@ export class CabinetDetailsComponent implements OnInit {
   @Input() fax: string ;
   @Input() nif: string ;
   @Input() rib: string ;
-  @Input() cabinet_predilection_domains: [] ;
-  @Input() lawyers: [] ;
+  @Input() cabinet_predilection_domains: any[] ;
+  @Input() lawyers: any[] ;
+  wilaya: string;
   constructor(private service: SmartTableData , private dialogService: NbDialogService ,
               private route: ActivatedRoute , private router: Router) {
       const id = this.route.snapshot.params['id'] ;
@@ -48,6 +51,8 @@ export class CabinetDetailsComponent implements OnInit {
           this.fax = cabinet[0].fax ;
           this.nif = cabinet[0].nif ;
           this.rib = cabinet[0].rib ;
+          this.wilaya = cabinet[0].wilaya ;
+          this.membership_status = cabinet[0].membership_status;
           this.cabinet_predilection_domains = cabinet[0].cabinet_predilection_domains ;
           this.lawyers = cabinet[0].lawyers ;
     }).catch( (error) => {
@@ -84,5 +89,27 @@ export class CabinetDetailsComponent implements OnInit {
     laywer_detail(laywer_id): void {
         this.router.navigate(['/pages/avokap/lawyer-details/' + laywer_id]);
    }
+    delete_lawyer(i: number): void {
+        this.dialogService.open(DeleteLawyerComponent  , {
+            context : {
+                avk_ref: this.lawyers[i].avokap_ref ,
+                role_cabinet: this.lawyers[i].role_cabinet ,
+                first_name: this.lawyers[i].user.first_name ,
+                last_name: this.lawyers[i].user.last_name ,
+                cabinetId: this.id,
+                lawyerId: this.lawyers[i].id,
+                },
+        });
+  }
+    create(): void {
+        this.dialogService.open(CreateLawyerComponent, {
+        context : {
+          cabinet_ref: this.cabinet_ref,
+          commercial_name: this.commercial_name,
+          legal_name: this.legal_name,
+          id_cabinet: this.id,
+        },
+        });
+    }
 
 }

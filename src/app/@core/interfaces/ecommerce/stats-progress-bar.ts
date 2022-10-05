@@ -14,5 +14,5 @@ export interface ProgressInfo {
 }
 
 export abstract class StatsProgressBarData {
-  abstract getProgressInfoData(): Observable<ProgressInfo[]>;
+  abstract getProgressInfoData(stateName: string): Observable<ProgressInfo[]>;
 }

@@ -1,0 +1,265 @@
+<nb-card>
+    <nb-card-header>
+        <i class="nb-arrow-dropleft float-left " routerLink="/pages/avokap/lawyer-details/{{id_lawyer}}"></i>
+        <button class="float-right" nbButton hero status="primary" (click)="create_membership()" >Create membership</button>
+        <span id="membership-position" >
+            <a id="cabinet" routerLink="/pages/avokap/cabinet-details/{{cabinet_id}}"> Cabinet </a>/
+            <a id="lawyer"  routerLink="/pages/avokap/lawyer-details/{{id_lawyer}}"> Lawyer </a>  /
+            MemberShip</span>
+    </nb-card-header>
+    <nb-card-body>
+
+
+        <!--  l entete -->
+        <nb-card>
+            <nb-card-body>
+                <label>Me : {{full_name}} , {{lawyer_ref}} , {{bare_name}} </label>
+                    <br>
+                <label>{{commercial_name}} , {{legal_name}} , {{cabinet_reference}}</label>
+                    <br>
+                <label>{{tel}} , {{email}}</label>
+            </nb-card-body>
+        </nb-card>
+
+        <!-- -->
+ <nb-card>
+     <nb-card-header>
+         Filters
+     </nb-card-header>
+     <nb-card-body>
+         <div class="form-group form-row" >
+             <div class="form-group col-6" >
+                 <label>Membership Reference</label>
+                 <input class="form-control" type="text" nbInput placeholder="Membership Reference" (keyup)="filter($event , 'Reference' )" >
+             </div>
+             <div class="form-group col-6" >
+                 <label>Bundle Name</label>
+                 <input class="form-control" type="text" nbInput placeholder="Bundle Name" (keyup)="filter($event , 'Name')" >
+             </div>
+
+         </div>
+
+         <div class="form-group form-row" >
+             <div class="col-form-label col-2">
+                 <label>Plan Start Date :</label>
+             </div>
+             <div class="form-group col-4" >
+                 <input class="form-control" type="date" nbInput id="s_first_date" (change)="filter_3(  'Start_Date')" >
+             </div>
+             <div  class="form-group col-4" *ngIf="display_start_date"  >
+                 <input class="form-control" type="date" nbInput  id="s_last_date" (change)="filter_3( 'Start_Date')">
+             </div>
+             <div class="form-group col-2">
+                 <nb-select [(selected)]="selected_start_date"  (selectedChange)="filter_3('Start_Date')"   id="s_operator"   >
+                     <nb-option value="<"><</nb-option>
+                     <nb-option value=">">></nb-option>
+                     <nb-option value="=">=</nb-option>
+                     <nb-option value="Between">Between</nb-option>
+
+                 </nb-select>
+             </div>
+
+         </div>
+
+         <div class="form-group form-row" >
+             <div class="col-form-label col-2">
+                 <label>Plan End Date :</label>
+             </div>
+             <div class="form-group col-4" >
+                 <input class="form-control" type="date" nbInput id="e_first_date" (change)="filter_3('End_Date')" >
+             </div>
+             <div class="form-group col-4" *ngIf="display_end_date" >
+                 <input class="form-control" type="date" nbInput id="e_last_date" (change)="filter_3('End_Date')" >
+             </div>
+             <div class="form-group col-2">
+                 <nb-select [(selected)]="selected_end_date"  id="e_operator" (selectedChange)="filter_3('End_Date')"  >
+                     <nb-option value="<"><</nb-option>
+                     <nb-option value=">">></nb-option>
+                     <nb-option value="=">=</nb-option>
+                     <nb-option value="Between">Between</nb-option>
+
+                 </nb-select>
+             </div>
+
+         </div>
+     </nb-card-body>
+ </nb-card>
+
+
+        <form *ngFor="let mss of membership_status   ; let i = index"   >
+
+            <!-- -->
+            <div class="form-row" >
+
+                <div id="action" class="form-group col-2" >
+                    <label>Action</label>
+                    <div class=" form-row ">
+                        <i class="nb-edit" (click)="update_membership_status(i)" ></i>
+                        <i class="nb-trash" (click)="delete_membership_status(i)" ></i>
+                    </div>
+                </div>
+
+                <div class="accordion-container form-group col-10 membership">
+                    <nb-accordion multi class="wame">
+                        <nb-accordion-item  >
+                            <nb-accordion-item-header>
+
+                                <div class="form-group form-row" >
+                                    <div class="form-group col-3" >
+                                        <label for="membership_ref">Reference</label>
+                                        <input type="text" class="form-control p-1"  nbInput  id="membership_ref" value="{{mss.membership_ref}}" readonly>
+                                    </div>
+
+                                    <div class="form-group col-3" >
+                                        <label for="bundle_name">Bundle Name </label>
+                                        <input class="form-control" type="text" nbInput id="bundle_name" value="{{mss.bundle.bundle_name}}" readonly>
+                                    </div>
+
+                                    <div class="form-group col-2" >
+                                        <label for="payment_date">Plan Start Date</label>
+                                        <input class="form-control" type="text" nbInput id="payment_date" value="{{mss.plan_sdate |date:'dd/MM/y' }}" readonly>
+                                    </div>
+
+                                    <div class="form-group col-1" >
+                                        <label for="plan_price">Amount </label>
+                                        <input class="form-control p-2 " type="text" nbInput id="plan_price" value="{{mss.billed_amount}}" >
+                                    </div>
+
+                                    <div class="form-group col-2" >
+                                        <label for="plan_edate">Plan End Date</label>
+                                        <input class="form-control" type="text" nbInput id="plan_edate" value="{{mss.plan_edate |date:'dd/MM/y'}}" readonly >
+                                    </div>
+
+                                </div>
+
+                            </nb-accordion-item-header>
+                            <nb-accordion-item-body>
+
+                                <div class="form-row" >
+                                    <div class="form-group col-6">
+                                        <label>Membership Reference</label>
+                                        <input type="text" class="form-control" nbInput  value="{{mss.membership_ref}}" readonly>
+                                    </div>
+
+                                    <div class="form-group col-6">
+                                        <label>Customer Category Discount</label>
+                                        <input type="text" class="form-control" nbInput value="{{mss.CustCat_discount}}" readonly >
+                                    </div>
+                                </div>
+
+                                <div class="form-row" >
+
+                                    <div class="form-group col-6">
+                                        <label>Special Discount</label>
+                                        <input type="text" class="form-control" nbInput value="{{mss.special_discount}}" readonly >
+                                    </div>
+
+
+                                    <div class="  form-group col-6">
+                                        <label>Final Discount</label>
+                                        <input type="text" class="form-control" nbInput  value="{{mss.final_discount}}" readonly >
+                                    </div>
+
+                                </div>
+
+                                <div class="form-row" >
+
+                                    <div class="form-group col-6">
+                                        <label>Billed Amount</label>
+                                        <input type="text" class="form-control" nbInput value="{{mss.billed_amount}}" readonly >
+                                    </div>
+
+
+                                    <div class="  form-group col-6">
+                                        <label>Payment Date</label>
+                                        <input type="text" class="form-control" nbInput  value="{{mss.payment_date |date:'dd/MM/y' }}" readonly >
+                                    </div>
+
+                                </div>
+                                <div class="form-row" >
+
+                                    <div class="form-group col-6">
+                                        <label>Payment Type</label>
+                                        <input type="text" class="form-control" nbInput value="{{mss.payment_type}}" readonly >
+                                    </div>
+
+
+                                    <div class="  form-group col-6">
+                                        <label>Plan Start Date</label>
+                                        <input type="text" class="form-control" nbInput  value="{{mss.plan_sdate |date:'dd/MM/y'}}" readonly >
+                                    </div>
+
+                                </div>
+                                <div class="form-row" >
+
+                                    <div class="  form-group col-6">
+                                        <label>Remark</label>
+                                        <input type="text" class="form-control" nbInput  value="{{mss.remark}}" readonly >
+                                    </div>
+
+                                    <div class="form-group col-6">
+                                        <label>Plan End Date</label>
+                                        <input type="text" class="form-control" nbInput value="{{mss.plan_edate |date:'dd/MM/y'  }}" readonly >
+                                    </div>
+
+                                </div>
+                                <div class="form-row" >
+
+                                    <div class="form-group col-6">
+                                        <label>Payment Type</label>
+                                        <input type="text" class="form-control" nbInput value="{{mss.payment_type}}" readonly >
+                                    </div>
+
+
+                                    <div class="  form-group col-6">
+                                        <label>Payer Name</label>
+                                        <input type="text" class="form-control" nbInput  value="{{mss.payer_name}}" readonly >
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-row" >
+                                    <div class="form-group col-6">
+                                        <label for="bundle_name">National Identity Number</label>
+                                        <input type="text" class="form-control" nbInput  value="{{mss.national_identity_n  }}" readonly>
+                                    </div>
+
+                                    <div class="form-group col-6">
+                                        <label>Designation Reference</label>
+                                        <input type="text" class="form-control" nbInput value="{{mss.designation_ref }}" readonly >
+                                    </div>
+                                </div>
+
+
+                                <div class="form-row" >
+                                    <div class="form-group col-6 " >
+                                        <label >Payment Reference</label>
+                                        <input type="text" class="form-control"  nbInput value="{{mss.payment_ref}}" readonly >
+                                    </div>
+
+                                    <div class="form-group col-6 " >
+                                        <label >Plan Price</label>
+                                        <input type="text" class="form-control"  nbInput value="{{mss.plan_price}}" readonly >
+                                    </div>
+                                </div>
+
+
+
+                            </nb-accordion-item-body>
+                        </nb-accordion-item>
+                    </nb-accordion>
+                </div>
+
+
+
+            </div>
+
+
+
+            <!-- -->
+
+
+        </form>
+    </nb-card-body>
+</nb-card>

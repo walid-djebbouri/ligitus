@@ -5,8 +5,7 @@
   -->
 
 <nb-card-header>
-  <i class="ion-social-usd"></i>
-  <span class="title">Profit</span>
+  <span class="title">Daily Users Activity</span>
 </nb-card-header>
 <nb-card-body [nbSpinner]="!chartData">
   <ngx-stats-bar-animation-chart *ngIf="chartData" [lines]="chartData"></ngx-stats-bar-animation-chart>

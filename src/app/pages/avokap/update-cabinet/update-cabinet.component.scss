@@ -2,12 +2,15 @@
 
 @include nb-install-component() {
   nb-card {
-    max-width: 600px;
     max-height: 500px;
+    width: 825px;
   }
 }
 
 input , label {
 
   font-size: 16px;
+}
+.cdk-global-scrollblock {
+  position: static !important;
 }

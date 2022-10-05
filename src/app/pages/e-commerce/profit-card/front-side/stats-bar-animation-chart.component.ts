@@ -55,17 +55,17 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
         chartVariables.secondAnimationBarColor,
       ],
       grid: {
-        left: 0,
-        top: 0,
+        left: 25,
+        top: 30,
         right: 0,
-        bottom: 0,
+        bottom: 16,
       },
       legend: {
         data: this.lines.legend,
         borderWidth: 0,
         borderRadius: 0,
         itemWidth: 15,
-        itemHeight: 15,
+        itemHeight: 10,
         textStyle: {
           color: chartVariables.textColor,
         },
@@ -83,34 +83,45 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
         backgroundColor: chartVariables.tooltipBg,
         borderColor: chartVariables.tooltipBorderColor,
         borderWidth: chartVariables.tooltipBorderWidth,
-        formatter: params => `$ ${Math.round(parseInt(params.value, 10))}`,
+        formatter: params => ` ${Math.round(parseInt(params.value, 10))}`,
         extraCssText: chartVariables.tooltipExtraCss,
       },
       xAxis: [
         {
-          data: this.lines.linesData[0].map((_, index) => index),
-          silent: false,
+          type: 'category',
+          data: [ '7' ,  '' , '' , '' , '8' , '' , '' , '' , '9' , '', '' , '' , '10' , '' , '',
+            '' , '11' , '' , '' , '', '12' , '' , '' , '' , '13', '' , '' , '' , '14' , '', '' , ''
+            , '15' ,  '' , '', ''  , '16' , '' , '' , '' , '17' , '' , '' , '' , '18', '' , '' , '' , '19'  ],
+          axisTick: {
+            alignWithLabel: true,
+          },
           axisLine: {
-            show: false,
+            lineStyle: {
+              color: '#00d68f' ,
+            },
           },
           axisLabel: {
-            show: false,
-          },
-          axisTick: {
-            show: false,
+            color: '#00d68f',
+            fontSize: 10 ,
           },
         },
       ],
       yAxis: [
         {
           axisLine: {
-            show: false,
+            show: true,
+            lineStyle: {
+              color:  '#00d68f',
+            },
+
           },
           axisLabel: {
-            show: false,
+            show: true,
+            color: '#00d68f',
+            fontSize: 10 ,
           },
           axisTick: {
-            show: false,
+            show: true,
           },
           splitLine: {
             show: true,
@@ -124,13 +135,13 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
       ],
       series: [
         {
-          name: 'transactions',
+          name: 'Active',
           type: 'bar',
           data: this.lines.linesData[0],
           animationDelay: idx => idx * 10,
         },
         {
-          name: 'orders',
+          name: 'Inactive',
           type: 'bar',
           data: this.lines.linesData[1],
           animationDelay: idx => idx * 10 + 100,
