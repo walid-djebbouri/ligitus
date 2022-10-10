@@ -9,7 +9,7 @@ export class UserService {
             this.http.get(  environment.apiUrl + 'profile?filter={"include":[{"relation" : "lawyer", "scope":{"fields":["id","avokap_ref","bar_name","category","userId"],"include":[\n' +
                 '{"relation":"cabinet"}]}}, \n' +
                 '{"relation" : "userStatuses","scope":{"fields":["id","status","status_date","userId"],"order" : ["status_date  DESC"]}},\n' +
-                '{"relation": "memberships","scope":{"fields":["plan_edate","userId","bundleId"],"order": ["plan_sdate DESC"],"include":[{"relation":"bundle","scope":{"fields":["bundle_name","id"]}}]}}]}').subscribe(
+                '{"relation": "memberships","scope":{"fields":["plan_edate","userId","bundleId"],"order": ["plan_edate DESC"],"include":[{"relation":"bundle","scope":{"fields":["bundle_name","id"]}}]}}]}').subscribe(
                 (users: any[]) => {
                     resolve(users) ;
                 } ,

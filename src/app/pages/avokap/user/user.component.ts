@@ -132,9 +132,16 @@ colorClass: string ;
                     const first_date = (<HTMLInputElement>document.getElementById('first_date')).value;
                     const second_date = (<HTMLInputElement>document.getElementById('second_date')).value;
                     if ( first_date !== '' && second_date !== '' ) {
-                        this.Users = this.Users_const.filter(user =>
-                            (   this.format_date(user.join_date) >= this.format_date(first_date) &&
-                                this.format_date(user.join_date) <=  this.format_date(second_date) ));
+                        this.Users = this.Users_const.filter(user => {
+
+                                if ( user.memberships &&
+                                    new Date(user.memberships[0].plan_edate)  >= new Date(first_date) &&
+                                    new Date(user.memberships[0].plan_edate) <=  new Date(second_date)
+                                ) {
+                                     return user ;
+                                }
+
+                        } );
                         break;
                     } else {
                         this.Users = this.Users_const;
@@ -181,21 +188,26 @@ colorClass: string ;
         const month  = days / 30 ;
         const year = month / 12 ;
         difference =  Math.floor(days).toString() + ' Days' ;
-        this.colorClass = 'bg-warning';
+        this.colorClass = 'text-warning border-warning';
 
         if ( days <= 0) {
             difference = 'Expired';
-            this.colorClass = 'bg-danger';
+            this.colorClass = 'text-danger border-danger';
+        }
+
+        if (days > 15 && days < 30) {
+            difference = Math.floor(month).toString() + ' Days' ;
+            this.colorClass = 'text-warning border-warning';
         }
 
         if (days > 30) {
             difference = Math.floor(month).toString() + ' Months' ;
-            this.colorClass = 'bg-primary';
+            this.colorClass = 'text-primary border-primary';
         }
 
         if (month >= 12) {
             difference = Math.floor(year).toString() + ' Years' ;
-            this.colorClass = 'bg-success';
+            this.colorClass = 'text-success border-success';
         }
 
         return difference.toString() ;
