@@ -133,14 +133,17 @@ colorClass: string ;
                     const second_date = (<HTMLInputElement>document.getElementById('second_date')).value;
                     if ( first_date !== '' && second_date !== '' ) {
                         this.Users = this.Users_const.filter(user => {
-
-                                if ( user.memberships &&
-                                    new Date(user.memberships[0].plan_edate)  >= new Date(first_date) &&
-                                    new Date(user.memberships[0].plan_edate) <=  new Date(second_date)
+                            if ( user.memberships) {
+                                const endDate = new Date(user.memberships[0].plan_edate);
+                                if (
+                                    endDate
+                                    >= new Date(first_date) &&
+                                    new Date(endDate.getFullYear(), endDate.getMonth()  , endDate.getDate())
+                                    <=  new Date(second_date)
                                 ) {
-                                     return user ;
+                                    return user ;
                                 }
-
+                            }
                         } );
                         break;
                     } else {
@@ -190,14 +193,30 @@ colorClass: string ;
         difference =  Math.floor(days).toString() + ' Days' ;
         this.colorClass = 'text-warning border-warning';
 
-        if ( days <= 0) {
-            difference = 'Expired';
+        if ( -30 < days && days <= 0) {
+            difference = Math.trunc(days).toString() + 'Days';
             this.colorClass = 'text-danger border-danger';
         }
 
-        if (days > 15 && days < 30) {
-            difference = Math.floor(month).toString() + ' Days' ;
+
+        if (- days > 30) {
+            difference = Math.trunc(month).toString() + ' Months' ;
+            this.colorClass = 'text-danger border-danger';
+        }
+
+        if (- month >= 12) {
+            difference = Math.trunc(year).toString() + ' Years' ;
+            this.colorClass = 'text-danger border-danger';
+        }
+
+        if (0 < days  && days < 7) {
+            difference = Math.floor(days).toString() + ' Days' ;
             this.colorClass = 'text-warning border-warning';
+        }
+
+        if (days > 7) {
+            difference = Math.floor(days).toString() + ' days' ;
+            this.colorClass = 'text-primary border-primary';
         }
 
         if (days > 30) {

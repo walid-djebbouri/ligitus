@@ -119,7 +119,7 @@
                         </div>
                         <div class="col-3" *ngIf="!user.lawyer" >
                             <label>Avokap Reference</label>
-                            <input class="form-control bg-dark" type="text" nbInput value="NَA" disabled >
+                            <input class="form-control  " type="text" nbInput value="NA" disabled >
                         </div>
                         <div class="col-2" >
                             <label>First Name</label>
@@ -135,7 +135,7 @@
                         </div>
                         <div class="col-2"  *ngIf="!user.lawyer" >
                             <label>Category</label>
-                            <input class="form-control bg-dark" type="text" nbInput value="NA" disabled >
+                            <input class="form-control " type="text" nbInput value="NA" disabled >
                         </div>
                     </div>
                     <div class="form-row" >
@@ -152,7 +152,7 @@
                         </div>
                         <div class="col-2" *ngIf="!user.lawyer && !user.userStatuses" >
                             <label>User Status</label>
-                            <input class="form-control bg-dark" type="text" nbInput value="NA" disabled >
+                            <input class="form-control " type="text" nbInput value="NA" disabled >
                         </div>
                         <div class="col-3" >
                             <label>E Mail</label>
@@ -170,7 +170,9 @@
                             <label>Days Left</label>
                             <!--<input class="form-control" type="text" nbInput value="{{user.roles[0]  }}" readonly >-->
                             <input *ngIf="user.memberships"  class="form-control" type="text" nbInput [value]="membershipEnDate(user.memberships[0].plan_edate)" [ngClass]="colorClass" readonly >
-                            <input *ngIf="!user.memberships" class="form-control" type="text" nbInput [value]="'No Data'" readonly >
+                            <input *ngIf="!user.memberships && user.roles[0] == 'customer'" class="form-control pl-2 pr-2" type="text" nbInput [value]="'No Membership'" readonly >
+                            <input *ngIf="user.roles[0] != 'customer'" class="form-control text-danger border-danger" type="text" nbInput [value]="'NA'" disabled >
+
 
                         </div>
                     </div>
