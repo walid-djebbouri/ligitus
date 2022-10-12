@@ -190,42 +190,42 @@ colorClass: string ;
         const days =  difference / 86400000  ;
         const month  = days / 30 ;
         const year = month / 12 ;
-        difference =  Math.floor(days).toString() + ' Days' ;
+        difference =  Math.floor(days).toString() + ' day' ;
         this.colorClass = 'text-warning border-warning';
 
         if ( -30 < days && days <= 0) {
-            difference = Math.trunc(days).toString() + 'Days';
+            difference = Math.trunc(days).toString() + ' day';
             this.colorClass = 'text-danger border-danger';
         }
 
 
         if (- days > 30) {
-            difference = Math.trunc(month).toString() + ' Months' ;
+            difference = Math.trunc(month).toString() + ' month' ;
             this.colorClass = 'text-danger border-danger';
         }
 
         if (- month >= 12) {
-            difference = Math.trunc(year).toString() + ' Years' ;
+            difference = Math.trunc(year).toString() + ' year' ;
             this.colorClass = 'text-danger border-danger';
         }
 
         if (0 < days  && days < 7) {
-            difference = Math.floor(days).toString() + ' Days' ;
+            difference = Math.floor(days).toString() + ' day' ;
             this.colorClass = 'text-warning border-warning';
         }
 
         if (days > 7) {
-            difference = Math.floor(days).toString() + ' days' ;
+            difference = Math.floor(days).toString() + ' day' ;
             this.colorClass = 'text-primary border-primary';
         }
 
         if (days > 30) {
-            difference = Math.floor(month).toString() + ' Months' ;
+            difference = Math.floor(month).toString() + ' month' ;
             this.colorClass = 'text-primary border-primary';
         }
 
         if (month >= 12) {
-            difference = Math.floor(year).toString() + ' Years' ;
+            difference = Math.floor(year).toString() + ' year' ;
             this.colorClass = 'text-success border-success';
         }
 

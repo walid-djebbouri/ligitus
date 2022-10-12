@@ -170,8 +170,8 @@
                             <label>Days Left</label>
                             <!--<input class="form-control" type="text" nbInput value="{{user.roles[0]  }}" readonly >-->
                             <input *ngIf="user.memberships"  class="form-control" type="text" nbInput [value]="membershipEnDate(user.memberships[0].plan_edate)" [ngClass]="colorClass" readonly >
-                            <input *ngIf="!user.memberships && user.roles[0] == 'customer'" class="form-control pl-2 pr-2" type="text" nbInput [value]="'No Membership'" readonly >
-                            <input *ngIf="user.roles[0] != 'customer'" class="form-control text-danger border-danger" type="text" nbInput [value]="'NA'" disabled >
+                            <input *ngIf="!user.memberships && user.roles[0] == 'customer'" class="form-control text-danger border-danger pl-2 pr-2" type="text" nbInput [value]="'No Membership'" readonly >
+                            <input *ngIf="user.roles[0] != 'customer'" class="form-control " type="text" nbInput [value]="'NA'" disabled >
 
 
                         </div>
