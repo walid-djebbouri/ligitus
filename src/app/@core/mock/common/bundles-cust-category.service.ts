@@ -251,11 +251,11 @@ export class BundlesCustCategoryService {
     }
     getMembershipForMonth(): Observable<any> {
         const year: string = new Date().getFullYear().toString();
-        const Membership_Downgrade = [];
-        const Membership_Dropoff = [];
-        const Membership_New = [];
-        const Membership_Renewal = [];
-        const Membership_Upgrade = [];
+        const Membership_Downgrade = [0];
+        const Membership_Dropoff = [0];
+        const Membership_New = [0];
+        const Membership_Renewal = [0];
+        const Membership_Upgrade = [0];
         const Membership: any[] = [0 , 0 , 0 , 0 , 0 ];
         this.http.get(environment.apiUrl + 'membership-new-apd').pipe(
             map(
@@ -304,7 +304,7 @@ export class BundlesCustCategoryService {
                 (Dropoff: any[]) => {
                     Dropoff.filter(membership => {
                         if (membership.time_period.match(year)) {
-                            Membership_Dropoff.push(parseInt(membership.count_membership_dropoff, 0));
+                            Membership_Dropoff.push(-1 * parseInt(membership.count_membership_dropoff, 0));
                         }
                     });
                     return Membership_Dropoff;
