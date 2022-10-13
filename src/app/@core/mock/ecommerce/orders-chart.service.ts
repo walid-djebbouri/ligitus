@@ -108,7 +108,7 @@ export class OrdersChartService {
                'Drop-offs' ],
       linesData: [],
     } ;
-    this.membership_data.getMemebershipForMonth().subscribe((Membership) => {
+    this.membership_data.getMembershipForMonth().subscribe((Membership) => {
       ChartDataForMonth.linesData = Membership ;
     });
     const month = of(ChartDataForMonth);

@@ -34,7 +34,6 @@ export class ECommerceChartsPanelComponent implements OnInit, OnDestroy {
   @ViewChild('profitChart', { static: true }) profitChart: ProfitChartComponent;
 
   constructor(private ordersProfitChartService: OrdersProfitChartData) {
-    // console.log('constructor');
   }
 
   ngOnInit(): void {

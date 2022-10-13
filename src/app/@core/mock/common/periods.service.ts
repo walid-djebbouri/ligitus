@@ -9,8 +9,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class PeriodsService {
   getYears() {
+    const currentYear = new Date().getFullYear() ;
+    const previousYear = currentYear - 1 ;
+    const nextYear = currentYear + 1 ;
+
     return [
-      '2020', '2021', '2022',
+      previousYear.toString() ,  currentYear.toString() , nextYear.toString() ,
     ];
   }
 

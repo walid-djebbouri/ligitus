@@ -137,17 +137,17 @@ export class BundlesCustCategoryService {
             this.http.get( environment.apiUrl + 'bundle-number-apd').subscribe(
                 (allBundles: any[]) => {
                     allBundles.filter(bundle => {
-                        if (bundle.bundle_name === 'AVOKAP BASIC' && bundle.time_period.match('2021') ) {
+                        if (bundle.bundle_name === 'AVOKAP BASIC' && bundle.time_period.match('2022') ) {
                             Avokap_Basic.push( parseInt( bundle.count , 0))  ;
                         }
                     });
                     allBundles.filter(bundle => {
-                        if (bundle.bundle_name === 'AVOKAP CLASSIC' && bundle.time_period.match('2021') ) {
+                        if (bundle.bundle_name === 'AVOKAP CLASSIC' && bundle.time_period.match('2022') ) {
                             Avokap_Classic.push( parseInt(bundle.count , 0))  ;
                         }
                     });
                     allBundles.filter(bundle => {
-                        if (bundle.bundle_name === 'AVOKAP PREMIUM' && bundle.time_period.match('2021') ) {
+                        if (bundle.bundle_name === 'AVOKAP PREMIUM' && bundle.time_period.match('2022') ) {
                             Avokap_Premium.push( parseInt(bundle.count , 0))  ;
                         }
                     });
@@ -171,17 +171,17 @@ export class BundlesCustCategoryService {
             map(
                 (allBundles: any[]) => {
                     allBundles.filter(bundle => {
-                        if (bundle.bundle_name === 'AVOKAP BASIC' && bundle.time_period.match('2021') ) {
+                        if (bundle.bundle_name === 'AVOKAP BASIC' && bundle.time_period.match('2022') ) {
                             Avokap_Basic.push( parseInt( bundle.count , 0))  ;
                         }
                     });
                     allBundles.filter(bundle => {
-                        if (bundle.bundle_name === 'AVOKAP CLASSIC' && bundle.time_period.match('2021') ) {
+                        if (bundle.bundle_name === 'AVOKAP CLASSIC' && bundle.time_period.match('2022') ) {
                             Avokap_Classic.push( parseInt(bundle.count , 0))  ;
                         }
                     });
                     allBundles.filter(bundle => {
-                        if (bundle.bundle_name === 'AVOKAP PREMIUM' && bundle.time_period.match('2021') ) {
+                        if (bundle.bundle_name === 'AVOKAP PREMIUM' && bundle.time_period.match('2022') ) {
                             Avokap_Premium.push( parseInt(bundle.count , 0))  ;
                         }
                     });
@@ -249,75 +249,77 @@ export class BundlesCustCategoryService {
         }
         return year ;
     }
-    getMemebershipForMonth(): Observable<any> {
+    getMembershipForMonth(): Observable<any> {
+        const year: string = new Date().getFullYear().toString();
         const Membership_Downgrade = [];
         const Membership_Dropoff = [];
         const Membership_New = [];
         const Membership_Renewal = [];
         const Membership_Upgrade = [];
-        const Membership = [];
+        const Membership: any[] = [0 , 0 , 0 , 0 , 0 ];
         this.http.get(environment.apiUrl + 'membership-new-apd').pipe(
             map(
                 (New: any[]) => {
                     New.filter(membership => {
-                        if (membership.time_period.match('2021')) {
+                        if (membership.time_period.match(year)) {
                             Membership_New.push(parseInt(membership.count_membership_new, 0));
                         }
                     });
                     return Membership_New;
-                })).subscribe((membership_new) => {Membership.push(membership_new);  });
+                })).subscribe((membership_new) => {Membership.splice(0, 1 , membership_new);  });
         this.http.get(environment.apiUrl + 'membership-renewal-apd').pipe(
             map(
                 (Renewal: any[]) => {
                     Renewal.filter(membership => {
-                        if (membership.time_period.match('2021')) {
+                        if (membership.time_period.match(year)) {
                             Membership_Renewal.push(parseInt(membership.count_membership_renewal, 10));
                         }
                     });
                     return Membership_Renewal;
-                })).subscribe((membership_Renewal) => {Membership.push(membership_Renewal)  ;
+                })).subscribe((membership_Renewal) => {Membership.splice(1 , 1 , membership_Renewal)  ;
         });
         this.http.get(environment.apiUrl + 'membership-upgrade-apd').pipe(
             map(
                 (Upgrade: any[]) => {
                     Upgrade.filter(membership => {
-                        if (membership.time_period.match('2021')) {
+                        if (membership.time_period.match(year)) {
                             Membership_Upgrade.push(parseInt(membership.count_membership_upgrade, 0));
                         }
                     });
                     return Membership_Upgrade ;
-                })).subscribe((membership_Upgrade) => {Membership.push(membership_Upgrade) ; });
+                })).subscribe((membership_Upgrade) => {Membership.splice(2 , 1 , membership_Upgrade) ; });
         this.http.get(environment.apiUrl + 'membership-downgrade-apd').pipe(
             map(
                 (downGrade: any[]) => {
                     downGrade.filter(membership => {
-                        if (membership.time_period.match('2021')) {
+                        if (membership.time_period.match(year)) {
                             Membership_Downgrade.push(parseInt(membership.count_membership_downgrade, 0));
                         }
                     });
                     return Membership_Downgrade;
-                })).subscribe((membership_downgrade) => {Membership.push(membership_downgrade) ; });
+                })).subscribe((membership_downgrade) => {Membership.splice(3, 1, membership_downgrade) ; });
 
         this.http.get(environment.apiUrl + 'membership-dropoff-apd').pipe(
             map(
                 (Dropoff: any[]) => {
                     Dropoff.filter(membership => {
-                        if (membership.time_period.match('2021')) {
+                        if (membership.time_period.match(year)) {
                             Membership_Dropoff.push(parseInt(membership.count_membership_dropoff, 0));
                         }
                     });
                     return Membership_Dropoff;
-                })).subscribe((membership_dropoff) => {Membership.push(membership_dropoff) ; });
+                })).subscribe((membership_dropoff) => {Membership.splice(4 , 1 , membership_dropoff) ; });
         return of(Membership);
     }
 
     getMembershipForYear(): Observable<any> {
-        const Membership_Downgrade = [];
-        const Membership_Dropoff = [];
-        const Membership_New = [];
-        const Membership_Renewal = [];
-        const Membership_Upgrade = [];
-        const Membership = [];
+        const Membership_Downgrade: number[] = [];
+        const Membership_Dropoff: number[] = [];
+        const Membership_New: number[] = [];
+        const Membership_Renewal: number[] = [];
+        const Membership_Upgrade: number[] =  [];
+        const Membership: any[] = [ 0 , 0 , 0 , 0 , 0 ];
+
         this.http.get(environment.apiUrl + 'membership-new-apd').pipe(
             map(
                 (New: any[]) => {
@@ -326,13 +328,15 @@ export class BundlesCustCategoryService {
                         let count_new = 0 ;
                         New.filter(membership => {
                             if (membership.time_period.match(years[i])) {
-                                count_new = count_new + parseInt(membership.count_membership_new, 0) ;
+                                count_new = count_new + parseInt(membership.count_membership_new, 10) ;
                             }
                         });
+                        Membership_New.push(0);
+
                         Membership_New.push(count_new);
                     }
                     return Membership_New;
-                })).subscribe((membership_new) => {Membership.push(membership_new);  });
+                })).subscribe((membership_new) => {Membership.splice(0  , 1 , membership_new);  });
         this.http.get(environment.apiUrl + 'membership-renewal-apd').pipe(
             map(
                 (Renewal: any[]) => {
@@ -344,10 +348,12 @@ export class BundlesCustCategoryService {
                                 count_renewal = count_renewal + parseInt(membership.count_membership_renewal, 0) ;
                             }
                         });
+                        Membership_Renewal.push(0);
+
                         Membership_Renewal.push(count_renewal);
                     }
                     return Membership_Renewal;
-                })).subscribe((membership_Renewal) => {Membership.push(membership_Renewal);
+                })).subscribe((membership_Renewal) => {Membership.splice(1  , 1 , membership_Renewal);
         });
         this.http.get(environment.apiUrl + 'membership-upgrade-apd').pipe(
             map(
@@ -360,10 +366,12 @@ export class BundlesCustCategoryService {
                                 count_upgrade = count_upgrade + parseInt(membership.count_membership_upgrade, 0) ;
                             }
                         });
+                        Membership_Upgrade.push(0);
+
                         Membership_Upgrade.push(count_upgrade);
                     }
                     return Membership_Upgrade ;
-                })).subscribe((membership_Upgrade) => {Membership.push(membership_Upgrade); });
+                })).subscribe((membership_Upgrade) => {Membership.splice(2  , 1 , membership_Upgrade); });
         this.http.get(environment.apiUrl + 'membership-downgrade-apd').pipe(
             map(
                 (downGrade: any[]) => {
@@ -375,10 +383,12 @@ export class BundlesCustCategoryService {
                                 count_downgrade = count_downgrade + parseInt(membership.count_membership_downgrade, 0) ;
                             }
                         });
+                        Membership_Downgrade.push(0);
+
                         Membership_Downgrade.push(count_downgrade);
                     }
                     return Membership_Downgrade;
-                })).subscribe((membership_downgrade) => {Membership.push(membership_downgrade); });
+                })).subscribe((membership_downgrade) => {Membership.splice(3 ,  1, membership_downgrade); });
 
         this.http.get(environment.apiUrl + 'membership-dropoff-apd').pipe(
             map(
@@ -391,10 +401,12 @@ export class BundlesCustCategoryService {
                                 count_dropoff = count_dropoff + parseInt(membership.count_membership_dropoff, 0) ;
                             }
                         });
-                        Membership_Dropoff.push(count_dropoff);
+                        Membership_Dropoff.push(0);
+
+                        Membership_Dropoff.push(-count_dropoff);
                     }
                     return Membership_Dropoff;
-                })).subscribe((membership_dropoff) => {Membership.push(membership_dropoff); });
+                })).subscribe((membership_dropoff) => {Membership.splice( 4 , 1 , membership_dropoff ); });
         return of(Membership);
     }
     getStatusOfStat(): Observable<any> {
@@ -515,7 +527,7 @@ export class BundlesCustCategoryService {
         const membershipTotal: number[] = [] ;
         return this.http.get(environment.apiUrl + 'membership-total').pipe(
             map((membershipsTotal: any[]) => {
-                membershipTotal.push( parseInt(membershipsTotal[0].count_total , 10) ) ;
+                membershipTotal.push( parseInt(membershipsTotal[0].count_total   , 10) ) ;
                 membershipTotal.push( parseInt(membershipsTotal[0].count_last_month , 10) ) ;
                 membershipTotal.push( parseInt(membershipsTotal[0].count_last_week , 10) ) ;
                 return membershipTotal ;

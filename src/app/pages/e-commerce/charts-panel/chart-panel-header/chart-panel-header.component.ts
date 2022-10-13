@@ -78,6 +78,10 @@ export class ChartPanelHeaderComponent implements OnDestroy {
         title: 'New ',
       },
       {
+        iconColor: '#876521',
+        title: 'Drop-offs',
+      },
+      {
         iconColor: orderProfitLegend.secondItem,
         title: 'Renewal',
       },
@@ -88,10 +92,6 @@ export class ChartPanelHeaderComponent implements OnDestroy {
       {
         iconColor: '#002193',
         title: 'Downgrade',
-      },
-      {
-        iconColor: '#876521',
-        title: 'Drop-offs',
       },
     ];
   }
