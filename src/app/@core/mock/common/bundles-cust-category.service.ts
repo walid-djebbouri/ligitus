@@ -162,27 +162,28 @@ export class BundlesCustCategoryService {
         })) ;
     }
     getDataForMonth(): Observable<any> {
-        const Avokap_Basic = [];
-        const Avokap_Classic = [];
-        const Avokap_Premium = [];
+        const Avokap_Basic = [0];
+        const Avokap_Classic = [0];
+        const Avokap_Premium = [0];
         const Avokap = [];
+        const currentYear = new Date().getFullYear().toString();
 
         return this.http.get( environment.apiUrl + 'bundle-number-apd').pipe(
             map(
                 (allBundles: any[]) => {
                     allBundles.filter(bundle => {
-                        if (bundle.bundle_name === 'AVOKAP BASIC' && bundle.time_period.match('2022') ) {
-                            Avokap_Basic.push( parseInt( bundle.count , 0))  ;
+                        if (bundle.bundle_name === 'AVOKAP_BASIC' && bundle.time_period.match(currentYear) ) {
+                            Avokap_Basic.push( parseInt( bundle.count , 10))  ;
                         }
                     });
                     allBundles.filter(bundle => {
-                        if (bundle.bundle_name === 'AVOKAP CLASSIC' && bundle.time_period.match('2022') ) {
-                            Avokap_Classic.push( parseInt(bundle.count , 0))  ;
+                        if (bundle.bundle_name === 'AVOKAP_CLASSIC' && bundle.time_period.match(currentYear) ) {
+                            Avokap_Classic.push( parseInt(bundle.count , 10))  ;
                         }
                     });
                     allBundles.filter(bundle => {
-                        if (bundle.bundle_name === 'AVOKAP PREMIUM' && bundle.time_period.match('2022') ) {
-                            Avokap_Premium.push( parseInt(bundle.count , 0))  ;
+                        if (bundle.bundle_name === 'AVOKAP_PREMIUM' && bundle.time_period.match(currentYear) ) {
+                            Avokap_Premium.push( parseInt(bundle.count , 10))  ;
                         }
                     });
                     Avokap.push(Avokap_Basic);
@@ -206,20 +207,20 @@ export class BundlesCustCategoryService {
                         let count_premium = 0;
 
                         allBundles.filter(bundle => {
-                            if (bundle.bundle_name === 'AVOKAP BASIC' && bundle.time_period.match( years[i] )) {
-                                count_basic = count_basic + parseInt( bundle.count , 0) ;
+                            if (bundle.bundle_name === 'AVOKAP_BASIC' && bundle.time_period.match( years[i] )) {
+                                count_basic = count_basic + parseInt( bundle.count , 10) ;
                             }
                         });
                         Avokap_Basic.push(count_basic) ;
                         allBundles.filter(bundle => {
-                            if (bundle.bundle_name === 'AVOKAP CLASSIC' && bundle.time_period.match(years[i]) ) {
-                                count_classic = count_classic + parseInt( bundle.count , 0) ;
+                            if (bundle.bundle_name === 'AVOKAP_CLASSIC' && bundle.time_period.match(years[i]) ) {
+                                count_classic = count_classic + parseInt( bundle.count , 10) ;
                             }
                         });
                         Avokap_Classic.push(count_classic);
                         allBundles.filter(bundle => {
-                            if (bundle.bundle_name === 'AVOKAP PREMIUM' && bundle.time_period.match(years[i]) ) {
-                                count_premium = count_premium + parseInt( bundle.count , 0) ;
+                            if (bundle.bundle_name === 'AVOKAP_PREMIUM' && bundle.time_period.match(years[i]) ) {
+                                count_premium = count_premium + parseInt( bundle.count , 10) ;
                             }
                         });
                         Avokap_Premium.push(count_premium);
@@ -517,9 +518,9 @@ export class BundlesCustCategoryService {
         const proportionsBundles: number[] = [] ;
         return this.http.get( environment.apiUrl + 'current-membership-bundles' ).pipe(
             map((Bundles: any[]) => {
-                proportionsBundles.push( parseInt(Bundles[0].number_user , 0) ) ;
-                proportionsBundles.push( parseInt(Bundles[1].number_user , 0) ) ;
-                proportionsBundles.push( parseInt(Bundles[2].number_user , 0) ) ;
+                proportionsBundles.push( parseInt(Bundles[0].number_user , 10) ) ;
+                proportionsBundles.push( parseInt(Bundles[1].number_user , 10) ) ;
+                proportionsBundles.push( parseInt(Bundles[2].number_user , 10) ) ;
                 return proportionsBundles;
         }) ) ;
     }
