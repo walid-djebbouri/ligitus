@@ -419,11 +419,12 @@ export class BundlesCustCategoryService {
                         'state' : statusOfStates[i].wilaya ,
                         'values' :
                         [
-                            parseInt(statusOfStates[i].terminated_account , 0) ,
-                            parseInt(statusOfStates[i].onhold_account , 0) ,
-                            parseInt(statusOfStates[i].browse_account , 0) ,
-                            parseInt(statusOfStates[i].active_account , 0) ,
-                            parseInt(statusOfStates[i].total_registred , 0) ,
+                            parseInt(statusOfStates[i].terminated_account , 10) ,
+                            parseInt(statusOfStates[i].onhold_account , 10) ,
+                            parseInt(statusOfStates[i].browse_account , 10) ,
+                            parseInt(statusOfStates[i].active_account , 10) ,
+                            parseInt(statusOfStates[i].total_registred , 10) ,
+                            parseInt(statusOfStates[i].region_objective , 10) ,
                         ] ,
                     });
                 }

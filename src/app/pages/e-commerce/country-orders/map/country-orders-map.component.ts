@@ -4,7 +4,7 @@
  * See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
  */
 
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 
 import * as L from 'leaflet';
 
@@ -12,6 +12,7 @@ import { CountryOrdersMapService } from './country-orders-map.service';
 import { NbThemeService } from '@nebular/theme';
 import { combineLatest } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
+import {BundlesCustCategoryService} from '../../../../@core/mock/common/bundles-cust-category.service';
 
 
 @Component({
@@ -21,12 +22,12 @@ import { takeWhile } from 'rxjs/operators';
     <div leaflet [leafletOptions]="options" [leafletLayers]="layers" (leafletMapReady)="mapReady($event)"></div>
   `,
 })
-export class CountryOrdersMapComponent implements OnDestroy {
+export class CountryOrdersMapComponent implements OnDestroy , OnInit {
 
   @Input() countryId: string;
 
   @Output() select: EventEmitter<any> = new EventEmitter();
-
+  stateData = [];
   layers = [];
   currentTheme: any;
   alive = true;
@@ -48,19 +49,25 @@ export class CountryOrdersMapComponent implements OnDestroy {
   };
 
   constructor(private ecMapService: CountryOrdersMapService,
-              private theme: NbThemeService) {
+              private theme: NbThemeService,
+              private dataService: BundlesCustCategoryService) {
+
 
     combineLatest([
       this.ecMapService.getCords(),
       this.theme.getJsTheme(),
+      this.dataService.getStatusOfStat(),
     ])
       .pipe(takeWhile(() => this.alive))
-      .subscribe(([cords, config]: [any, any]) => {
+      .subscribe(([cords, config, stats]: [any, any, any]) => {
+        this.stateData = stats;
         this.currentTheme = config.variables.countryOrders;
         this.layers = [this.createGeoJsonLayer(cords)];
         this.selectFeature(this.findFeatureLayerByCountryId(this.countryId));
       });
   }
+
+  ngOnInit(): void {}
 
   mapReady(map: L.Map) {
     map.addControl(L.control.zoom({position: 'bottomright'}));
@@ -72,12 +79,20 @@ export class CountryOrdersMapComponent implements OnDestroy {
   }
 
   private createGeoJsonLayer(cords) {
+    cords.features.forEach((feature: any) => {
+      feature.properties.newCase = 0;
+      this.stateData.find(stat =>  {
+        if (stat.state === feature.properties.name) {
+          feature.properties.newCase = stat.values[4] / stat.values[5];
+        }
+      });
+    } );
     return L.geoJSON(
       cords as any,
       {
-        style: () => ({
+        style: (feature) => ({
           weight: this.currentTheme.countryBorderWidth,
-          fillColor: this.currentTheme.countryFillColor,
+          fillColor: this.colorStyle(feature) ,
           fillOpacity: 1,
           color: this.currentTheme.countryBorderColor,
           opacity: 1,
@@ -86,6 +101,19 @@ export class CountryOrdersMapComponent implements OnDestroy {
           this.onEachFeature(f, l);
         },
       });
+  }
+
+  public getColor(target: number) {
+    return target > 0.75  ? '#FC4E2A' :
+                    target > 0.5   ? '#FD8D3C' :
+                        target > 0.25   ? '#FEB24C' :
+                            target > 0   ? '#FED976' :
+                                this.currentTheme.countryFillColor;
+  }
+
+
+  colorStyle(feature: any): string {
+    return this.getColor(feature.properties.newCase) ;
   }
 
   private onEachFeature(feature, layer) {
