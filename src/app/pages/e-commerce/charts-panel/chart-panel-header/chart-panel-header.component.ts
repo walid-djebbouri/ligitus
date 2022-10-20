@@ -66,7 +66,7 @@ export class ChartPanelHeaderComponent implements OnDestroy {
         title: 'AVOKAP CLASSIC',
       },
       {
-        iconColor: orderProfitLegend.thirdItem,
+        iconColor: '#ffc107',
         title: 'AVOKAP BASIC',
       },
     ];

@@ -83,7 +83,7 @@ export class SmartTableCabinetComponent implements OnInit {
       event.confirm.reject();
     }
   }
-  oneditConfirm(event): void {
+  /*oneditConfirm(event): void {
     if (window.confirm('edit')) {
       this.donne['CabinetRef'] = event.newData.CabinetRef ;
       this.donne['legalName'] = event.newData.legalName ;
@@ -95,7 +95,7 @@ export class SmartTableCabinetComponent implements OnInit {
     } else {
       event.confirm.reject();
     }
-  }
+  }*/
 
   creat_cabinet(event) {
     this.dialogService.open(CreateCabinetComponent, {

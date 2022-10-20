@@ -44,25 +44,6 @@ export class SmartTableService extends SmartTableData {
         });
     }
 
-    up_date_cabinet(donne: any[]): Promise<any> {
-        return new Promise((resolve, reject) => {
-            this.http.patch(
-                'http://api.avokap.com/cabinet/5f43d02a6437e35174b3e31b',
-                {
-                    'cabinet_ref': donne['CabinetRef'],
-                    'legal_name': donne['legalName'],
-                    'commercial_name': donne['comName'],
-                    'membership_status': donne['membershipStatus']})
-                .subscribe(
-                    () => {
-                        resolve();
-                    },
-                    (error) => {
-                        reject(error);
-                    });
-        });
-    }
-
     totale_up_date_cabinet(donne: any[], id: string): Promise<any> {
         return new Promise((resolve, reject) => {
             this.http.patch(
@@ -217,7 +198,7 @@ export class SmartTableService extends SmartTableData {
                     // 'project_ref': donne['project_ref'],
                     'status': donne['status'],
                     'status_remark': donne['status_remark'],
-                    'roles' : ['Customer'],
+                    'roles' : ['customer'],
                     'email': donne['email'],
                     'first_name': donne['first_name'],
                     'last_name': donne['last_name'],

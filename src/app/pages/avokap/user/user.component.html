@@ -98,7 +98,7 @@
                 <nb-card-body>
                     <div class="form-row" >
                         <div class="form-group col-2 mt-4" >
-                                <i *ngIf="user.lawyer" class="ion-ios-eye-outline float-left"
+                                <i *ngIf="user.roles[0] == 'customer' " class="ion-ios-eye-outline float-left"
                                    nbTooltip="User Details" nbTooltipPlacement="top"
                                    (click)="go_to_lawyer(user.id)" ></i>
                                 <i *ngIf=" user.userStatuses &&
@@ -113,11 +113,11 @@
                                    nbTooltip="Change Status" nbTooltipPlacement="top"
                                 (click)="change_status(i)"></i>
                         </div>
-                        <div class="col-3" *ngIf="user.lawyer" >
+                        <div class="col-3" *ngIf="user.roles[0] == 'customer'" >
                             <label>Avokap Reference</label>
                             <input class="form-control" type="text" nbInput value="{{user.lawyer.avokap_ref}}" readonly >
                         </div>
-                        <div class="col-3" *ngIf="!user.lawyer" >
+                        <div class="col-3" *ngIf="user.roles[0] != 'customer'" >
                             <label>Avokap Reference</label>
                             <input class="form-control  " type="text" nbInput value="NA" disabled >
                         </div>
