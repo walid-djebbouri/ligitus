@@ -319,7 +319,7 @@ export class BundlesCustCategoryService {
         const Membership_New: number[] = [];
         const Membership_Renewal: number[] = [];
         const Membership_Upgrade: number[] =  [];
-        const Membership: any[] = [ 0 , 0 , 0 , 0 , 0 ];
+        const Membership: any[] = [ 0, 0, 0 , 0 , 0 ];
 
         this.http.get(environment.apiUrl + 'membership-new-apd').pipe(
             map(
@@ -332,7 +332,7 @@ export class BundlesCustCategoryService {
                                 count_new = count_new + parseInt(membership.count_membership_new, 10) ;
                             }
                         });
-                        Membership_New.push(0);
+                        // Membership_New.push(0);
 
                         Membership_New.push(count_new);
                     }
@@ -349,7 +349,7 @@ export class BundlesCustCategoryService {
                                 count_renewal = count_renewal + parseInt(membership.count_membership_renewal, 0) ;
                             }
                         });
-                        Membership_Renewal.push(0);
+                        // Membership_Renewal.push(0);
 
                         Membership_Renewal.push(count_renewal);
                     }
@@ -367,7 +367,7 @@ export class BundlesCustCategoryService {
                                 count_upgrade = count_upgrade + parseInt(membership.count_membership_upgrade, 0) ;
                             }
                         });
-                        Membership_Upgrade.push(0);
+                        // Membership_Upgrade.push(0);
 
                         Membership_Upgrade.push(count_upgrade);
                     }
@@ -384,7 +384,7 @@ export class BundlesCustCategoryService {
                                 count_downgrade = count_downgrade + parseInt(membership.count_membership_downgrade, 0) ;
                             }
                         });
-                        Membership_Downgrade.push(0);
+                        // Membership_Downgrade.push(0);
 
                         Membership_Downgrade.push(count_downgrade);
                     }
@@ -402,7 +402,7 @@ export class BundlesCustCategoryService {
                                 count_dropoff = count_dropoff + parseInt(membership.count_membership_dropoff, 0) ;
                             }
                         });
-                        Membership_Dropoff.push(0);
+                        // Membership_Dropoff.push(0);
 
                         Membership_Dropoff.push(-count_dropoff);
                     }
