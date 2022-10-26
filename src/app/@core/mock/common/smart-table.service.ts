@@ -7,6 +7,8 @@ import { Injectable } from '@angular/core';
 import { SmartTableData } from '../../interfaces/common/smart-table';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 @Injectable()
 export class SmartTableService extends SmartTableData {
     data = [];
@@ -186,7 +188,9 @@ export class SmartTableService extends SmartTableData {
                     });
         });
     }
-
+    deleteUserStatus(id: string): Observable<any> {
+        return  this.http.delete(environment.apiUrl + '/user-statuses/' + id).pipe( map(deleted => deleted) );
+    }
     up_date_lawyer(donne: any[]): Promise<any> {
         return new Promise((resolve, reject) => {
             this.http.patch(

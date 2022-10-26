@@ -49,7 +49,8 @@ export class UpdateLawyerComponent implements OnInit {
   @Input() userId: string;
   @Input() custcatId: string;
   @Input() cabinet_role_hist = [];
-  @Input() user_status_selected: string;
+  @Input() user_status: any[];
+  user_status_selected: string;
   Customer_Category: any[];
   /***********************/
   a1 ; a2 ; a3 ; a4 ;
@@ -62,12 +63,14 @@ export class UpdateLawyerComponent implements OnInit {
   form_template = [];
   myFormGroup: FormGroup;
   formTemplate = this.form_template;
+  clicked: boolean = false;
   constructor(protected ref: NbDialogRef<UpdateLawyerComponent>,
               private service: SmartTableData,
               private router: Router,
               private Customer_Categories: BundlesCustCategoryService)  {}
 
   ngOnInit(): void {
+    this.user_status_selected = this.user_status[0].status;
     this.Customer_Categories.get_cust_category().
     then((customer_categories) => {
       this.Customer_Category = customer_categories.sort(function compare(a, b) {
@@ -285,46 +288,55 @@ export class UpdateLawyerComponent implements OnInit {
       this.nb_cpd-- ;
     }
     this.donne = {
-      'status' : this.user_status_selected ,
-      'status_remark' : (<HTMLInputElement>document.getElementsByName('user-status-remark')[0]).value ,
-      'roles' : ['Costumer'],
-      'cabinet_ref' : (<HTMLInputElement>document.getElementsByName('cabinet_ref')[0]).value,
-      'legal_name': (<HTMLInputElement>document.getElementsByName('legal_name')[0]).value,
-      'commercial_name': (<HTMLInputElement>document.getElementsByName('commercial_name')[0]).value,
-      'project_ref' : this.Project_ref,
-      'email': (<HTMLInputElement>document.getElementsByName('email')[0]).value,
-      'first_name': (<HTMLInputElement>document.getElementsByName('first_name')[0]).value,
-      'last_name': (<HTMLInputElement>document.getElementsByName('last_name')[0]).value,
-      'first_name_local': (<HTMLInputElement>document.getElementsByName('first_name_local')[0]).value,
-      'last_name_local': (<HTMLInputElement>document.getElementsByName('last_name_local')[0]).value,
-      'avokap_ref': (<HTMLInputElement>document.getElementsByName('avokap_ref')[0]).value +
+      status : this.user_status_selected ,
+      status_remark : (<HTMLInputElement>document.getElementsByName('user-status-remark')[0]).value ,
+      roles : ['Costumer'],
+      cabinet_ref : (<HTMLInputElement>document.getElementsByName('cabinet_ref')[0]).value,
+      legal_name: (<HTMLInputElement>document.getElementsByName('legal_name')[0]).value,
+      commercial_name: (<HTMLInputElement>document.getElementsByName('commercial_name')[0]).value,
+      project_ref : this.Project_ref,
+      email: (<HTMLInputElement>document.getElementsByName('email')[0]).value,
+      first_name: (<HTMLInputElement>document.getElementsByName('first_name')[0]).value,
+      last_name: (<HTMLInputElement>document.getElementsByName('last_name')[0]).value,
+      first_name_local: (<HTMLInputElement>document.getElementsByName('first_name_local')[0]).value,
+      last_name_local: (<HTMLInputElement>document.getElementsByName('last_name_local')[0]).value,
+      avokap_ref: (<HTMLInputElement>document.getElementsByName('avokap_ref')[0]).value +
           (<HTMLInputElement>document.getElementById('avokap_ref_2')).innerText ,
-      'address': (<HTMLInputElement>document.getElementsByName('address')[0]).value,
-      'mobile': (<HTMLInputElement>document.getElementsByName('mobile')[0]).value,
-      'phone': (<HTMLInputElement>document.getElementsByName('phone')[0]).value,
-      'license_num': (<HTMLInputElement>document.getElementsByName('license_num')[0]).value,
-      'license_end_date': (<HTMLInputElement>document.getElementsByName('license_end_date')[0]).value
+      address: (<HTMLInputElement>document.getElementsByName('address')[0]).value,
+      mobile: (<HTMLInputElement>document.getElementsByName('mobile')[0]).value,
+      phone: (<HTMLInputElement>document.getElementsByName('phone')[0]).value,
+      license_num: (<HTMLInputElement>document.getElementsByName('license_num')[0]).value,
+      license_end_date: (<HTMLInputElement>document.getElementsByName('license_end_date')[0]).value
           + 'T00:00:00.000Z',
-      'category_hist': category_historical,
-      'category': category_historical[0].category ,
-      'bar_role_hist': Bar_Role_Historical,
-      'bar_role': Bar_Role_Historical[0].bar_role,
-      'bar_name': Bar_Role_Historical[0].bar_name,
-      'cabinet_role_hist' : cabinet_role_historical,
-      'role_cabinet': cabinet_role_historical[0].role,
-      'short_desc': (<HTMLInputElement>document.getElementsByName('short_desc')[0]).value,
-      'long_desc': (<HTMLInputElement>document.getElementsByName('long_desc')[0]).value,
-      //  'avg_rating': (<HTMLInputElement>document.getElementsByName('avg_rating')[0]).value,
-      'special_discount': Special_Discount,
-      'cabinetId': this.cabinetId,
-      'userId': (<HTMLInputElement>document.getElementsByName('userId')[0]).value,
-      'lawyer_predilection_domains' : cdps};
+      category_hist: category_historical,
+      category: category_historical[0].category ,
+      bar_role_hist: Bar_Role_Historical,
+      bar_role: Bar_Role_Historical[0].bar_role,
+      bar_name: Bar_Role_Historical[0].bar_name,
+      cabinet_role_hist : cabinet_role_historical,
+      role_cabinet: cabinet_role_historical[0].role,
+      short_desc: (<HTMLInputElement>document.getElementsByName('short_desc')[0]).value,
+      long_desc: (<HTMLInputElement>document.getElementsByName('long_desc')[0]).value,
+      special_discount: Special_Discount,
+      cabinetId: this.cabinetId,
+      userId: (<HTMLInputElement>document.getElementsByName('userId')[0]).value,
+      lawyer_predilection_domains : cdps};
     this.service.up_date_lawyer(this.donne).then(() => {
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate(['pages/avokap/lawyer-details/' + this.id_lawyer]);
         this.ref.close();
       });
     } ).catch( (error) => {} );
+  }
+
+  deleteStatus(index: number): void {
+    this.clicked = true ;
+    this.service.deleteUserStatus(this.user_status[index].id).subscribe(
+        (deleted) =>  {
+          this.clicked = false;
+          this.user_status.splice(index,  1 );
+        } ,
+        () => {});
   }
 
   dismiss() {

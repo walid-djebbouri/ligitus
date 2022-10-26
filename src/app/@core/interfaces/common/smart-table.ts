@@ -5,6 +5,8 @@
  * See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
  */
 
+import {Observable} from 'rxjs';
+
 export abstract class SmartTableData {
   cabinet;
   Cabinets;
@@ -18,6 +20,7 @@ export abstract class SmartTableData {
   abstract delete_lawyer(userId: string): Promise<any> ;
   abstract get_cabinet_of_lawyer(userId: string): Promise<any> ;
   abstract change_Cabinet(donne: any[]): Promise<any> ;
+  abstract deleteUserStatus(id: string): Observable<any>;
 
 
 

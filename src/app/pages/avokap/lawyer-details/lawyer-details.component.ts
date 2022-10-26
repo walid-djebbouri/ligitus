@@ -48,7 +48,7 @@ export class LawyerDetailsComponent implements OnInit {
   @Input() custcatId: string;
   @Input() id_lawyer: string;
   @Input() role_cabinet_hist: any[];
-  userStatus: string = null;
+  userStatus: any[];
   license_and_date: string;
 
   constructor(private service: SmartTableData , private router: ActivatedRoute ,
@@ -98,7 +98,7 @@ export class LawyerDetailsComponent implements OnInit {
                  return 1;
              return 0;
          } );
-         this.userStatus = lawye.user.userStatuses[0].status;
+         this.userStatus = lawye.user.userStatuses;
      }
   }
 
@@ -142,7 +142,7 @@ export class LawyerDetailsComponent implements OnInit {
                 userId: this.userId,
                 custcatId: this.custcatId,
                 cabinet_role_hist : this.role_cabinet_hist,
-                user_status_selected:  this.userStatus,
+                user_status:  this.userStatus,
 
             },
         });

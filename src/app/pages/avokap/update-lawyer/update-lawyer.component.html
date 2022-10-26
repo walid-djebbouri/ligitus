@@ -310,7 +310,30 @@
                                             <input class="form-control" nbInput type="text"  name="user-status-remark" id="user-status-remark"  >
                                         </div>
                                     </div>
+                                    <div  *ngFor="let stat of user_status; let i = index" class="form-row form-group"  >
 
+                                        <div class="col-1"  >
+                                            <i class="nb-trash float-right " (click)="deleteStatus(i)"
+                                               nbTooltip="Delete Status" nbTooltipPlacement="left"
+                                            ></i>
+                                        </div>
+                                        <!--<div class="col-1"
+                                            [nbSpinner]="clicked"
+                                            nbSpinnerStatus="danger"
+                                            nbSpinnerMessage="Deleting"
+                                        >
+
+                                        </div>-->
+
+                                        <div class="col-5 " >
+                                            <input  class="form-control" nbInput type="text"  value="{{stat.status}}"  readonly>
+                                        </div>
+
+                                        <div class="col-6 " >
+                                            <input class="form-control" nbInput type="text"  value="{{stat.status_remark}}" readonly >
+                                        </div>
+
+                                    </div>
                                 </nb-accordion-item-body>
                             </nb-accordion-item>
 
