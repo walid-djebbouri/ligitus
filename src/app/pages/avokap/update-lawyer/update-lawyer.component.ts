@@ -64,6 +64,7 @@ export class UpdateLawyerComponent implements OnInit {
   myFormGroup: FormGroup;
   formTemplate = this.form_template;
   clicked: boolean = false;
+  selectedIndex: number = -1;
   constructor(protected ref: NbDialogRef<UpdateLawyerComponent>,
               private service: SmartTableData,
               private router: Router,
@@ -210,11 +211,11 @@ export class UpdateLawyerComponent implements OnInit {
     let i = ((document.getElementsByName('role_cab_raf')).length);
     for (let j = 0 ; j < i ; j++) {
       cabinet_role_historical.push({
-        'role' : (<HTMLInputElement>document.getElementsByName('role_cabinetc')[j]).innerText ,
-        'cabinet_ref' : (<HTMLInputElement>document.getElementsByName('role_cab_raf')[j]).value ,
-        'from_cab_ref' : (<HTMLInputElement>document.getElementsByName('from_cabinet')[j]).value ,
-        'role_date' : (<HTMLInputElement>document.getElementsByName('rol_date')[j]).value  ,
-        'remark' : (<HTMLInputElement>document.getElementsByName('role_remark')[j]).value ,
+        role : (<HTMLInputElement>document.getElementsByName('role_cabinetc')[j]).innerText ,
+        cabinet_ref : (<HTMLInputElement>document.getElementsByName('role_cab_raf')[j]).value ,
+        from_cab_ref : (<HTMLInputElement>document.getElementsByName('from_cabinet')[j]).value ,
+        role_date : (<HTMLInputElement>document.getElementsByName('rol_date')[j]).value  ,
+        remark : (<HTMLInputElement>document.getElementsByName('role_remark')[j]).value ,
 
       });
     }
@@ -329,14 +330,32 @@ export class UpdateLawyerComponent implements OnInit {
     } ).catch( (error) => {} );
   }
 
-  deleteStatus(index: number): void {
+  deleteStatus(index: number, event: any): void {
+    this.selectedIndex = index;
     this.clicked = true ;
     this.service.deleteUserStatus(this.user_status[index].id).subscribe(
         (deleted) =>  {
-          this.clicked = false;
           this.user_status.splice(index,  1 );
+          this.clicked = false;
+          this.selectedIndex = -1 ;
         } ,
         () => {});
+  }
+
+  deleteCabinetRoleHistorical(index: number): void {
+    this.cabinet_role_hist.splice(index, 1);
+  }
+
+  deleteBarRoleHistorical(index: number): void {
+    this.bar_role_hist.splice(index, 1);
+  }
+
+  deleteCategoriesHistorical(index: number): void {
+    this.category_hist.splice(index, 1);
+  }
+
+  deleteSpecialDiscount(index: number): void {
+    this.special_discount.splice(index, 1);
   }
 
   dismiss() {

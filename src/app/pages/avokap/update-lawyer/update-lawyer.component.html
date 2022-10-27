@@ -34,33 +34,37 @@
                                 <nb-accordion-item-header>
                                     <h5>Cabinet Role </h5>
                                 </nb-accordion-item-header>
-                                <nb-accordion-item-body *ngFor="let crh of  cabinet_role_hist " >
+                                <nb-accordion-item-body *ngFor="let crh of  cabinet_role_hist ; let i = index " >
                                     <div  *ngIf="crh.role" >
-                                        <div class="form-row" >
-                                            <div class="form-group col-3">
-                                                <label>Role Cabinet :</label>
+                                        <div class="form-row " >
+                                            <div class=" col-1" >
+                                                <label *ngIf="i == 0">Delete</label>
+                                                <i class="nb-trash" (click)="deleteCabinetRoleHistorical(i)" ></i>
+                                            </div>
+                                            <div class=" col-3">
+                                                <label *ngIf="i == 0" >Role Cabinet :</label>
                                                 <input type="text" nbInput class="form-control"  value="{{crh.role}}" readonly >
                                             </div>
 
-                                            <div class="form-group col-2">
-                                                <label >Cabinet Ref</label>
+                                            <div class=" col-3">
+                                                <label *ngIf="i == 0">Cabinet Ref</label>
                                                 <input type="text" nbInput class="form-control"  value="{{crh.cabinet_ref}}" readonly >
                                             </div>
 
-                                            <div class="form-group col-2">
-                                                <label >From Cabinet</label>
+                                            <div class=" col-3">
+                                                <label *ngIf="i == 0">From Cabinet</label>
                                                 <input type="text" nbInput class="form-control" value="{{crh.from_cab_ref}}" readonly  >
                                             </div>
 
-                                            <div class="form-group col-3">
-                                                <label >Date</label>
+                                            <div class="col-2 text-sm-left ">
+                                                <label *ngIf="i == 0">Date</label>
                                                 <input type="date" nbInput class="form-control" value="{{crh.role_date | date: 'y-MM-dd' }}" readonly >
                                             </div>
 
-                                            <div class="form-group col-2">
-                                                <label >Remark</label>
+                                           <!-- <div class="col-2">
+                                                <label *ngIf="i == 0">Remark</label>
                                                 <input type="text" nbInput class="form-control" value="{{crh.remark}}" readonly >
-                                            </div>
+                                            </div>-->
 
                                         </div>
                                     </div>
@@ -312,18 +316,17 @@
                                     </div>
                                     <div  *ngFor="let stat of user_status; let i = index" class="form-row form-group"  >
 
-                                        <div class="col-1"  >
-                                            <i class="nb-trash float-right " (click)="deleteStatus(i)"
+                                        <div *ngIf="!clicked || (clicked && i !== selectedIndex )" class="col-1"  >
+                                            <i  class="nb-trash float-right " (click)="deleteStatus(i, $event)"
                                                nbTooltip="Delete Status" nbTooltipPlacement="left"
                                             ></i>
                                         </div>
-                                        <!--<div class="col-1"
-                                            [nbSpinner]="clicked"
-                                            nbSpinnerStatus="danger"
-                                            nbSpinnerMessage="Deleting"
+                                        <div *ngIf="clicked && i == selectedIndex" class="col-1"
+                                            [nbSpinner]="true"
+                                             nbSpinnerSize="tiny"
+                                             nbSpinnerStatus="success"
                                         >
-
-                                        </div>-->
+                                        </div>
 
                                         <div class="col-5 " >
                                             <input  class="form-control" nbInput type="text"  value="{{stat.status}}"  readonly>
@@ -349,25 +352,29 @@
                                 <nb-accordion-item-header>
                                     <h5>Bar Role </h5>
                                 </nb-accordion-item-header>
-                                <nb-accordion-item-body *ngFor="let brh of  bar_role_hist" >
+                                <nb-accordion-item-body *ngFor="let brh of  bar_role_hist ; let i = index" >
                                     <div>
                                         <div class="form-row" *ngIf="brh.bar_name" >
+                                            <div class=" col-1" >
+                                                <label *ngIf="i == 0">Delete</label>
+                                                <i class="nb-trash" (click)="deleteBarRoleHistorical(i)" ></i>
+                                            </div>
                                             <div class="form-group col-3">
-                                                <label for="law_cat">Bar Name</label>
+                                                <label *ngIf="i == 0" for="law_cat">Bar Name</label>
                                                 <input  type="text" nbInput fullWidth name="bar_namehh" value="{{brh.bar_name}}" readonly  >
                                             </div>
 
                                             <div class="form-group col-3">
-                                                <label for="jur_domain">Bar Role</label>
+                                                <label *ngIf="i == 0" for="jur_domain">Bar Role</label>
                                                 <input  type="text"  nbInput fullWidth  value="{{brh.bar_role}}" readonly >
                                             </div>
 
                                             <div class="form-group col-3">
-                                                <label for="add_date">Date</label>
+                                                <label *ngIf="i == 0" for="add_date">Date</label>
                                                 <input  type="text" nbInput fullWidth   value="{{brh.role_date | date: 'dd/MM/y'}}" readonly >
                                             </div>
 
-                                            <div class="form-group col-3">
+                                            <div *ngIf="i == 0" class="form-group col-2">
                                                 <label for="add_date">Remark</label>
                                                 <input  type="text" nbInput fullWidth   value="{{brh.remark}}" readonly >
                                             </div>
@@ -557,22 +564,26 @@
                                 <nb-accordion-item-header>
                                     <h5>Category </h5>
                                 </nb-accordion-item-header>
-                                <nb-accordion-item-body *ngFor="let ch of  category_hist " >
+                                <nb-accordion-item-body *ngFor="let ch of  category_hist ; let i = index " >
                                     <div>
 
                                         <div class="form-row" *ngIf="ch.category" >
-                                            <div class="form-group col-4">
-                                                <label for="law_cat">Category</label>
+                                            <div class=" col-1" >
+                                                <label *ngIf="i == 0">Delete</label>
+                                                <i class="nb-trash" (click)="deleteCategoriesHistorical(i)" ></i>
+                                            </div>
+                                            <div class=" col-4">
+                                                <label *ngIf="i == 0" for="law_cat">Category</label>
                                                 <input name="law_cat" type="text" nbInput fullWidth  value="{{ch.category}}"  readonly >
                                             </div>
 
-                                            <div class="form-group col-4">
-                                                <label for="jur_domain">Category Date</label>
+                                            <div class=" col-4">
+                                                <label *ngIf="i == 0" for="jur_domain">Category Date</label>
                                                 <input name="jur_domain" type="text"  nbInput fullWidth  value="{{ch.cat_date | date: 'dd/MM/y' }}" readonly >
                                             </div>
 
-                                            <div class="form-group col-4">
-                                                <label for="add_date">Remark</label>
+                                            <div class=" col-3">
+                                                <label *ngIf="i == 0" for="add_date">Remark</label>
                                                 <input name="add_date" type="text" nbInput fullWidth  value="{{ch.remark}}" readonly >
                                             </div>
                                         </div>
@@ -645,30 +656,36 @@
                         <nb-accordion multi>
                             <nb-accordion-item id="pere_sd" >
                                 <nb-accordion-item-header>
-                                    <h5>Spécial Discount</h5>
+                                    <h5>Special Discount</h5>
                                 </nb-accordion-item-header>
                                 <nb-accordion-item-body *ngFor="let sd of  special_discount ; let i = index " id="div_sd{{i}}" >
                                     <div>
 
                                         <div class="form-row " *ngIf="sd.discount" >
+
+                                            <div class=" col-1" >
+                                                <label *ngIf="i == 0">Delete</label>
+                                                <i class="nb-trash" (click)="deleteSpecialDiscount(i)" ></i>
+                                            </div>
+
                                             <div class="form-group col-2">
-                                                <label for="discount_sd">Discount</label>
+                                                <label *ngIf="i == 0" for="discount_sd">Discount</label>
                                                 <input  class="form-control" nbInput type="text"   id="discount_sd"  value="{{sd.discount}}" readonly >
                                             </div>
 
                                             <div class="form-group col-3">
-                                                <label>Start Date</label>
+                                                <label *ngIf="i == 0">Start Date</label>
                                                 <input class="form-control" nbInput type="date"    value="{{sd.start_date}}" readonly >
                                             </div>
 
 
                                             <div class="form-group col-3">
-                                                <label for="end_datee_sd">End Date</label>
+                                                <label *ngIf="i == 0" for="end_datee_sd">End Date</label>
                                                 <input  class="form-control" type="date"  nbInput  id="end_datee_sd" value="{{sd.end_date}}" readonly  >
                                             </div>
 
-                                            <div class="form-group col-4">
-                                                <label for="remarkd_sd">Remark</label>
+                                            <div class="form-group col-3">
+                                                <label *ngIf="i == 0" for="remarkd_sd">Remark</label>
                                                 <input  class="form-control" type="text"  nbInput  id="remarkd_sd"  value="{{sd.remark}}" readonly>
                                             </div>
 
