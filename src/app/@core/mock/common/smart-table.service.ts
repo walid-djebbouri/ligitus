@@ -258,7 +258,11 @@ export class SmartTableService extends SmartTableData {
     }
     get_cabinet_of_lawyer(id: string): Promise<any> {
         return new Promise( ((resolve, reject) => {
-            this.http.get(environment.apiUrl + 'profile?filter={"where": {"id": "' + id + '"}, "include":[{"relation" : "lawyer", "scope":{"include":[{"relation" : "cabinet"}]}}]}').subscribe(
+            this.http.get(environment.apiUrl + 'profile?filter={"where": {"id": "' + id + '"}, \n' +
+                '"include":[\n' +
+                '{"relation" : "lawyer", "scope":{"include":[{"relation" : "cabinet"}]}},\n' +
+                '{"relation" : "userStatuses","scope":{"fields":["id","status","status_date","userId"],"order" : ["status_date  DESC"]}}\n' +
+                ']}').subscribe(
                 (cabinet: any) => {
                     this.cabinet = [] ;
                     const lawyers = [] ;
@@ -271,6 +275,8 @@ export class SmartTableService extends SmartTableData {
                                 'last_name_local': cabinet[0].last_name_local ,
                                 'roles': cabinet[0].roles ,
                                 'join_date': cabinet[0].join_date ,
+                                userStatuses:  cabinet[0].userStatuses,
+
                     };
                     lawyers.push({
                         'id' : cabinet[0].lawyer.id,

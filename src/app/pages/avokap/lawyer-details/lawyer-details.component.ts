@@ -51,7 +51,8 @@ export class LawyerDetailsComponent implements OnInit {
   userStatus: any[];
   license_and_date: string;
 
-  constructor(private service: SmartTableData , private router: ActivatedRoute ,
+  constructor(private service: SmartTableData ,
+              private router: ActivatedRoute ,
               private dialogService: NbDialogService ) {
       const id = this.router.snapshot.params['id'];
       const cabinet  = this.service.cabinet  ;

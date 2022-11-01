@@ -332,7 +332,11 @@
                                             <input  class="form-control" nbInput type="text"  value="{{stat.status}}"  readonly>
                                         </div>
 
-                                        <div class="col-6 " >
+                                        <div class="col-3 " >
+                                            <input  class="form-control" nbInput type="text"  value="{{stat.status_date | date: 'dd-MM-yyyy'}}"  readonly>
+                                        </div>
+
+                                        <div class="col-3 " >
                                             <input class="form-control" nbInput type="text"  value="{{stat.status_remark}}" readonly >
                                         </div>
 
