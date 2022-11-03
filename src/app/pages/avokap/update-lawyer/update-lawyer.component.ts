@@ -71,7 +71,7 @@ export class UpdateLawyerComponent implements OnInit {
               private Customer_Categories: BundlesCustCategoryService)  {}
 
   ngOnInit(): void {
-    this.user_status_selected = this.user_status[0].status;
+    // this.user_status_selected = this.user_status[0].status;
     this.Customer_Categories.get_cust_category().
     then((customer_categories) => {
       this.Customer_Category = customer_categories.sort(function compare(a, b) {
