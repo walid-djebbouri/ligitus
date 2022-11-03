@@ -258,11 +258,7 @@ export class SmartTableService extends SmartTableData {
     }
     get_cabinet_of_lawyer(id: string): Promise<any> {
         return new Promise( ((resolve, reject) => {
-            this.http.get(environment.apiUrl + 'profile?filter={"where": {"id": "' + id + '"}, \n' +
-                '"include":[\n' +
-                '{"relation" : "lawyer", "scope":{"include":[{"relation" : "cabinet"}]}},\n' +
-                '{"relation" : "userStatuses","scope":{"fields":["id","status","status_date","userId"],"order" : ["status_date  DESC"]}}\n' +
-                ']}').subscribe(
+            this.http.get(environment.apiUrl + 'profile?filter={"where": {"id": "023ee249-e090-41e5-93cd-a89835a351f6"}, "include":[{"relation" : "lawyer", "scope":{"include":[{"relation" : "cabinet"}]}},{"relation" :"userStatuses","scope":{"fields":["id","status","status_date","status_remark","userId"],"order" : ["status_date  DESC"]}}]}').subscribe(
                 (cabinet: any) => {
                     this.cabinet = [] ;
                     const lawyers = [] ;
