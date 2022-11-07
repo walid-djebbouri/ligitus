@@ -18,7 +18,7 @@ export class CountryOrderService extends CountryOrderData {
     'On Hold',
     'Browse',
     'Active',
-    'Total Registered',
+    'Registered Account',
   ];
   private stateData: any[] ;
   constructor(private status_data: BundlesCustCategoryService) {

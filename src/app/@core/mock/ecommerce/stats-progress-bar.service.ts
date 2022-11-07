@@ -15,33 +15,31 @@ export class StatsProgressBarService extends StatsProgressBarData {
   }
   private progressInfoData: ProgressInfo[] = [
     {
-      title: 'National Total',
+      title: 'National Target',
       value: null,
       activeProgress: 0,
-      description: 'Description',
+      description: 'National Registered / Nation Objective',
     },
     {
       title: null ,
       value: null,
       activeProgress: 0 ,
-      description: 'Description',
+      description: 'Regional Registered / Regional Objective',
     },
   ];
 
   getProgressInfoData(stateName: string): Observable<ProgressInfo[]> {
-    this.progressData.getTotalTaregetForRegion().subscribe(
+    this.progressData.getTotalTargetForRegion().subscribe(
         (Algeria: any[]) => {
-          this.progressInfoData[0].value = Algeria[0].value ;
-          this.progressInfoData[1].title = 'Total Target For ' + stateName ;
+          this.progressInfoData[0].value = Algeria[0].value;
+          this.progressInfoData[0].activeProgress = Algeria[0].value;
+          this.progressInfoData[1].title = 'Target For ' + stateName ;
           this.progressInfoData[1].value = 0 ;
           this.progressInfoData[1].activeProgress = 0;
           Algeria.find(state => {
             if (state.state === stateName ) {
-              this.progressInfoData[1].value = state.objective ;
-              this.progressInfoData[1].activeProgress = Number( (100 * state.registred / state.objective).toFixed(2))  ;
-              this.progressInfoData[0].activeProgress = Number( (100 * state.registred / Algeria[0].value).toFixed(2)) ;
-
-
+              this.progressInfoData[1].value =  Number( (100 * state.registered / state.objective).toFixed(2))  ;
+              this.progressInfoData[1].activeProgress = Number( (100 * state.registered / state.objective).toFixed(2)) ;
             }
           }) ;
         }) ;

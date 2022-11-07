@@ -19,7 +19,7 @@ export class ECommerceProgressSectionComponent implements OnDestroy {
   progressInfoData: ProgressInfo[];
 
   constructor(private statsProgressBarService: StatsProgressBarData) {
-    this.statsProgressBarService.getProgressInfoData('Naama')
+    this.statsProgressBarService.getProgressInfoData('Alger')
       .pipe(takeWhile(() => this.alive))
       .subscribe((data) => {
         this.progressInfoData = data;

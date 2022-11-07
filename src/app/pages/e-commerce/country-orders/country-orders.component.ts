@@ -17,7 +17,7 @@ import { CountryOrderData } from '../../../@core/interfaces/ecommerce/country-or
       <nb-card-header>Country Orders Statistics</nb-card-header>
       <nb-card-body [nbSpinner]="!countriesCategories">
         <ngx-country-orders-map (select)="selectCountryById($event)"
-                                countryId="DZ004">
+                                [countryId]="'16'">
         </ngx-country-orders-map>
         <ngx-country-orders-chart *ngIf="countriesCategories"
                                   [countryName]="countryName"

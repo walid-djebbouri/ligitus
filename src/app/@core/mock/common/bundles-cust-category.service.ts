@@ -423,7 +423,7 @@ export class BundlesCustCategoryService {
                             parseInt(statusOfStates[i].onhold_account , 10) ,
                             parseInt(statusOfStates[i].browse_account , 10) ,
                             parseInt(statusOfStates[i].active_account , 10) ,
-                            parseInt(statusOfStates[i].total_registred , 10) ,
+                            parseInt(statusOfStates[i].registred_account , 10) ,
                             parseInt(statusOfStates[i].region_objective , 10) ,
                         ] ,
                     });
@@ -448,19 +448,19 @@ export class BundlesCustCategoryService {
             }),
         ) ;
     }
-    getTotalTaregetForRegion(): Observable<any> {
+    getTotalTargetForRegion(): Observable<any> {
         const Algeria: any[] = [] ;
         return  this.http.get(environment.apiUrl + 'lawyer-status-wilaya').pipe(
             map((statusOfStates: any[]) => {
                 Algeria.push({
                     'state' : 'national Total' ,
-                    'value' : statusOfStates[0].national_total ,
+                    'value' : statusOfStates[0].national_registred / statusOfStates[0].national_objective  ,
                 });
                 for (let i = 0 ; i < statusOfStates.length ; i++) {
                     Algeria.push({
                         'state' : statusOfStates[i].wilaya ,
-                        'objective' : parseInt(statusOfStates[i].region_objective , 0) ,
-                        'registred' : parseInt(statusOfStates[i].total_registred , 0) ,
+                        'objective' : parseInt(statusOfStates[i].region_objective , 10) ,
+                        'registered' : parseInt(statusOfStates[i].registred_account , 10) ,
                     });
                 }
                 return Algeria ;
