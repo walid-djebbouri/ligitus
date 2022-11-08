@@ -34,9 +34,10 @@ export class UpdateCabinetComponent  {
   Errors: string[];
 
 
-    constructor(protected ref: NbDialogRef<UpdateCabinetComponent> , private service: SmartTableData ,
-              private router: Router,
-              private Validation: ValidationService) {}
+    constructor(protected ref: NbDialogRef<UpdateCabinetComponent> ,
+                private service: SmartTableData ,
+                private router: Router,
+                private Validation: ValidationService) {}
 
   dismiss() {
     this.ref.close();
@@ -60,6 +61,7 @@ export class UpdateCabinetComponent  {
         rib : form.value['ribe'],
         tel : tele,
         join_date : form.value['join_datee'] + 'T00:00:00.000Z',
+        wilaya : document.getElementById('wilya').innerText ,
         wilaya_code: this.wilaya_code,
     } ;
     this.Errors = [];

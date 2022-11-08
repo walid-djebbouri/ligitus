@@ -51,18 +51,20 @@ export class SmartTableService extends SmartTableData {
             this.http.patch(
                 environment.apiUrl + 'cabinet/' + id,
                 {
-                    'cabinet_ref': donne['cabinet_ref'],
-                    'legal_name': donne['legal_name'],
-                    'commercial_name': donne['commercial_name'],
-                    'cabinet_short_desc': donne['cabinet_short_desc'],
-                    'cabinet_long_desc': donne['cabinet_long_desc'],
-                    'domiciliation': donne['domiciliation'],
-                    'email': donne['email'],
-                    'fax': donne['fax'],
-                    'nif': donne['nif'],
-                    'rib': donne['rib'],
-                    'join_date' :  donne['join_date'],
-                    'tel': donne['tel'],
+                    cabinet_ref: donne['cabinet_ref'],
+                    legal_name: donne['legal_name'],
+                    commercial_name: donne['commercial_name'],
+                    cabinet_short_desc: donne['cabinet_short_desc'],
+                    cabinet_long_desc: donne['cabinet_long_desc'],
+                    domiciliation: donne['domiciliation'],
+                    email: donne['email'],
+                    fax: donne['fax'],
+                    nif: donne['nif'],
+                    rib: donne['rib'],
+                    join_date :  donne['join_date'],
+                    tel: donne['tel'],
+                    wilaya : donne['wilaya'],
+                    wilaya_code: donne['wilaya_code'] ,
                 })
                 .subscribe(
                     () => {

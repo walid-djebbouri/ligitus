@@ -32,6 +32,7 @@ export class CabinetDetailsComponent implements OnInit {
   @Input() cabinet_predilection_domains: any[] ;
   @Input() lawyers: any[] ;
   wilaya: string;
+  code_wilaya: string;
   constructor(private service: SmartTableData , private dialogService: NbDialogService ,
               private route: ActivatedRoute , private router: Router) {
       const id = this.route.snapshot.params['id'] ;
@@ -52,6 +53,7 @@ export class CabinetDetailsComponent implements OnInit {
           this.nif = cabinet[0].nif ;
           this.rib = cabinet[0].rib ;
           this.wilaya = cabinet[0].wilaya ;
+          this.code_wilaya = cabinet[0].wilaya_code,
           this.membership_status = cabinet[0].membership_status;
           this.cabinet_predilection_domains = cabinet[0].cabinet_predilection_domains ;
           this.lawyers = cabinet[0].lawyers ;
@@ -81,7 +83,7 @@ export class CabinetDetailsComponent implements OnInit {
                 fax:  this.fax ,
                 nif:  this.nif ,
                 rib:  this.rib ,
-                wilaya_code: this.wilaya,
+                wilaya_code: this.code_wilaya,
             },
         });
 
