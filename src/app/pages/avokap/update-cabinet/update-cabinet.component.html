@@ -8,12 +8,12 @@
                     <div class="form-group row">
                         <label for="cabinet_refe" class="col-sm-6 col-form-label">cabinet ref :</label>
                         <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="cabinet_refe" name="cabinet_refe"    ngModel="{{cabinet_ref}}"  >
+                            <input  type="text" nbInput fullWidth id="cabinet_refe" name="cabinet_refe"    ngModel="{{cabinet_ref}}" readonly >
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="join_datee" class="col-sm-6 col-form-label">join date :</label>
+                        <label for="join_datee" class="col-sm-6 col-form-label">join date<span>*</span> :</label>
                         <div class="col-sm-6">
                             <input  type="date" nbInput fullWidth id="join_datee" name="join_datee" ngModel="{{join_date | date: 'y-MM-dd' }}"    >
                         </div>
@@ -21,7 +21,7 @@
 
 
                     <div class="form-group row">
-                        <label for="legal_namee" class="col-sm-6 col-form-label">legal name :</label>
+                        <label for="legal_namee" class="col-sm-6 col-form-label">legal name<span>*</span> :</label>
                         <div class="col-sm-6">
                             <input  type="text" nbInput fullWidth id="legal_namee" name="legal_namee" ngModel="{{legal_name}}"   >
                         </div>
@@ -35,35 +35,22 @@
                         </div>
                     </div>
 
-
                     <div class="form-group row">
-                        <label for="cabinet_short_desce" class="col-sm-6 col-form-label">cabinet short desc :</label>
+                        <label for="cabinet_short_desce" class="col-sm-6 col-form-label">cabinet short description<span>*</span> :</label>
                         <div class="col-sm-6">
                             <input  type="text" nbInput fullWidth id="cabinet_short_desce" name="cabinet_short_desce" ngModel="{{cabinet_short_desc}}"   >
                         </div>
                     </div>
 
-
                     <div class="form-group row">
-                        <label for="cabinet_long_desce" class="col-sm-6 col-form-label">cabinet long desc :</label>
+                        <label for="cabinet_long_desce" class="col-sm-6 col-form-label">cabinet long description :</label>
                         <div class="col-sm-6">
                             <textarea  type="text" nbInput fullWidth id="cabinet_long_desce" name="cabinet_long_desce" ngModel="{{cabinet_long_desc}}"   ></textarea>
                         </div>
                     </div>
 
-
-
-                <!--    <div class="form-group row">
-                        <label  class="label col-sm-6 col-form-label">Membership Sٍtatus :</label>
-                        <nb-select name="membership_statuse"  fullWidth class="col-6"   status="primary"  ngModel="{{membership_status}}"  >
-                            <nb-option value="On Hold" >On Hold</nb-option>
-                            <nb-option value="Release" >Release</nb-option>
-                        </nb-select>
-                    </div> -->
-
-
                     <div class="form-group row">
-                        <label for="domiciliatione" class="col-sm-6 col-form-label">domiciliation:</label>
+                        <label for="domiciliatione" class="col-sm-6 col-form-label">domiciliation<span>*</span> :</label>
                         <div class="col-sm-6">
                             <input  type="text" nbInput fullWidth id="domiciliatione" name="domiciliatione" ngModel="{{domiciliation}}"   >
                         </div>
@@ -71,14 +58,14 @@
 
 
                     <div class="form-group row">
-                        <label for="emaile" class="col-sm-6 col-form-label">email :</label>
+                        <label for="emaile" class="col-sm-6 col-form-label">email<span>*</span> :</label>
                         <div class="col-sm-6">
                             <input  type="text" nbInput fullWidth id="emaile" name="emaile" ngModel="{{email}}"   >
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="tele" class="col-sm-6 col-form-label">tel :</label>
+                        <label for="tele" class="col-sm-6 col-form-label">tel<span>*</span> :</label>
                         <div class="col-sm-6">
                             <input  type="text" nbInput fullWidth id="tele" name="tele" value="{{tel}}"   >
                         </div>
@@ -92,7 +79,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="nife" class="col-sm-6 col-form-label">nif :</label>
+                        <label for="nife" class="col-sm-6 col-form-label">nif<span>*</span> :</label>
                         <div class="col-sm-6">
                             <input  type="text" nbInput fullWidth id="nife" name="nife" ngModel="{{nif}}"   >
                         </div>
@@ -102,6 +89,13 @@
                         <label for="ribe" class="col-sm-6 col-form-label">rib</label>
                         <div class="col-sm-6">
                             <input  type="text" nbInput fullWidth id="ribe" name="ribe" ngModel="{{rib}}"   >
+                        </div>
+                    </div>
+
+
+                    <div  class="mt-5 mb-5 pt-3 pb-2 bg-danger " *ngIf="Errors && Errors.length >0">
+                        <div class="form-group  text-center " *ngFor="let error of Errors"  >
+                            <label  >! Error : {{error}}</label>
                         </div>
                     </div>
 

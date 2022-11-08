@@ -416,8 +416,9 @@ export class BundlesCustCategoryService {
             map((statusOfStates: any[]) => {
                 for (let i = 0 ; i < statusOfStates.length ; i++) {
                     Algeria.push({
-                        'state' : statusOfStates[i].wilaya ,
-                        'values' :
+                        id: statusOfStates[i].id,
+                        state : statusOfStates[i].wilaya ,
+                        values :
                         [
                             parseInt(statusOfStates[i].terminated_account , 10) ,
                             parseInt(statusOfStates[i].onhold_account , 10) ,

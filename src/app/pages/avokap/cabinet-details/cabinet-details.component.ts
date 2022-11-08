@@ -81,6 +81,7 @@ export class CabinetDetailsComponent implements OnInit {
                 fax:  this.fax ,
                 nif:  this.nif ,
                 rib:  this.rib ,
+                wilaya_code: this.wilaya,
             },
         });
 

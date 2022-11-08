@@ -4,7 +4,6 @@ import {SmartTableData} from '../../../@core/interfaces/common/smart-table';
 import {FormControl, FormGroup, NgForm} from '@angular/forms';
 import data from '../law_domain.json';
 import {Router} from '@angular/router';
-import matricule from '../matricule.json';
 import {ValidationService} from '../../../@core/mock/common/validation.service';
 @Component({
   selector: 'ngx-create-cabinet',
@@ -54,7 +53,7 @@ export class CreateCabinetComponent implements OnInit {
   Cabinet_ref (va: Event , index: number) {
     switch (index) {
       case 1 :
-        this.a1 =  matricule[String(va)] ;
+        this.a1 =  String(va) ;
         break ;
       case 2 :
         this.a2 = (<HTMLInputElement> va.target).value ;
@@ -81,20 +80,22 @@ export class CreateCabinetComponent implements OnInit {
     }
 
     this.donne = {
-     'cabinet_ref' : (<HTMLInputElement>document.getElementById('cabinet_refe')).value,
-      'legal_name': (<HTMLInputElement>document.getElementById('legal_namee')).value,
-      'commercial_name': (<HTMLInputElement>document.getElementById('commercial_namee')).value,
-      'cabinet_short_desc': (<HTMLInputElement>document.getElementById('cabinet_short_desce')).value,
-      'cabinet_long_desc': (<HTMLInputElement>document.getElementById('cabinet_long_desce')).value,
-      'join_date' : (<HTMLInputElement>document.getElementById('join_datee')).value  + 'T00:00:00.000Z',
-      'domiciliation': (<HTMLInputElement>document.getElementById('domiciliatione')).value,
-      'email': (<HTMLInputElement>document.getElementById('emaile')).value,
-      'fax': (<HTMLInputElement>document.getElementById('faxe')).value,
-      'nif' : (<HTMLInputElement>document.getElementById('nife')).value,
-      'rib' : (<HTMLInputElement>document.getElementById('ribe')).value,
-      'tel' : this.tels,
-      'cabinet_predilection_domains' : this.cdps ,
-      'wilaya' : this.selected_wilaya } ;
+       cabinet_ref : (<HTMLInputElement>document.getElementById('cabinet_refe')).value,
+      legal_name: (<HTMLInputElement>document.getElementById('legal_namee')).value,
+      commercial_name: (<HTMLInputElement>document.getElementById('commercial_namee')).value,
+      cabinet_short_desc: (<HTMLInputElement>document.getElementById('cabinet_short_desce')).value,
+      cabinet_long_desc: (<HTMLInputElement>document.getElementById('cabinet_long_desce')).value,
+      join_date : (<HTMLInputElement>document.getElementById('join_datee')).value  + 'T00:00:00.000Z',
+      domiciliation: (<HTMLInputElement>document.getElementById('domiciliatione')).value,
+      email: (<HTMLInputElement>document.getElementById('emaile')).value,
+      fax: (<HTMLInputElement>document.getElementById('faxe')).value,
+      nif : (<HTMLInputElement>document.getElementById('nife')).value,
+      rib : (<HTMLInputElement>document.getElementById('ribe')).value,
+      tel : this.tels,
+      cabinet_predilection_domains : this.cdps ,
+      wilaya : document.getElementById('wilya').innerText ,
+      wilaya_code: this.selected_wilaya,
+    } ;
     this.Errors = [];
     this.Errors = this.Validation.validationCreateCabinet(this.donne);
     if (this.Errors.length === 0 ) {

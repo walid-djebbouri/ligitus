@@ -22,15 +22,15 @@ export class CreateBundleComponent implements OnInit {
 
   create_bundle(): void {
       this.donnee = {
-      'bundle_ref': (<HTMLInputElement>document.getElementById('bundle_ref_1')).value,
-      'bundle_name': ((<HTMLInputElement>document.getElementById('bundle_name_1')).value).trim().replace(/ /g, '_'),
-      'plan_price': (<HTMLInputElement>document.getElementById('plan_price_1')).value,
-      'currency': (<HTMLInputElement>document.getElementById('currency_1')).value,
-      'nbmonths': (<HTMLInputElement>document.getElementById('nbmonths_1')).value,
-      'bundle_sdate': (<HTMLInputElement>document.getElementById('bundle_sdate_1')).value + 'T00:00:00.000Z' ,
-      'bundle_edate': (<HTMLInputElement>document.getElementById('bundle_edate_1')).value + 'T00:00:00.000Z' ,
-        'description': (<HTMLInputElement>document.getElementById('description_1')).value,
-        'quantity_max': (<HTMLInputElement>document.getElementById('quantity_max_1')).value,
+      bundle_ref: (<HTMLInputElement>document.getElementById('bundle_ref_1')).value,
+      bundle_name: ((<HTMLInputElement>document.getElementById('bundle_name_1')).value).trim().replace(/ /g, '_'),
+      plan_price: (<HTMLInputElement>document.getElementById('plan_price_1')).value,
+      currency: (<HTMLInputElement>document.getElementById('currency_1')).value,
+      nbmonths: (<HTMLInputElement>document.getElementById('nbmonths_1')).value,
+      bundle_sdate: (<HTMLInputElement>document.getElementById('bundle_sdate_1')).value + 'T00:00:00.000Z' ,
+      bundle_edate: (<HTMLInputElement>document.getElementById('bundle_edate_1')).value + 'T00:00:00.000Z' ,
+      description: (<HTMLInputElement>document.getElementById('description_1')).value,
+      quantity_max: (<HTMLInputElement>document.getElementById('quantity_max_1')).value,
     };
     this.Errors = [];
     this.Errors = this.Validation.validationCreateBundle(this.donnee);

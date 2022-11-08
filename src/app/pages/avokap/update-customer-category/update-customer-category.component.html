@@ -8,18 +8,18 @@
         </div>
 
         <div class="form-row form-group ">
-            <label  class="col-6" >Category</label>
+            <label  class="col-6" >Category<span>*</span></label>
             <input type="text" class="form-control col-6 " nbInput value="{{category}}" id="category_2"  >
         </div>
 
         <div class="form-row form-group ">
-            <label class="col-6">Discount</label>
-            <input type="text" class="form-control col-6" nbInput value="{{discount}}" id="discount_2"   >
+            <label class="col-6">Discount<span>*</span></label>
+            <input type="number" class="form-control col-6" nbInput value="{{discount}}" id="discount_2"   >
         </div>
 
         <div class="form-row form-group">
-            <label class="col-6" >Grace Period</label>
-            <input type="text" class="form-control col-6 " nbInput  value="{{grace_period}}" id="grace_period_2" >
+            <label class="col-6" >Grace Period<span>*</span></label>
+            <input type="number" class="form-control col-6 " nbInput  value="{{grace_period}}" id="grace_period_2" >
         </div>
 
         <div class="form-row form-group ">
@@ -27,6 +27,11 @@
             <input type="text" class="form-control col-6 " nbInput  value="{{remark}}" id="remark_2" >
         </div>
 
+        <div  class="mt-5 mb-5 pt-3 pb-2 bg-danger " *ngIf="Errors && Errors.length > 0">
+            <div class="form-group  text-center " *ngFor="let error of Errors"  >
+                <label  >! Error : {{error}}</label>
+            </div>
+        </div>
     </nb-card-body>
     <nb-card-footer>
         <button class="float-left" nbButton hero status="danger" (click)="update_customer_category(custcat_id)" >Update</button>

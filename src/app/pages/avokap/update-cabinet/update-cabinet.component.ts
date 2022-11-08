@@ -3,6 +3,7 @@ import {NbDialogRef} from '@nebular/theme';
 import { NgForm} from '@angular/forms';
 import {SmartTableData} from '../../../@core/interfaces/common/smart-table';
 import {Router} from '@angular/router';
+import {ValidationService} from '../../../@core/mock/common/validation.service';
 
 @Component({
   selector: 'ngx-update-cabinet',
@@ -29,9 +30,13 @@ export class UpdateCabinetComponent  {
   @Input() rib: string ;
   @Input() cabinet_predilection_domains: [] ;
   @Input() lawyers: [] ;
+  @Input() wilaya_code: string;
+  Errors: string[];
 
-  constructor(protected ref: NbDialogRef<UpdateCabinetComponent> , private service: SmartTableData ,
-              private router: Router) {}
+
+    constructor(protected ref: NbDialogRef<UpdateCabinetComponent> , private service: SmartTableData ,
+              private router: Router,
+              private Validation: ValidationService) {}
 
   dismiss() {
     this.ref.close();
@@ -42,26 +47,33 @@ export class UpdateCabinetComponent  {
       const tele = [];
       tele.push( (<HTMLInputElement>document.getElementById('tele')).value) ;
     this.donne = {
-        'cabinet_ref' : form.value['cabinet_refe'],
-        'legal_name': form.value['legal_namee'] ,
-        'commercial_name': form.value['commercial_namee'] ,
-         'cabinet_short_desc': form.value['cabinet_short_desce'],
-        'cabinet_long_desc': form.value['cabinet_long_desce'] ,
-        'membership_status': form.value['membership_statuse'] ,
-        'domiciliation': form.value['domiciliatione'] ,
-        'email': form.value['emaile'] ,
-        'fax': form.value['faxe'] ,
-        'nif' : form.value['nife'] ,
-        'rib' : form.value['ribe'],
-        'tel' : tele,
-        'join_date' : form.value['join_datee'] + 'T00:00:00.000Z'} ;
-    this.service.totale_up_date_cabinet(this.donne , id).then(() => {
-        this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-            this.router.navigate(['pages/avokap/cabinet-details/' + id]);
-            this.ref.close();
-        });
-    }).catch( (error) => {
-    } ) ;
+        cabinet_ref : form.value['cabinet_refe'],
+        legal_name: form.value['legal_namee'] ,
+        commercial_name: form.value['commercial_namee'] ,
+        cabinet_short_desc: form.value['cabinet_short_desce'],
+        cabinet_long_desc: form.value['cabinet_long_desce'] ,
+        membership_status: form.value['membership_statuse'] ,
+        domiciliation: form.value['domiciliatione'] ,
+        email: form.value['emaile'] ,
+        fax: form.value['faxe'] ,
+        nif : form.value['nife'] ,
+        rib : form.value['ribe'],
+        tel : tele,
+        join_date : form.value['join_datee'] + 'T00:00:00.000Z',
+        wilaya_code: this.wilaya_code,
+    } ;
+    this.Errors = [];
+    this.Errors = this.Validation.validationCreateCabinet(this.donne);
+    if ( this.Errors.length === 0 ) {
+        this.service.totale_up_date_cabinet(this.donne , id).then(() => {
+            this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+                this.router.navigate(['pages/avokap/cabinet-details/' + id]);
+                this.ref.close();
+            });
+        }).catch( (error) => {
+            this.Errors = this.Validation.validationForm(error);
+        } ) ;
+    }
   }
 
 }

@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <label for="join_date" class="col-sm-3 col-form-label">join date :</label>
                         <div class="col-sm-9">
-                            <input  type="text" nbInput fullWidth id="join_date" value="{{join_date | date: 'MM/dd/y'}}" readonly  >
+                            <input  type="text" nbInput fullWidth id="join_date" value="{{join_date | date: 'dd-MM-yyyy'}}" readonly  >
                         </div>
                     </div>
 
@@ -121,21 +121,21 @@
                                     <h5  *ngIf="!cabinet_predilection_domains" >Cabinet Predilection Domains (0) :</h5>
                                 </nb-accordion-item-header>
                                 <nb-accordion-item-body>
-                                    <div  class="mt-3" *ngFor="let cpd of cabinet_predilection_domains" >
+                                    <div  class="mt-3" *ngFor="let cpd of cabinet_predilection_domains; let i = index" >
                                         <div class="form-row" >
                                             <div class="form-group col-4">
-                                                <label for="law_cat">Law Cat</label>
+                                                <label *ngIf="i == 0" for="law_cat">Law Cat</label>
                                                 <input type="text" class="form-control" nbInput id="law_cat" value="{{cpd.law_cat}}" readonly >
                                             </div>
 
                                             <div class="form-group col-4">
-                                                <label for="jur_domain">jur domain</label>
+                                                <label *ngIf="i == 0" for="jur_domain">jur domain</label>
                                                 <input type="text" class="form-control" nbInput id="jur_domain" value="{{cpd.jur_domain}}" readonly>
                                             </div>
 
                                             <div class="form-group col-4">
-                                                <label for="jointdate">Date</label>
-                                                <input type="text" class="form-control" nbInput id="jointdate" value="{{cpd.add_date}}" readonly >
+                                                <label *ngIf="i == 0" for="jointdate">Date</label>
+                                                <input type="text" class="form-control" nbInput id="jointdate" value="{{cpd.add_date | date: 'dd-MM-yyyy'}}" readonly >
                                             </div>
                                         </div>
                                     </div>

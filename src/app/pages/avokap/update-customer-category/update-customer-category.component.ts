@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NbDialogRef} from '@nebular/theme';
 import {BundlesCustCategoryService} from '../../../@core/mock/common/bundles-cust-category.service';
 import {Router} from '@angular/router';
+import {ValidationService} from '../../../@core/mock/common/validation.service';
 
 @Component({
   selector: 'ngx-update-customer-category',
@@ -16,9 +17,12 @@ export class UpdateCustomerCategoryComponent implements OnInit {
   @Input() remark: string;
   @Input() custcat_id: string;
   donne;
+  Errors: string[];
+
   constructor(private ref: NbDialogRef<UpdateCustomerCategoryComponent> ,
               private service: BundlesCustCategoryService ,
-              private router: Router) { }
+              private router: Router,
+              private Validation: ValidationService) { }
 
   ngOnInit(): void {
   }
@@ -30,11 +34,15 @@ export class UpdateCustomerCategoryComponent implements OnInit {
       'grace_period' : (<HTMLInputElement>document.getElementById('grace_period_2')).value ,
       'remark' : (<HTMLInputElement>document.getElementById('remark_2')).value ,
     };
-    this.service.update_customer_category(this.donne , custcat_id)
-        .then((category) => {
-          this.ref.close(category);
-        })
-        .catch((error) => {});
+    this.Errors = [];
+    this.Errors = this.Validation.validationCreateCategory(this.donne);
+    if (this.Errors.length === 0) {
+      this.service.update_customer_category(this.donne , custcat_id)
+          .then((category) => {
+            this.ref.close(category);
+          })
+          .catch((error) => {});
+    }
 
   }
   cancel(): void {

@@ -107,6 +107,7 @@ export class SmartTableService extends SmartTableData {
             this.http.post(
                 environment.apiUrl + 'cabinet',
                 {
+                    wilaya_code: donne['wilaya_code'],
                     'wilaya': donne['wilaya'],
                     'join_date': donne['join_date'],
                     'cabinet_ref': donne['cabinet_ref'],

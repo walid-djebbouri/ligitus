@@ -82,7 +82,7 @@ export class CountryOrdersMapComponent implements OnDestroy , OnInit {
     cords.features.forEach((feature: any) => {
       feature.properties.newCase = 0;
       this.stateData.find(stat =>  {
-        if (stat.state === feature.properties.name) {
+        if (stat.id === feature.properties.id) {
           feature.properties.newCase = stat.values[4] / stat.values[5];
         }
       });

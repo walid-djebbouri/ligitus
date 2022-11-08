@@ -8,6 +8,9 @@ export class ValidationService {
         if (error.error.error.details) {
 
             if (error.error.error.details.messages) {
+                if (error.error.error.details.messages.tel) {
+                    message.push('Phone Can\'t Be Blank ');
+                }
                 if (error.error.error.details.messages.cabinet_short_desc) {
                     message.push('Short Description Can\'t Be Blank ');
                 }
@@ -170,6 +173,9 @@ export class ValidationService {
     }
     validationCreateBundle(Data): string[] {
         const Errors = [];
+        if (Data.nbmonths === '') {
+            Errors.push('Number Of Months Can \'t be Blank');
+        }
         if (Data.bundle_name === '') {
             Errors.push('Name Of Bundle Can \'t be Blank');
         }
@@ -202,23 +208,29 @@ export class ValidationService {
     }
     validationCreateCabinet(Data): string[] {
         const Errors = [];
-        if (Data.cabinet_short_desc === '') {
-            Errors.push('Short Description Can\'t Be Blank ');
-        }
-        if (Data.email === '') {
-            Errors.push('Email Can\'t Be Blank ');
-        }
         if (Data.legal_name === '') {
             Errors.push('Legal Name Can \'t be Blank');
+        }
+        if (Data.wilaya_code === undefined ) {
+            Errors.push(' Wilaya Can \'t be Blank');
+        }
+        if (Data.join_date === 'T00:00:00.000Z') {
+            Errors.push('Join Date Can\'t Be Blank ');
+        }
+        if (Data.nif === '') {
+            Errors.push(' NIF Can \'t be Blank');
         }
         if (Data.domiciliation === '') {
             Errors.push('Domiciliation Can \'t be Blank');
         }
-        if (Data.wilaya == null ) {
-            Errors.push(' Wilaya Can \'t be Blank');
+        if (Data.email === '') {
+            Errors.push('Email Can\'t Be Blank ');
         }
-        if (Data.nif === '') {
-            Errors.push(' NIF Can \'t be Blank');
+        if (Data.tel.length === 0) {
+            Errors.push('Phone Can\'t Be Blank ');
+        }
+        if (Data.cabinet_short_desc === '') {
+            Errors.push('Short Description Can\'t Be Blank ');
         }
         return Errors ;
     }
