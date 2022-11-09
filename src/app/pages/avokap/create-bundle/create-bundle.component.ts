@@ -31,6 +31,9 @@ export class CreateBundleComponent implements OnInit {
       bundle_edate: (<HTMLInputElement>document.getElementById('bundle_edate_1')).value + 'T00:00:00.000Z' ,
       description: (<HTMLInputElement>document.getElementById('description_1')).value,
       quantity_max: (<HTMLInputElement>document.getElementById('quantity_max_1')).value,
+      max_nb_case_creation_month: (<HTMLInputElement>document.getElementById('max_nb_case_creation_month')).value,
+      max_nb_audience_case: (<HTMLInputElement>document.getElementById('max_nb_audience_case')).value,
+      max_nb_case_enrolled: (<HTMLInputElement>document.getElementById('max_nb_case_enrolled')).value,
     };
     this.Errors = [];
     this.Errors = this.Validation.validationCreateBundle(this.donnee);

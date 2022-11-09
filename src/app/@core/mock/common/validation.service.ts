@@ -191,6 +191,15 @@ export class ValidationService {
         if (Data.quantity_max === '') {
             Errors.push('Quantity Max Can \'t be Blank');
         }
+        if (Data.max_nb_case_enrolled === '') {
+            Errors.push('The Max Case Enrolled Can \'t be Blank');
+        }
+        if (Data.max_nb_audience_case === '') {
+            Errors.push('The Max Audience Case Can \'t be Blank');
+        }
+        if (Data.max_nb_case_creation_month === '') {
+            Errors.push('The Max Case Creation Month \'t be Blank');
+        }
         return Errors ;
     }
     validationCreateCategory(Data): string[] {

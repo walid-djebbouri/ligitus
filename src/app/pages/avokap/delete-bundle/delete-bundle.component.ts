@@ -18,6 +18,10 @@ export class DeleteBundleComponent implements OnInit {
   @Input() bundle_edate: string;
   @Input() description: string;
   @Input() id: string;
+  @Input() max_nb_case_creation_month: number;
+  @Input() max_nb_audience_case: number;
+  @Input() max_nb_case_enrolled: number;
+
 
   constructor(private ref: NbDialogRef<DeleteBundleComponent> ,
               private service: BundlesCustCategoryService ,

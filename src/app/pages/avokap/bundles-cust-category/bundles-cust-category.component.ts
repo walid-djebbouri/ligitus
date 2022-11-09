@@ -85,16 +85,19 @@ export class BundlesCustCategoryComponent implements OnInit {
   update_bundle(index: number): void {
     this.Dialogue.open(UpdateBundleComponent , {
       context : {
-        'id': this.bundles[index].id,
-        'bundle_ref': this.bundles[index].bundle_ref,
-        'bundle_name': this.bundles[index].bundle_name,
-        'plan_price': this.bundles[index].plan_price,
-        'currency': this.bundles[index].currency,
-        'nbmonths': this.bundles[index].nbmonths,
-        'bundle_sdate': this.bundles[index].bundle_sdate,
-        'bundle_edate': this.bundles[index].bundle_edate,
-        'description': this.bundles[index].description,
-        'quantity_max': this.bundles[index].quantity_max,
+        id: this.bundles[index].id,
+        bundle_ref: this.bundles[index].bundle_ref,
+        bundle_name: this.bundles[index].bundle_name,
+        plan_price: this.bundles[index].plan_price,
+        currency: this.bundles[index].currency,
+        nbmonths: this.bundles[index].nbmonths,
+        bundle_sdate: this.bundles[index].bundle_sdate,
+        bundle_edate: this.bundles[index].bundle_edate,
+        description: this.bundles[index].description,
+        quantity_max: this.bundles[index].quantity_max,
+        max_nb_case_creation_month: this.bundles[index].max_nb_case_creation_month ,
+        max_nb_audience_case: this.bundles[index].max_nb_audience_case ,
+        max_nb_case_enrolled: this.bundles[index].max_nb_case_enrolled ,
       },
     });
   }
@@ -110,6 +113,10 @@ export class BundlesCustCategoryComponent implements OnInit {
         'bundle_sdate': this.bundles[index].bundle_sdate,
         'bundle_edate': this.bundles[index].bundle_edate,
         'description': this.bundles[index].description,
+        max_nb_case_creation_month: this.bundles[index].max_nb_case_creation_month ,
+        max_nb_audience_case: this.bundles[index].max_nb_audience_case ,
+        max_nb_case_enrolled: this.bundles[index].max_nb_case_enrolled ,
+
       },
     });
   }

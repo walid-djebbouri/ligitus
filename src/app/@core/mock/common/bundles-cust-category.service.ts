@@ -77,15 +77,18 @@ export class BundlesCustCategoryService {
     create_bundle(donnee): Promise<any> {
         return new Promise(((resolve, reject) => {
             this.http.post(environment.apiUrl + 'bundle', {
-                'bundle_ref': donnee['bundle_ref'],
-                'bundle_name': donnee['bundle_name'],
-                'plan_price':  Number.parseInt(donnee['plan_price'] , 0) ,
-                'currency': donnee['currency'],
-                'nbmonths':  Number.parseInt(donnee['nbmonths'] , 0)  ,
-                'bundle_sdate':  (donnee['bundle_sdate']) ,
-                'bundle_edate': donnee['bundle_edate'],
-                'description': donnee['description'],
-                'quantity_max':   parseInt(donnee['quantity_max'] , 0) ,
+                bundle_ref: donnee['bundle_ref'],
+                bundle_name: donnee['bundle_name'],
+                plan_price:  Number.parseInt(donnee['plan_price'] , 10) ,
+                currency: donnee['currency'],
+                nbmonths:  Number.parseInt(donnee['nbmonths'] , 10)  ,
+                bundle_sdate:  (donnee['bundle_sdate']) ,
+                bundle_edate: donnee['bundle_edate'],
+                description: donnee['description'],
+                quantity_max:   parseInt(donnee['quantity_max'] , 10) ,
+                max_nb_case_creation_month: parseInt(donnee['max_nb_case_creation_month'], 10),
+                max_nb_audience_case: parseInt(donnee['max_nb_audience_case'], 10),
+                max_nb_case_enrolled: parseInt(donnee['max_nb_case_enrolled'], 10),
             }).subscribe(
                 () => {
                     resolve();

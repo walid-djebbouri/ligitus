@@ -20,6 +20,9 @@ export class UpdateBundleComponent implements OnInit {
   @Input() description: string;
   @Input() id: string;
   @Input() quantity_max: string;
+  @Input() max_nb_case_creation_month: number;
+  @Input() max_nb_audience_case: number;
+  @Input() max_nb_case_enrolled: number;
 
   constructor(private ref: NbDialogRef<UpdateBundleComponent> ,
               private service: BundlesCustCategoryService ,
