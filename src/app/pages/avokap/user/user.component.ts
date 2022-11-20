@@ -233,4 +233,14 @@ colorClass: string ;
     }
 
 
+    pagesNumber(): number {
+        const pageNumber =   this.Users.length / 10 ;
+        if ( (pageNumber - Math.trunc(pageNumber)) === 0 ) {
+            return  Math.trunc(pageNumber) ;
+        } else {
+            return  Math.ceil(pageNumber) ;
+        }
+    }
+
+
 }

@@ -90,8 +90,8 @@
         </form>
 
 
-        <div class="row" *ngFor="let user of Users ; let i = index" >
-            <nb-card>
+        <div class="row" *ngFor="let user of Users ; let i = index"  >
+            <nb-card *ngIf="i<10" >
                 <nb-card-header>
                     User N° {{i+1}}
                 </nb-card-header>

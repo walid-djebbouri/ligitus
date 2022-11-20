@@ -52,9 +52,9 @@
                                         <nb-accordion-item-body>
 
                                             <div class="form-row" >
-                                                <div class="  form-group col-6">
-                                                    <label>ID</label>
-                                                    <input type="text" class="form-control" nbInput  value="{{bundle.id}}" readonly >
+                                                <div class="form-group col-6">
+                                                    <label>Bundle Name</label>
+                                                    <input type="text" class="form-control" nbInput  value="{{bundle.bundle_name}}" readonly>
                                                 </div>
 
                                                 <div class="  form-group col-6">
@@ -66,8 +66,8 @@
 
                                             <div class="form-row" >
                                                 <div class="form-group col-6">
-                                                    <label>Bundle Name</label>
-                                                    <input type="text" class="form-control" nbInput  value="{{bundle.bundle_name}}" readonly>
+                                                    <label>Description</label>
+                                                    <input type="text" class="form-control" nbInput  value="{{bundle.description}}" readonly>
                                                 </div>
 
                                                 <div class="form-group col-6">
@@ -125,14 +125,6 @@
                                                 <div class="form-group col-6 " >
                                                     <label >Max Case Enrolled</label>
                                                     <input type="text" class="form-control"  nbInput value="{{bundle.max_nb_case_enrolled}}" readonly >
-                                                </div>
-                                            </div>
-
-                                            <div class="form-row" >
-
-                                                <div class="form-group col-12 " >
-                                                    <label >Description</label>
-                                                    <textarea class="form-control"  nbInput  readonly>{{bundle.description}}</textarea>
                                                 </div>
                                             </div>
 
