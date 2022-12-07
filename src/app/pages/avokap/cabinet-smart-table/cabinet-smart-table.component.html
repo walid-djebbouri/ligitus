@@ -10,8 +10,21 @@
         nbSpinnerSize="large"
         nbSpinnerMessage="Loading Cabinets">
   <nb-card-header>
-    Cabinet <span>( {{number_of_cabinet}} )</span>
-    <button class="float-right" nbButton hero status="primary" (click)="creat_cabinet($event)" > Create Cabinet </button>
+    <div class="header" >
+      <div>
+        <nb-select [(selected)]="selectedState" (selectedChange)="changeState($event)" >
+          <nb-option [value]="'*'" >Total</nb-option>
+          <nb-option [value]="'16'">Alger</nb-option>
+          <nb-option [value]="'31'">Oran</nb-option>
+        </nb-select>
+      </div>
+      <div>
+        Cabinet <span>( {{number_of_cabinet}} )</span>
+      </div>
+      <div>
+        <button class="float-right" nbButton hero status="primary" (click)="creat_cabinet($event)" > Create Cabinet </button>
+      </div>
+    </div>
   </nb-card-header>
 
   <nb-card-body>
@@ -22,8 +35,10 @@
 
                      (edit)="delete_cabinet($event)"
                      (delete)="cabinetDetails($event)"
-                     (rowSelect)="nb_cabinets($event)"
-                     >
+                     (rowSelect)="newPages($event)"
+                     (userRowSelect)="selectedUser()"
+
+    >
     </ng2-smart-table>
   </nb-card-body>
 </nb-card>

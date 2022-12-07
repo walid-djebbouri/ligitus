@@ -19,6 +19,9 @@ import {DeleteCabinetComponent} from '../delete-cabinet/delete-cabinet.component
 })
 export class SmartTableCabinetComponent implements OnInit {
   loading_cabinets: boolean = true;
+  selectedState: string = '*';
+  clicked: boolean = false;
+  page: number = 1;
   donne = [];
   number_of_cabinet: number;
   settings = {
@@ -65,11 +68,12 @@ export class SmartTableCabinetComponent implements OnInit {
   source: LocalDataSource = new LocalDataSource();
 
   constructor(private router: Router , private dialogService: NbDialogService  , private service: SmartTableData) {
-    const data = this.service.getData().then((cabinet: any[]) => {
-      this.loading_cabinets = false;
-      this.source.load(cabinet);
-    }).catch((error) => {
-    });
+      this.service.getCabinetByPage(1, this.selectedState).subscribe(
+        (cabinets) => {
+          this.loading_cabinets = false;
+          this.source.load(cabinets);
+        } ,
+        (errors) => {} ) ;
   }
   ngOnInit(): void {
   }
@@ -83,20 +87,6 @@ export class SmartTableCabinetComponent implements OnInit {
       event.confirm.reject();
     }
   }
-  /*oneditConfirm(event): void {
-    if (window.confirm('edit')) {
-      this.donne['CabinetRef'] = event.newData.CabinetRef ;
-      this.donne['legalName'] = event.newData.legalName ;
-      this.donne['comName'] = event.newData.comName ;
-      this.donne['membershipStatus'] = event.newData.membershipStatus ;
-      this.service.up_date_cabinet(this.donne).then(() => {
-      }) ;
-      event.confirm.resolve(event.newData);
-    } else {
-      event.confirm.reject();
-    }
-  }*/
-
   creat_cabinet(event) {
     this.dialogService.open(CreateCabinetComponent, {
       context: {
@@ -118,9 +108,44 @@ export class SmartTableCabinetComponent implements OnInit {
       },
     });
   }
-  nb_cabinets(event) {
+  newPages(event) {
      this.number_of_cabinet = this.source.count();
+    if ( ! this.clicked && this.lastPage(event)) {
+      this.page++ ;
+      this.service.getCabinetByPage(this.page, this.selectedState).subscribe(
+          (cabinets) => {
+            for ( let i = 0 ; i < cabinets.length ; i++) {
+              this.source.add(cabinets[i]);
+            }
+            this.number_of_cabinet = this.source.count();
+
+          } ,
+          () => {} );
+    } else {
+      this.clicked = false ;
+    }
 
   }
 
+  selectedUser(): boolean {
+    return   this.clicked = true;
+  }
+  lastPage(event): boolean {
+    return event.source.data.length  / event.source.pagingConf.perPage
+        === event.source.pagingConf.page ||
+        Math.trunc(event.source.data.length  / event.source.pagingConf.perPage) + 1
+        === event.source.pagingConf.page
+        ;
+  }
+
+  changeState(event): void {
+      this.page = 1 ;
+      this.service.getCabinetByPage(this.page, this.selectedState).subscribe(
+          (cabinets) => {
+              this.source.load(cabinets);
+              this.number_of_cabinet = this.source.count();
+
+          } ,
+          () => {} );
+  }
 }
