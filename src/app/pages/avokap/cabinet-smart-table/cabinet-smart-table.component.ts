@@ -109,14 +109,16 @@ export class SmartTableCabinetComponent implements OnInit {
     });
   }
   newPages(event) {
-     this.number_of_cabinet = this.source.count();
+      this.number_of_cabinet = this.source.count();
     if ( ! this.clicked && this.lastPage(event)) {
-      this.page++ ;
+         this.loading_cabinets = true;
+         this.page++ ;
       this.service.getCabinetByPage(this.page, this.selectedState).subscribe(
           (cabinets) => {
             for ( let i = 0 ; i < cabinets.length ; i++) {
               this.source.add(cabinets[i]);
             }
+            this.loading_cabinets = false;
             this.number_of_cabinet = this.source.count();
 
           } ,
@@ -148,4 +150,20 @@ export class SmartTableCabinetComponent implements OnInit {
           } ,
           () => {} );
   }
+
+  findByName(event): void {
+      const cabinetName = event.target.value.toString().trim() ;
+      if (cabinetName !== '') {
+          this.loading_cabinets = true;
+          this.service.getCabinetByName(1, this.selectedState, cabinetName ).subscribe(
+              (cab) => {
+                  this.source.reset(true);
+                  this.loading_cabinets = false;
+                  this.source.load(cab);
+                  this.number_of_cabinet = this.source.count();
+
+              } ,
+              (errors) => {});
+      }
+    }
 }

@@ -357,5 +357,27 @@ export class SmartTableService extends SmartTableData {
                 return cabinets ;
             }) );
     }
+    getCabinetByName(pageNumber: number , selectedState: string, cabinetName: string): Observable<any> {
+        return this.http.get(environment.apiUrl + '/cabinetv2/' + pageNumber
+            + '/batchnumber/750/maxbatch/20/recbatch/' + selectedState + '/wilayacode/' + cabinetName
+            + '/cabinetname').pipe(
+            map((cabinet: any[]) => {
+                const cabinets = [];
+                for (let i = 0; i < cabinet.length; i++) {
+                    cabinets.push({
+                        CabinetRef: cabinet[i].cabinet_ref,
+                        legalName: cabinet[i].legal_name,
+                        comName: cabinet[i].commercial_name,
+                        membershipStatus: cabinet[i].membership_status,
+                        numLawyer: cabinet[i].nb_lawyers ,
+                        id: cabinet[i].id,
+                        wilaya: cabinet[i].wilaya,
+                    });
+                }
+                this.Cabinets = cabinet ;
+                return cabinets ;
+            }),
+        ) ;
+    }
 
 }

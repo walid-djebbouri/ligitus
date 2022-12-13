@@ -19,7 +19,7 @@
         </nb-select>
       </div>
       <div>
-        Cabinet <span>( {{number_of_cabinet}} )</span>
+          <input type="text" class="form-control" placeholder="Cabinet Name" (keydown.enter)="findByName($event)" >
       </div>
       <div>
         <button class="float-right" nbButton hero status="primary" (click)="creat_cabinet($event)" > Create Cabinet </button>
@@ -28,6 +28,9 @@
   </nb-card-header>
 
   <nb-card-body>
+      <div class="form-group w-100 mx-auto " >
+          Cabinet <span>( {{number_of_cabinet}} )</span>
+      </div>
     <ng2-smart-table class="cabinet-smart-table"
                      [settings]="settings"
                      [source]="source"

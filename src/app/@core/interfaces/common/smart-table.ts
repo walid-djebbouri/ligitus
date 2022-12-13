@@ -22,7 +22,6 @@ export abstract class SmartTableData {
   abstract change_Cabinet(donne: any[]): Promise<any> ;
   abstract deleteUserStatus(id: string): Observable<any>;
   abstract getCabinetByPage(pageNumber: number , selectedState: string): Observable<any>;
-
-
+  abstract getCabinetByName(pageNumber: number , selectedState: string, cabinetName: string): Observable<any>;
 
 }
