@@ -11,6 +11,7 @@ import {NbDialogService} from '@nebular/theme';
 import {Router} from '@angular/router';
 import {CreateCabinetComponent} from '../create-cabinet/create-cabinet.component';
 import {DeleteCabinetComponent} from '../delete-cabinet/delete-cabinet.component';
+ import states from '../matricule.json';
 
 @Component({
   selector: 'ngx-smart-table',
@@ -23,6 +24,7 @@ export class SmartTableCabinetComponent implements OnInit {
   clicked: boolean = false;
   page: number = 1;
   donne = [];
+  states = states.Wilaya;
   number_of_cabinet: number;
   settings = {
     mode: 'external',
@@ -164,6 +166,21 @@ export class SmartTableCabinetComponent implements OnInit {
 
               } ,
               (errors) => {});
+      } else {
+
+          /**/
+      }
+    }
+    resetData(event): void {
+      if ( event.target.value === '') {
+          this.page = 1 ;
+          this.service.getCabinetByPage(this.page, this.selectedState).subscribe(
+              (cabinets) => {
+                  this.source.load(cabinets);
+                  this.number_of_cabinet = this.source.count();
+
+              } ,
+              () => {} );
       }
     }
 }

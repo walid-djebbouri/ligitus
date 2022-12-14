@@ -11,15 +11,14 @@
         nbSpinnerMessage="Loading Cabinets">
   <nb-card-header>
     <div class="header" >
-      <div>
-        <nb-select [(selected)]="selectedState" (selectedChange)="changeState($event)" >
-          <nb-option [value]="'*'" >Total</nb-option>
-          <nb-option [value]="'16'">Alger</nb-option>
-          <nb-option [value]="'31'">Oran</nb-option>
+      <div class="col-3" >
+        <nb-select   fullWidth class="col-6"  id="states" [(selected)]="selectedState" (selectedChange)="changeState($event)" >
+          <nb-option   [value]="'*'" >Total</nb-option>
+          <nb-option   *ngFor="let state of states" [value]="state.code"  > {{state.value}}</nb-option>
         </nb-select>
       </div>
       <div>
-          <input type="text" class="form-control" placeholder="Cabinet Name" (keydown.enter)="findByName($event)" >
+          <input type="text" class="form-control" placeholder="Cabinet Name" (keydown.enter)="findByName($event)" (keyup)="resetData($event)" >
       </div>
       <div>
         <button class="float-right" nbButton hero status="primary" (click)="creat_cabinet($event)" > Create Cabinet </button>
