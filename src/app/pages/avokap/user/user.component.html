@@ -90,7 +90,7 @@
         </form>
 
 
-        <div class="row" *ngFor="let user of Users ; let i = index"  >
+        <div class="row" *ngFor="let user of usersPerPage ; let i = index"  >
             <nb-card>
                 <nb-card-header>
                     User N° {{i+1}}
@@ -188,6 +188,16 @@
 
     </nb-card-body>
     <nb-card-footer id="footer">
+
+        <ngx-new-bar-page
+        [pageIndex]="pageIndex"
+        [numberOfPages]="pagesNumber()"
+        (newChangePage)="changePage($event)"
+        (changePageByNumber)="changePageByNumber($event)"
+        >
+
+        </ngx-new-bar-page>
+
         <a class="float-right"  href="/pages/avokap/user#user" ><nb-icon  icon="arrowhead-up-outline" pack="eva"></nb-icon></a>
     </nb-card-footer>
 </nb-card>

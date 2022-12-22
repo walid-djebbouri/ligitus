@@ -49,6 +49,8 @@ import {ValidationService} from '../../@core/mock/common/validation.service';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { ChangeStatusComponent } from './change-status/change-status.component';
+import { BarPageComponent } from './bar-page/bar-page.component';
+import { NewBarPageComponent } from './new-bar-page/new-bar-page.component';
 
 @NgModule({
     imports: [
@@ -95,6 +97,8 @@ import { ChangeStatusComponent } from './change-status/change-status.component';
     DeleteUserComponent,
     CreateUserComponent,
     ChangeStatusComponent,
+    BarPageComponent,
+    NewBarPageComponent,
     // FsIconComponent,
   ],
   providers: [

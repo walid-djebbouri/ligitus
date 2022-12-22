@@ -14,7 +14,7 @@ import {ChangeStatusComponent} from '../change-status/change-status.component';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']})
 export class UserComponent implements OnInit {
-Users: any[];
+Users: any[] = [];
 Users_const: any[];
 Customer_Category: any[];
 category_selected;
@@ -22,23 +22,27 @@ first_date_empty = true;
 loading: boolean = true;
 selected_status: string;
 colorClass: string ;
+usersPerPage: any[] = [];
+pageIndex: number = 1;
   constructor(private service: UserService ,
               private router: Router ,
               private Dialogue: NbDialogService ,
               private sr: SmartTableData ,
-              private Custemer_Categories: BundlesCustCategoryService ) {
-    this.Custemer_Categories.get_cust_category().then((cust_cat) => {
-        this.Customer_Category = cust_cat ;
-    }).catch((error) => {});
-    this.service.get_users()
-        .then((users) => {
-          this.loading = false;
-          this.Users = users;
-          this.Users_const = users;
-        })
-        .catch((error) => {});
+              private Custemer_Categories: BundlesCustCategoryService ) {}
+  ngOnInit(): void {
+      this.Custemer_Categories.get_cust_category().then((cust_cat) => {
+          this.Customer_Category = cust_cat ;
+      }).catch((error) => {});
+      this.service.get_users()
+          .then((users) => {
+              this.loading = false;
+              this.Users = users;
+              this.Users_const = users;
+              this.usersPerPage = this.Users.slice(0, 10);
+          })
+          .catch((error) => {});
   }
-  ngOnInit(): void {}
+
     active(): void {
         const first_date = (<HTMLInputElement>document.getElementById('first_date')).value ;
         if (first_date !== '') {
@@ -48,10 +52,12 @@ colorClass: string ;
             (<HTMLInputElement>document.getElementById('second_date')).value = null ;
         }
     }
+
     format_date(date: string): string {
         const date_format = new Date(date);
         return  (date_format.getFullYear() + '-' + date_format.getMonth() + '-' + date_format.getDate()) ;
     }
+
     reset_password(user_id: string): void {
       this.Dialogue.open(ResetPasswordComponent , {
           context: {
@@ -59,6 +65,7 @@ colorClass: string ;
           },
       });
     }
+
     go_to_lawyer(id: string): void {
         this.sr.get_cabinet_of_lawyer(id)
             .then((cabinet) => {
@@ -66,6 +73,7 @@ colorClass: string ;
             })
             .catch((error) => {});
     }
+
     filter(value, type: string): void {
       let info ;
       if (type === 'Category' || type === 'Roles' || type === 'Membership' ) {
@@ -152,7 +160,11 @@ colorClass: string ;
                 }
             }
         }
+        this.pageIndex = 0;
+        this.changePage('move');
+
     }
+
     delete_user(user_id: number): void {
       this.Dialogue.open(DeleteUserComponent , {
           context :  {
@@ -164,15 +176,18 @@ colorClass: string ;
           },
       });
   }
-  rest(): void {
+
+    rest(): void {
         this.Users = this.Users_const ;
         this.category_selected = '';
   }
+
     create_user(): void {
       this.Dialogue.open(CreateUserComponent , {
           context : {} ,
       } ).onClose.subscribe(user => user && this.Users_const.push(user));
     }
+
     change_status(i: number): void {
       this.Dialogue.open(ChangeStatusComponent , {
           context : {
@@ -232,7 +247,6 @@ colorClass: string ;
         return difference.toString() ;
     }
 
-
     pagesNumber(): number {
         const pageNumber =   this.Users.length / 10 ;
         if ( (pageNumber - Math.trunc(pageNumber)) === 0 ) {
@@ -241,6 +255,24 @@ colorClass: string ;
             return  Math.ceil(pageNumber) ;
         }
     }
+
+    changePage(action: string): void {
+      this.usersPerPage = [];
+      if (  action === 'move' ) {
+          if (this.pageIndex < this.pagesNumber()) this.pageIndex++ ;
+      } else {
+          if ( 1 < this.pageIndex) this.pageIndex-- ;
+      }
+        this.usersPerPage = this.Users.slice(  (this.pageIndex - 1 )   * 10  , (this.pageIndex )   * 10 );
+
+    }
+
+    changePageByNumber(pageIndex: number): void {
+      this.pageIndex = pageIndex;
+      this.usersPerPage = this.Users.slice(  (pageIndex - 1 ) * 10 , (pageIndex  ) * 10 );
+    }
+
+    loadNewPage(): void {}
 
 
 }
