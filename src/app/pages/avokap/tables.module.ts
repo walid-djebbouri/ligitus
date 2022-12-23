@@ -97,7 +97,6 @@ import { NewBarPageComponent } from './new-bar-page/new-bar-page.component';
     DeleteUserComponent,
     CreateUserComponent,
     ChangeStatusComponent,
-    BarPageComponent,
     NewBarPageComponent,
     // FsIconComponent,
   ],
