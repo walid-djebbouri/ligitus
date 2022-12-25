@@ -26,7 +26,7 @@ colorClass: string ;
 usersPerPage: any[] = [];
 pageIndex: number = 1;
 batchNumber: number = 1 ;
-profileName: string = '*';
+profileName: string = '[0-9a-zA-Z]';
   constructor(private service: UserService ,
               private router: Router ,
               private Dialogue: NbDialogService ,
@@ -36,15 +36,16 @@ profileName: string = '*';
       this.Custemer_Categories.get_cust_category().then((cust_cat) => {
           this.Customer_Category = cust_cat ;
       }).catch((error) => {});
-      this.service.get_users()
-          .then((users) => {
+      this.service.researchUser(this.profileName, 1).subscribe(
+          (users) => {
               this.loading = false;
               this.Users = users;
               this.Users_const = users;
               this.allUsers = users;
               this.usersPerPage = this.Users.slice(0, 10);
-          })
-          .catch((error) => {});
+
+          } ,
+          () => {});
   }
 
     active(): void {
