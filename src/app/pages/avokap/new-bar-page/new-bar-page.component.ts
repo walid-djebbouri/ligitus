@@ -11,6 +11,7 @@ export class NewBarPageComponent implements OnInit {
   @Input() numberOfPages: number;
   @Output() newChangePage = new EventEmitter();
   @Output() changePageByNumber = new  EventEmitter();
+  @Output() loadNewBatch = new EventEmitter();
   pageNumber: number = 0 ;
 
   constructor() {
@@ -31,6 +32,10 @@ export class NewBarPageComponent implements OnInit {
 
   changePages(type: string): void {
     this.newChangePage.emit(type);
+  }
+
+  loadNewData(): void {
+    this.loadNewBatch.emit();
   }
 
 }

@@ -1,8 +1,19 @@
 <nb-card id="user">
-    <nb-card-header>
-        Users <span *ngIf="Users">({{Users.length}})</span>
-        <button id="create_user" nbButton status="primary" hero  (click)="create_user()" >Create User</button>
-        <a class="float-right"  href="/pages/avokap/user#footer" ><nb-icon  icon="arrowhead-down-outline" pack="eva"></nb-icon></a>
+    <nb-card-header class="form-row" >
+        <div class="header col-10 " >
+            <div class="col-3">
+                Users <span *ngIf="Users">({{Users.length}})</span>
+            </div>
+            <div class="col-5">
+                <input type="text" class="form-control"  (keydown.enter)="loadNewPage($event)" (keyup)="resetData($event)" placeholder="Profile Name" >
+            </div>
+            <div class="col-3" >
+                <button id="create_user" nbButton status="primary" hero  (click)="create_user()" >Create User</button>
+            </div>
+        </div>
+        <div class="col-2" >
+            <a class="float-right"  href="/pages/avokap/user#footer" ><nb-icon  icon="arrowhead-down-outline" pack="eva"></nb-icon></a>
+        </div>
     </nb-card-header>
     <nb-card-body
             size="tiny" [nbSpinner]="loading"
@@ -194,6 +205,7 @@
         [numberOfPages]="pagesNumber()"
         (newChangePage)="changePage($event)"
         (changePageByNumber)="changePageByNumber($event)"
+        (loadNewBatch)="loadNewBach()"
         >
 
         </ngx-new-bar-page>

@@ -15,6 +15,7 @@ import {ChangeStatusComponent} from '../change-status/change-status.component';
   styleUrls: ['./user.component.scss']})
 export class UserComponent implements OnInit {
 Users: any[] = [];
+allUsers: any[] = [];
 Users_const: any[];
 Customer_Category: any[];
 category_selected;
@@ -24,6 +25,8 @@ selected_status: string;
 colorClass: string ;
 usersPerPage: any[] = [];
 pageIndex: number = 1;
+batchNumber: number = 1 ;
+profileName: string = '*';
   constructor(private service: UserService ,
               private router: Router ,
               private Dialogue: NbDialogService ,
@@ -38,6 +41,7 @@ pageIndex: number = 1;
               this.loading = false;
               this.Users = users;
               this.Users_const = users;
+              this.allUsers = users;
               this.usersPerPage = this.Users.slice(0, 10);
           })
           .catch((error) => {});
@@ -272,7 +276,45 @@ pageIndex: number = 1;
       this.usersPerPage = this.Users.slice(  (pageIndex - 1 ) * 10 , (pageIndex  ) * 10 );
     }
 
-    loadNewPage(): void {}
+    loadNewPage(event): void {
+        this.usersPerPage = [];
+        this.profileName = event.target.value;
+        if ( this.profileName !== '' ) {
+            this.loading = true;
+            this.service.researchUser(this.profileName ,  1 ).subscribe(
+                (users) => {
+                    this.Users = users;
+                    this.Users_const = users;
+                    this.pageIndex = 0;
+                    this.changePage('move');
+                    this.loading = false;
+
+                } ,
+                (errors) => {});
+        }
+  }
+
+    resetData(event): void {
+       const profileName = event.target.value;
+       if ( profileName === '' ) {
+           this.pageIndex = 1 ;
+           this.Users = this.allUsers ;
+           this.Users_const = this.allUsers ;
+           this.usersPerPage = this.Users_const.slice(  (this.pageIndex - 1 )   * 10  , (this.pageIndex )   * 10 );
+
+       }
+    }
+
+    loadNewBach(): void {
+      this.batchNumber ++ ;
+      this.service.researchUser(this.profileName , this.batchNumber ).subscribe(
+          (newUsers) => {
+              this.pageIndex = this.pagesNumber();
+              this.Users = this.Users.concat(newUsers);
+              this.changePageByNumber(this.pageIndex);
+          } ,
+          (errors) => {});
+    }
 
 
 }

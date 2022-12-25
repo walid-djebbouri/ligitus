@@ -1,6 +1,8 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import { environment } from '../../../../environments/environment';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 @Injectable({providedIn: 'root'})
 export class UserService {
     constructor(private http: HttpClient) {}
@@ -79,4 +81,10 @@ export class UserService {
                 });
         }));
     }
+    researchUser(profileName: string, pageNumber: number): Observable<any> {
+        return this.http.get(environment.apiUrl + '/profilev2/' + pageNumber +
+            '/batchnumber/75/maxbatch/200/recbatch/' + profileName + '/profileName?filter={"include":[{"relation" : "lawyer", "scope":{"fields":["id","avokap_ref","bar_name","category","userId"],"include":[{"relation":"cabinet"}]}}, {"relation" : "userStatuses","scope":{"fields":["id","status","status_date","userId"],"order" : ["status_date  DESC"]}},{"relation": "memberships","scope":{"fields":["plan_edate","userId","bundleId"],"order": ["plan_edate DESC"],"include":[{"relation":"bundle","scope":{"fields":["bundle_name","id"]}}]}}]}')
+            .pipe( map( users => users ) ) ;
+    }
+
 }
