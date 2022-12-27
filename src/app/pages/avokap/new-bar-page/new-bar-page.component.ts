@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {NbThemeService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-new-bar-page',
@@ -12,13 +13,14 @@ export class NewBarPageComponent implements OnInit {
   @Output() newChangePage = new EventEmitter();
   @Output() changePageByNumber = new  EventEmitter();
   @Output() loadNewBatch = new EventEmitter();
+  theme: string;
   pageNumber: number = 0 ;
 
-  constructor() {
+  constructor(private themeService: NbThemeService) {
   }
 
   ngOnInit(): void {
-
+    this.themeService.getJsTheme().subscribe( theme => this.theme = theme.name );
   }
 
   plage(): number {

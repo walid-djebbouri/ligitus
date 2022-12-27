@@ -1,21 +1,38 @@
+@import '../../../@theme/styles/themes';
+
+
+
+@mixin updatedColor() {
+  border: 0.0625rem solid #151a30  ;
+}
+
 .bar-page{
   // font-size: 12px;
-  color: #6329AA;
+  color: #36f;
   display: flex;
   justify-content: center;
   border: hidden;
   cursor: auto;
 
 }
-div {
-  border: #151a30 solid 1px;
+
+div.dark {
+  @include updatedColor();
   cursor: pointer;
   font-size: 0.875rem;
   line-height: 1rem;
-//  background-color: transparent;
+  padding: 0.75rem 1.25rem;
+}
+div {
+  border:0.0625rem solid #e4e9f2;;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1rem;
   padding: 0.75rem 1.25rem;
 }
 .ActivatedPage {
-  background-color:  #36f;
+  background-color: #36f;
   color: #ffffff;
 }
+// #36f
+//   border: #151a30 solid 1px;

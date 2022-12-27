@@ -1,25 +1,25 @@
 <div class="bar-page">
-    <div  (click)="changePagesByNumber(1)"  >«</div>
-    <div (click)="changePages('back')"><</div>
+    <div [ngClass]="{'dark': theme == 'dark'}" (click)="changePagesByNumber(1)"  >«</div>
+    <div [ngClass]="{'dark': theme == 'dark'}" (click)="changePages('back')"><</div>
 
     <div
             *ngIf="plage() + 1 <= numberOfPages"
             (click)="changePagesByNumber(plage() + 1)"
-            [ngClass]="{'ActivatedPage': pageIndex === plage() + 1}"
+            [ngClass]="{'ActivatedPage': pageIndex === plage() + 1, 'dark': theme == 'dark'}"
     >{{plage() + 1}}</div>
 
     <div
             *ngIf="plage() + 2 <= numberOfPages"
             (click)="changePagesByNumber(plage() + 2)"
-            [ngClass]="{'ActivatedPage': pageIndex === plage() + 2}"
+            [ngClass]="{'ActivatedPage': pageIndex === plage() + 2, 'dark': theme == 'dark'}"
     >{{plage() + 2 }}</div>
 
     <div
             *ngIf="plage() + 3 <= numberOfPages"
             (click)="changePagesByNumber(plage() + 3)"
-            [ngClass]="{'ActivatedPage': pageIndex === plage() + 3}"
+            [ngClass]="{'ActivatedPage': pageIndex === plage() + 3 , 'dark': theme == 'dark'}"
     >{{plage() + 3 }}</div>
 
-    <div (click)="changePages('move')" >></div>
-    <div (click)="loadNewData()" >»</div>
+    <div [ngClass]="{'dark': theme == 'dark'}" (click)="changePages('move')" >></div>
+    <div [ngClass]="{'dark': theme == 'dark'}" (click)="loadNewData()" >»</div>
 </div>
