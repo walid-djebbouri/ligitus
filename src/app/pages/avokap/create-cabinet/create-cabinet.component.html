@@ -3,224 +3,132 @@
     <nb-card-body  class="m-3" >
         <div class="row">
             <div class="col-md-12 ">
-                <form  [formGroup]="myFormGroup" (ngSubmit)="create_cabinet()" >
+                <form [formGroup]="organisationForm"   >
 
-                    <div class="form-group row">
-                        <label for="legal_namee" class="col-sm-6 col-form-label">legal name <span>*</span></label>
+
+
+                    <div class="form-group row mb-2">
+                        <label for="organisation_ref" class="col-sm-6 col-form-label">Organisation Ref <span>*</span></label>
                         <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="legal_namee" name="legal_namee"  placeholder="Enter The Legal Name"  >
+                            <input type="text" nbInput fullWidth
+                                   id="organisation_ref"
+                                   class="form-control"
+                                   formControlName="organisation_ref"
+                                   placeholder="Enter The Legal Name"
+
+                                   [ngClass]="{'is-invalid': organisationForm.controls.organisation_ref.errors && organisationForm.controls.organisation_ref.touched ,
+                                                'is-valid': organisationForm.controls.organisation_ref.valid }"
+
+                            >
                         </div>
                     </div>
 
+                    <div class="row mb-2 " >
+                        <div class="col-xl6 col-lg-6 col-md-6 col-sm-12"   ></div>
+                        <div class="col-xl6 col-lg-6 col-md-6 col-sm-12 "
+                             *ngIf="organisationForm.controls.organisation_ref.invalid && ( organisationForm.controls.organisation_ref.dirty || organisationForm.controls.organisation_ref.touched )"
+                        >
+                            <small class="text-danger" *ngIf="organisationForm.get('organisation_ref').hasError('required')" >Organisation Ref is required</small>
 
-                    <div class="form-group row">
-                        <label for="commercial_namee" class="col-sm-6 col-form-label">commercial name </label>
+                        </div >
+                    </div>
+
+
+                    <div class="form-group row mb-2">
+                        <label for="join_date" class="col-sm-6 col-form-label">commercial name </label>
                         <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="commercial_namee" name="commercial_namee"  placeholder="Enter The Commercial Name"  >
+                            <input  nbInput fullWidth class="form-control"
+                                    type="date"
+                                    id="join_date"
+                                    placeholder="Enter The Join Date"
+                                    formControlName="join_date"
+                                    [ngClass]=" {'is-invalid': organisationForm.controls.join_date.errors && organisationForm.controls.join_date.touched ,
+                                                 'is-valid': organisationForm.controls.join_date.valid  }"
+                            >
                         </div>
                     </div>
 
+                    <div class="row mb-2" >
 
-                    <div class="form-group row">
-                        <label  class="col-sm-6 col-form-label">Wilaya <span>*</span></label>
-                        <nb-select id="wilya" fullWidth class="col-6"   status="primary" [(selected)]="selected_wilaya" (selectedChange)="Cabinet_ref($event , 1)" placeholder="Select The Wilaya" >
-                            <nb-option value="01" >Adrar</nb-option>
-                            <nb-option value="02" >Chelf</nb-option>
-                            <nb-option value="03" >Laghouat</nb-option>
-                            <nb-option value="04" >Oum El Bouaghi</nb-option>
-                            <nb-option value="05" >Batna</nb-option>
+                        <div class="col-xl6 col-lg-6 col-md-6 col-sm-12"></div>
+                        <div class="col-xl6 col-lg-6 col-md-6 col-sm-12"
+                             *ngIf="organisationForm.controls.join_date.invalid && ( organisationForm.controls.join_date.dirty || organisationForm.controls.join_date.touched )"
+                        >
+                            <small class="text-danger" *ngIf="organisationForm.get('join_date').errors.required" >Join Date is Required </small>
 
-                            <nb-option value="06" >Béjaïa</nb-option>
-                            <nb-option value="07" >Biskra</nb-option>
-                            <nb-option value="08" >Béchar</nb-option>
-                            <nb-option value="09" >Blida</nb-option>
-                            <nb-option value="10" >Bouira</nb-option>
-
-                            <nb-option value="11" >Tamanrasset</nb-option>
-                            <nb-option value="12" >Tébessa</nb-option>
-                            <nb-option value="13" >Tlemcen</nb-option>
-                            <nb-option value="14" >Tiaret</nb-option>
-                            <nb-option value="15" >Tizi Ouzou</nb-option>
-
-                            <nb-option value="16" >Alger</nb-option>
-                            <nb-option value="17" >Djelfa</nb-option>
-                            <nb-option value="18" >Jijel</nb-option>
-                            <nb-option value="19" >Sétif</nb-option>
-                            <nb-option value="20" >Saïda</nb-option>
-
-                            <nb-option value="21" >Skikda</nb-option>
-                            <nb-option value="22" >Sidi Bel Abbès</nb-option>
-                            <nb-option value="23" >Annaba</nb-option>
-                            <nb-option value="24" >Guelma</nb-option>
-                            <nb-option value="25" >Constantine</nb-option>
-
-                            <nb-option value="26" >Médéa</nb-option>
-                            <nb-option value="27" >Mostaganem</nb-option>
-                            <nb-option value="28" >M'Sila</nb-option>
-                            <nb-option value="29" >Mascara</nb-option>
-                            <nb-option value="30" >Ouargla</nb-option>
-
-                            <nb-option value="31" >Oran</nb-option>
-                            <nb-option value="32" >El Bayadh</nb-option>
-                            <nb-option value="33" >Illizi</nb-option>
-                            <nb-option value="34" >Bordj Bou Arreridj</nb-option>
-                            <nb-option value="35" >Boumerdès</nb-option>
-                            <nb-option value="36" >El Tarf</nb-option>
-                            <nb-option value="37" >Tindouf</nb-option>
-                            <nb-option value="38" >Tissemsilt</nb-option>
-                            <nb-option value="39" >El Oued </nb-option>
-                            <nb-option value="40" >Khenchela</nb-option>
-                            <nb-option value="41" >Souk Ahras</nb-option>
-                            <nb-option value="42" >Tipaza</nb-option>
-                            <nb-option value="43" >Mila</nb-option>
-                            <nb-option value="44" >Aïn Defla</nb-option>
-                            <nb-option value="45" >Naâma</nb-option>
-
-                            <nb-option value="46" >Aïn Témouchent</nb-option>
-                            <nb-option value="47" >Ghardaïa</nb-option>
-                            <nb-option value="48" >Relizane</nb-option>
-
-
-                            <nb-option value="59" >El MGhair</nb-option>
-                            <nb-option value="50" >El Menia</nb-option>
-                            <nb-option value="51" >Ouled Djellal</nb-option>
-
-                            <nb-option value="52" >Bordj Baji Mokhtar</nb-option>
-                            <nb-option value="53" >Beni Abbes</nb-option>
-                            <nb-option value="54" >Timimoun</nb-option>
-
-                            <nb-option value="55" >Touggourt</nb-option>
-                            <nb-option value="56" >Djanet</nb-option>
-                            <nb-option value="57" >In Salah</nb-option>
-
-                            <nb-option value="58" >In Guezzam</nb-option>
-                        </nb-select>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label for="join_datee" class="col-sm-6 col-form-label">join date <span>*</span></label>
-                        <div class="col-sm-6">
-                            <input  type="date" nbInput fullWidth id="join_datee" name="join_datee"   placeholder="Enter The Join Date"  >
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="nife" class="col-sm-6 col-form-label">nif <span>*</span></label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="nife" name="nife"  (change)="Cabinet_ref($event , 2)" placeholder="Enter The NIF" >
+                    <div class="form-group row mb-2" >
+                        <label class="col-sm-6 col-form-label" for="legal_name" >Legal Name</label>
+                        <div class="col-6">
+                            <input  class="form-control" fullWidth nbInput
+                                    type="text"
+                                    id="legal_name"
+                                    placeholder="Enter The Legal Name"
+                                    formControlName="legal_name"
+                                    [ngClass]="{ 'is-invalid': organisationForm.controls.legal_name.invalid && organisationForm.controls.legal_name.touched,
+                                            'is-valid': organisationForm.controls.legal_name.valid    }"
+                            >
+                        </div>
+
+                    </div>
+                    <div class="row mb-2" >
+                        <div class="col-6" ></div>
+                        <div class="col-6" *ngIf="organisationForm.controls.legal_name.invalid && organisationForm.controls.legal_name.touched" >
+                            <small class="text-danger" >The legal Name is Required </small>
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="ribe" class="col-sm-6 col-form-label"  >rib</label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="ribe" name="ribe"   placeholder="Enter The RIB" >
-                        </div>
+                    <div>
+                        <button class="btn btn-outline-success float-right" (click)="addPhone()" >Add Phone</button>
                     </div>
 
+                    <div formArrayName="tel" >
+                        <label >Phone Number:</label>
+                        <div *ngFor="let phone of tel.controls ; let i = index" >
+                            <div class="form-group" [formGroup]="phone"  >
+                                <div class="form-row" >
+                                    <div class="col-6 " >
+                                        <i class="nb-trash" (click)="deletePhone(i)">
+                                        </i>
+                                    </div>
+                                    <div class="col-6 " >
+                                        <input
+                                                class="form-control"
+                                                type="text"
+                                                formControlName="phone"
+                                                [ngClass]="{'is-invalid': tel.controls[i].get('phone').errors && tel.controls[i].get('phone').touched ,
+                                                            'is-valid': tel.controls[i].get('phone').valid && tel.controls[i].get('phone').touched }"
+                                                >
+                                    </div>
+                                </div>
+                                <div class="form-row">
 
-                    <div class="form-group row">
-                        <label for="cabinet_refe" class="col-sm-6 col-form-label">cabinet ref </label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="cabinet_refe" name="cabinet_refe"  value="{{cabinet_ref}}"  readonly  placeholder="ENter The Cabinet Reference"   >
-                        </div>
-                    </div>
+                                    <div class="col-6" >
 
+                                    </div>
+                                    <div class="col-6" *ngIf=" tel.controls[i].get('phone').invalid && tel.controls[i].get('phone').touched ">
+                                        <small class="text-danger" *ngIf="this.tel.controls[i].get('phone').errors.required" >The Number Phone is Required</small>
+                                        <small class="text-danger" *ngIf="this.tel.controls[i].get('phone').errors.invalidNumberPhone">The Phone lang should be 10</small>
+                                        <small class="text-danger" *ngIf="this.tel.controls[i].get('phone').errors.pattern">The Phone lang should Start with 0</small>
 
+                                    </div>
+                                </div>
 
-                    <div class="form-group row">
-                        <label for="domiciliatione" class="col-sm-6 col-form-label">domiciliation <span>*</span></label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="domiciliatione" name="domiciliatione"  placeholder="Enter The Domiciliation"  >
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label for="emaile" class="col-sm-6 col-form-label">email <span>*</span></label>
-                        <div class="col-sm-6">
-                            <input  type="email" nbInput fullWidth id="emaile" name="emaile"  placeholder="Enter The E mail" >
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label for="faxe" class="col-sm-6 col-form-label">fax </label>
-                        <div class="col-sm-6">
-                            <input  type="tel" nbInput fullWidth id="faxe" name="faxe"  placeholder="Enter The Fax" >
-                        </div>
-                    </div>
-
-                    <label>Phone <span>*</span></label>
-                    <div class="form-group  row" >
-                        <nb-icon   icon="plus-circle" status="danger"   (click)="addTel()"	 ></nb-icon>
-                    </div>
-
-                    <div *ngFor="let tel of form_template; let i = index">
-
-                        <div  *ngIf="tel.label == 'tel' " class="form-group row">
-                            <div class="col-6 p-0" >
-                                <nb-icon   icon="minus-circle" status="danger"  (click)="deleteTel(i)"	 ></nb-icon>
                             </div>
-                            <div class="col-sm-6">
-                                <input  type="number" nbInput fullWidth  name="tele" placeholder="Enter The Phone" [minLength]="10">
-                            </div>
+
                         </div>
+
                     </div>
 
+                    <div>
 
-                    <label>Cabinet Predilection Domains</label>
-                    <div class="form-group row  " >
-                        <nb-icon   icon="plus-circle" status="danger"   	(click)="addPredilection()" ></nb-icon>
+                        <button class="float-left"  nbButton hero  status="primary"  (click)="createOrganisation()" >Create</button>
+                        <button  class="float-right" nbButton hero  status="danger"  (click)="dismiss()" >Cancel</button>
+
+
                     </div>
-                    <div *ngFor="let form_elem of formTemplate ; let i = index"  >
-                        <div *ngIf="form_elem.label == 'predilection'" class="form-group row">
-                            <div class="col-1 p-0" >
-                                <nb-icon   icon="minus-circle" status="danger"   	(click)="deletePredilection(i)" ></nb-icon>
-                            </div>
-                            <nb-select name="law_catxs" fullWidth class="col-5"  id="cat{{form_elem.id}}"    (selectedChange)="changeTheme($event)" status="primary" placeholder="Select The Category Law">
-                                <nb-option  *ngFor="let opt of form_elem.options" [value]="opt" >
-                                    {{opt}}
-                                </nb-option>
-                            </nb-select>
-                            <nb-select  name="jur_domain" fullWidth class="col-6" id="dom{{form_elem.id}}"     status="primary" placeholder="Select The Jur Domain">
-                                <nb-option  *ngFor="let fis of selected " [value]= "fis">{{fis}} </nb-option>
-                            </nb-select>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="cabinet_short_desce" class="col-sm-6 col-form-label">cabinet short description <span>*</span></label>
-                        <div class="col-sm-6">
-                            <input  type="text" nbInput fullWidth id="cabinet_short_desce" name="cabinet_short_desce" placeholder="Enter a Short Description"   >
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label for="cabinet_long_desce" class="col-sm-6 col-form-label">cabinet long description </label>
-                        <div class="col-sm-6">
-                            <textarea  type="text" nbInput fullWidth id="cabinet_long_desce" name="cabinet_long_desce"  placeholder="Enter a Long Description"  ></textarea>
-                        </div>
-                    </div>
-
-
-                    <div  class="mt-5 mb-5 pt-3 pb-2 bg-danger " *ngIf="Errors && Errors.length >0">
-                        <div class="form-group  text-center " *ngFor="let error of Errors"  >
-                            <label  >! Error : {{error}}</label>
-                        </div>
-                    </div>
-
-
-                            <button class="float-left"  nbButton hero  status="primary" type="submit">Create</button>
-                            <button  class="float-right" nbButton hero  status="danger"  (click)="dismiss()" >Cancel</button>
-
-
-
-
-
-
 
                 </form>
 
