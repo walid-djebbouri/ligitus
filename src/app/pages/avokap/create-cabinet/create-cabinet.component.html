@@ -80,6 +80,176 @@
                         </div>
                     </div>
 
+
+
+                    <div class="form-group row mb-2" >
+                        <label class="col-6" >Commercial Name</label>
+                        <div class="col-6" >
+                            <input  fullWidth nbInput
+                                    type="text"
+                                    id="commercial_name"
+                                    class="form-control"
+                                    formControlName="commercial_name"
+                                    placeholder="Enter The Commercial Name"
+                                    [ngClass]="{'is-invalid': organisationForm.controls.commercial_name.errors && organisationForm.controls.commercial_name.touched,
+                                                'is-valid': organisationForm.controls.commercial_name.valid}"
+
+                            >
+                        </div>
+                    </div>
+
+                    <div class="row mb-2" >
+                        <div class="col-6" ></div>
+                        <div class="col-6"  *ngIf="organisationForm.controls.commercial_name.invalid && organisationForm.controls.commercial_name.touched ">
+                            <small  class="text-danger" > The Commercial Name Is Required </small>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row mb-2"  >
+                        <label class="col-6" >Organisation Type</label>
+                        <div class="col-6" >
+                            <nb-select fullWidth
+                                       formControlName="organisation_type"
+                                       [ngClass]="{'is-invalid': organisationForm.controls.organisation_type.errors && organisationForm.controls.organisation_type.touched,
+                                                'is-valid': organisationForm.controls.organisation_type.valid}"
+                            >
+                                <nb-option [value]="'CORPORATE'" >corporation</nb-option>
+                                <nb-option [value]="'PUBLIC'" >Public institution</nb-option>
+                                <nb-option [value]="'PRIVATE'" >Private company</nb-option>
+                                <nb-option [value]="'INDIVIDUAL'" > an individual</nb-option>
+                            </nb-select>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-2" >
+                        <div class="col-6" ></div>
+                        <div class="col-6"  *ngIf="organisationForm.controls.organisation_type.invalid && organisationForm.controls.organisation_type.touched" >
+                            <small class="text-danger" > The Organisation Type Is Required </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-2" >
+                        <label class="col-6" >Short Description</label>
+                        <div class="col-6" >
+                            <input  fullWidth nbInput
+                                    type="text"
+                                    id="org_short_desc"
+                                    class="form-control"
+                                    placeholder="Enter a Short Description"
+                                    formControlName="org_short_desc"
+                            >
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group row mb-2" >
+                    <label class="col-6" >Long Description</label>
+                    <div class="col-6" >
+                        <input  fullWidth nbInput
+                                type="text"
+                                id="org_long_desc"
+                                class="form-control"
+                                placeholder="Enter The Domiciliation"
+                                formControlName="org_long_desc"
+                        >
+                    </div>
+                    </div>
+
+                    <div class="form-group row mb-2" >
+                        <label class="col-6" >Number Og Customer</label>
+                        <div class="col-6" >
+                            <input  fullWidth nbInput
+                                    type="number"
+                                    id="nb_customers"
+                                    class="form-control"
+                                    placeholder="Enter The Number of The Customer"
+                                    formControlName="nb_customers"
+                            >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row mb-2" >
+                        <label class="col-6" >Domiciliation</label>
+                        <div class="col-6" >
+                            <input  fullWidth nbInput
+                                    type="text"
+                                    id="domiciliation"
+                                    class="form-control"
+                                    placeholder="Enter The Domiciliation"
+                                    formControlName="domiciliation"
+                                    [ngClass]="{'is-invalid': organisationForm.controls.domiciliation.errors && organisationForm.controls.domiciliation.touched,
+                                                'is-valid': organisationForm.controls.domiciliation.valid}"
+
+                            >
+                        </div>
+                    </div>
+
+                    <div class="row mb-2" >
+                        <div class="col-6" ></div>
+                        <div class="col-6"  *ngIf="organisationForm.controls.domiciliation.invalid && organisationForm.controls.domiciliation.touched ">
+                            <small  class="text-danger" > The Domiciliation Is Required </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-2"  >
+                        <label class="col-6" >Wilaya</label>
+                        <div class="col-6" >
+                            <nb-select fullWidth
+                                       formControlName="wilaya"
+                                       [ngClass]="{'is-invalid': organisationForm.controls.wilaya.errors && organisationForm.controls.wilaya.touched,
+                                                'is-valid': organisationForm.controls.wilaya.valid}"
+                            >
+                                <nb-option [value]="'45'" >Naama</nb-option>
+                                <nb-option [value]="'16'" >Alger</nb-option>
+                                <nb-option [value]="'PRIVATE'" >Private company</nb-option>
+                                <nb-option [value]="'INDIVIDUAL'" > an individual</nb-option>
+                            </nb-select>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-2" >
+                        <div class="col-6" ></div>
+                        <div class="col-6"  *ngIf="organisationForm.controls.wilaya.invalid && organisationForm.controls.wilaya.touched" >
+                            <small class="text-danger" > The Wilaya Is Required </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-2" >
+                        <label class="col-6" >E Mail</label>
+                        <div class="col-6" >
+                            <input  fullWidth nbInput
+                                    type="email"
+                                    id="email"
+                                    class="form-control"
+                                    placeholder="Enter The E Mail"
+                                    formControlName="email"
+                                    [ngClass]="{'is-invalid': organisationForm.controls.email.errors && organisationForm.controls.email.touched,
+                                                'is-valid': organisationForm.controls.email.valid}"
+
+                            >
+                        </div>
+                    </div>
+
+                    <div class="row mb-2" >
+                        <div class="col-6" ></div>
+                        <div class="col-6"  *ngIf="organisationForm.controls.email.invalid && organisationForm.controls.email.touched ">
+                            <small  class="text-danger" > The E Mail Is Required </small>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
                     <div>
                         <button class="btn btn-outline-success float-right" (click)="addPhone()" >Add Phone</button>
                     </div>
@@ -87,23 +257,24 @@
                     <div formArrayName="tel" >
                         <label >Phone Number:</label>
                         <div *ngFor="let phone of tel.controls ; let i = index" >
-                            <div class="form-group" [formGroup]="phone"  >
-                                <div class="form-row" >
+                            <div class="form-group mb-2" [formGroup]="phone"  >
+                                <div class="row" >
                                     <div class="col-6 " >
                                         <i class="nb-trash" (click)="deletePhone(i)">
                                         </i>
                                     </div>
                                     <div class="col-6 " >
-                                        <input
+                                        <input  fullWidth nbInput
                                                 class="form-control"
                                                 type="text"
+                                                placeholder="Enter The Phone Number"
                                                 formControlName="phone"
                                                 [ngClass]="{'is-invalid': tel.controls[i].get('phone').errors && tel.controls[i].get('phone').touched ,
                                                             'is-valid': tel.controls[i].get('phone').valid && tel.controls[i].get('phone').touched }"
                                                 >
                                     </div>
                                 </div>
-                                <div class="form-row">
+                                <div class="row mb-2">
 
                                     <div class="col-6" >
 
@@ -121,6 +292,62 @@
                         </div>
 
                     </div>
+
+                    <div class="form-group row mb-2" >
+                        <label class="col-6" >The Fax Number</label>
+                        <div class="col-6" >
+                            <input  fullWidth nbInput
+                                    type="fax"
+                                    id="fax"
+                                    class="form-control"
+                                    placeholder="Enter The Fax Number"
+                                    formControlName="fax"
+
+                            >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row mb-2" >
+                        <label class="col-6" >NIF</label>
+                        <div class="col-6" >
+                            <input  fullWidth nbInput
+                                    type="nif"
+                                    id="nif"
+                                    class="form-control"
+                                    placeholder="Enter The NIF"
+                                    formControlName="nif"
+                                    [ngClass]="{'is-invalid': organisationForm.controls.nif.errors && organisationForm.controls.nif.touched,
+                                                'is-valid': organisationForm.controls.nif.valid}"
+
+                            >
+                        </div>
+                    </div>
+
+                    <div class="row mb-2" >
+                        <div class="col-6" ></div>
+                        <div class="col-6"  *ngIf="organisationForm.controls.nif.invalid && organisationForm.controls.nif.touched ">
+                            <small  class="text-danger" > The NIF Is Required </small>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row mb-2" >
+                        <label class="col-6" >RIB</label>
+                        <div class="col-6" >
+                            <input  fullWidth nbInput
+                                    type="rib"
+                                    id="rib"
+                                    class="form-control"
+                                    placeholder="Enter The RIB"
+                                    formControlName="rib"
+                                    [ngClass]="{'is-invalid': organisationForm.controls.rib.errors && organisationForm.controls.rib.touched,
+                                                'is-valid': organisationForm.controls.rib.valid}"
+
+                            >
+                        </div>
+                    </div>
+
 
                     <div>
 

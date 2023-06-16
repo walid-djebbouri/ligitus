@@ -4,6 +4,7 @@ import {SmartTableData} from '../../../@core/interfaces/common/smart-table';
 // import data from '../law_domain.json';
 import {Router} from '@angular/router';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {LigitusOrganisationService} from "../../../@core/backend/common/services/ligitus-organisation.service";
 @Component({
   selector: 'ngx-create-cabinet',
   templateUrl: './create-cabinet.component.html',
@@ -14,7 +15,7 @@ export class CreateCabinetComponent implements OnInit {
   organisationForm: FormGroup;
 
   constructor(protected ref: NbDialogRef<CreateCabinetComponent> ,
-              private service: SmartTableData ,
+              private organisationService: LigitusOrganisationService,
               private form: FormBuilder ,
               iconsLibrary: NbIconLibraries ,
               private router: Router) {
@@ -27,7 +28,7 @@ export class CreateCabinetComponent implements OnInit {
 
   private createForm(): void {
     this.organisationForm = this.form.group({
-      organisation_ref: [null,  [Validators.required] ],
+      organisation_ref:  [null,  [Validators.required] ],
       join_date: [null, [Validators.required]],
       legal_name: [ null, [Validators.required]] ,
       commercial_name: [null, [Validators.required]] ,
@@ -38,7 +39,7 @@ export class CreateCabinetComponent implements OnInit {
       domiciliation: [null, [Validators.required]] ,
       wilaya: [null, [Validators.required]],
       wilaya_code: [null, [Validators.required]],
-      email: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email , Validators.pattern('/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$')]],
       tel: this.form.array([]),
       fax: [null] ,
       nif: [null, [Validators.required]],
@@ -65,16 +66,42 @@ export class CreateCabinetComponent implements OnInit {
   }
 
   public createOrganisation(): void {
-    console.log(
-        this.organisationForm.controls,
-        this.organisationForm.get('organisation_ref').value ,
-        this.organisationForm.get('join_date').value,
-        this.organisationForm.controls.tel.value,
-    );
+    const Organisation = {
+      organisation_ref: this.organisationForm.controls.organisation_ref.value ,
+      join_date:  new Date(this.organisationForm.controls.join_date.value),
+      legal_name: this.organisationForm.controls.legal_name.value ,
+      commercial_name: this.organisationForm.controls.commercial_name.value ,
+      organisation_type: this.organisationForm.controls.organisation_type.value,
+      org_short_desc: this.organisationForm.controls.org_short_desc.value,
+      org_long_desc: this.organisationForm.controls.org_long_desc.value,
+      nb_customers: this.organisationForm.controls.nb_customers.value ,
+      domiciliation: this.organisationForm.controls.domiciliation.value ,
+      wilaya: this.organisationForm.controls.wilaya.value,
+      wilaya_code: this.organisationForm.controls.wilaya.value,
+      email: this.organisationForm.controls.email.value,
+      tel: this.objectToStringTab(this.organisationForm.controls.tel.value),
+      fax: this.organisationForm.controls.fax.value.toString(),
+      nif: this.organisationForm.controls.nif.value,
+      rib: this.organisationForm.controls.rib.value,
+      // customers: this.organisationForm.controls.customers.value,
+
+    } ;
+   // console.log(this.organisationForm.controls.tel.value);
+    this.organisationService.createOrganisation(Organisation).subscribe(
+        (newOrganisation) => console.log(newOrganisation) ,
+        (error) => console.log(error) );
   }
 
   public dismiss() {
     this.ref.close();
+  }
+
+  private objectToStringTab(phones: any[]): string[] {
+    const tel = [];
+    for ( let i = 0; i < phones.length ; i++) {
+      tel.push(phones[i].phone.toString());
+    }
+    return tel;
   }
 
   Cabinet_ref (va: Event , index: number) {}
